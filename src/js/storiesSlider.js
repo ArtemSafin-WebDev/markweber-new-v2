@@ -12,8 +12,9 @@ export default function StoriesSlider() {
         const progressBullets = Array.from(element.querySelectorAll('.stories-slider__master-slider-thumbs-card-progress'));
         const mainSlides = Array.from(element.querySelectorAll('.stories-slider__master-slider-main .swiper-slide'));
         const AUTOPLAY_SPEED = 4;
+        const DEBUG = false;
 
-        console.log('Main slides count', mainSlides.length);
+        if (DEBUG) console.log('Main slides count', mainSlides.length);
 
         const mainSliderOptions = {
             watchOverflow: true,
@@ -31,7 +32,7 @@ export default function StoriesSlider() {
             nested: false,
             on: {
                 slideChange: swiper => {
-                    console.log('Slidechange handler')
+                    if (DEBUG) console.log('Slidechange handler')
                   
                     autoplay(swiper.realIndex);
                 }
@@ -53,7 +54,7 @@ export default function StoriesSlider() {
         const mainSlider = new Swiper(mainContainer, mainSliderOptions);
 
         function autoplay(startIndex) {
-            console.log('Starting autoplay for bullet', progressBullets[startIndex]);
+            if (DEBUG) console.log('Starting autoplay for bullet', progressBullets[startIndex]);
 
             progressBullets.forEach(bullet => {
                 gsap.set(bullet, {

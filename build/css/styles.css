@@ -2184,7 +2184,9 @@ select:-webkit-autofill:focus {
           justify-content: flex-end;
   padding: 2.5rem 2rem;
   z-index: 1;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-clip-path: polygon(var(--clip, 0) 0, 100% 0, 100% 100%, var(--clip, 0) 100%);
+          clip-path: polygon(var(--clip, 0) 0, 100% 0, 100% 100%, var(--clip, 0) 100%); }
   .cases__image-grid-card--dark {
     color: #24282B; }
     .cases__image-grid-card--dark:link, .cases__image-grid-card--dark:visited {
