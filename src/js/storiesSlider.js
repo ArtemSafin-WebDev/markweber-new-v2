@@ -11,7 +11,7 @@ export default function StoriesSlider() {
         const mainContainer = element.querySelector('.stories-slider__master-slider-main .swiper-container');
         const progressBullets = Array.from(element.querySelectorAll('.stories-slider__master-slider-thumbs-card-progress'));
         const mainSlides = Array.from(element.querySelectorAll('.stories-slider__master-slider-main .swiper-slide'));
-        const AUTOPLAY_SPEED = 2;
+        const AUTOPLAY_SPEED = 4;
 
         console.log('Main slides count', mainSlides.length);
 
