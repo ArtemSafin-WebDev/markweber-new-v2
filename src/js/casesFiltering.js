@@ -9,22 +9,21 @@ export default function CasesFiltering() {
         const cards = Array.from(element.querySelectorAll('.cases__image-grid-card')).map(item => item.cloneNode(true));
         const grid = element.querySelector('.cases__image-grid');
 
-
         const isAnimating = () => {
             const currentCards = Array.from(grid.children);
             const animatingCard = currentCards.find(card => gsap.isTweening(card));
 
             if (animatingCard) {
-                console.log('Tweening card', animatingCard)
+                console.log('Tweening card', animatingCard);
                 return true;
             } else {
                 return false;
             }
-        }
+        };
 
         const setFilter = link => {
             if (link.classList.contains('active') || isAnimating()) return;
-            
+
             let filteredCards = [];
             if (link.hasAttribute('data-all-categories')) {
                 filteredCards = cards.map(card => card.cloneNode(true));
@@ -35,22 +34,20 @@ export default function CasesFiltering() {
                 return;
             }
 
-           
-
             links.forEach(link => link.classList.remove('active'));
             link.classList.add('active');
 
-            // grid.innerHTML = '';
-            // grid.append(...filteredCards);
-
+            
 
             const currentCards = Array.from(grid.children);
             console.log('Current cards', currentCards);
+            console.log('Filtered cards', filteredCards)
 
             let indexesToRemove = [];
+            let tweens = [];
 
             currentCards.forEach((currentCard, cardIndex) => {
-                gsap.to(currentCard, {
+                const tween = gsap.to(currentCard, {
                     duration: 0.5,
                     '--clip': '100%',
                     onComplete: () => {
@@ -59,56 +56,73 @@ export default function CasesFiltering() {
 
                             gsap.set(newCard, {
                                 '--clip': '100%'
-                            })
-                            
+                            });
+
                             indexesToRemove.push(cardIndex);
                             currentCard.parentElement.replaceChild(newCard, currentCard);
 
-                            gsap.fromTo(newCard, {
-                                '--clip': '100%'
-                            }, {
-                                '--clip': '0%',
-                                duration: 0.5,
-                               
-                            })
+                            const tween = gsap.fromTo(
+                                newCard,
+                                {
+                                    '--clip': '100%'
+                                },
+                                {
+                                    '--clip': '0%',
+                                    duration: 0.5
+                                }
+                            );
+
+                            tweens.push(tween);
 
                             ScrollTrigger.refresh();
                         } else {
+                          
                             currentCard.remove();
                             ScrollTrigger.refresh();
                         }
-                       
                     }
-                })
+                });
+
+                tweens.push(tween);
             });
 
-            // Убираем из массива карточки, которые были заменены
+            Promise.all(tweens).then(() => {
+                console.log('Promise resolved')
+                // Убираем из массива карточки, которые были заменены
 
-            indexesToRemove.forEach(index => {
-                filteredCards.splice(index, 1)
+
+                console.log('Indexes to remove', indexesToRemove)
+                console.log('Array before remove', filteredCards)
+                // indexesToRemove.forEach(index => {
+                //     filteredCards.splice(index, 1);
+                // });
+
+                filteredCards.splice(0, indexesToRemove.length);
+
+                console.log('After removing indexes', filteredCards);
+
+                // Добавляем остатки, которыми не были заменены существующие карточки
+                filteredCards.forEach(card => {
+                    gsap.set(card, {
+                        '--clip': '100%'
+                    });
+                    grid.appendChild(card);
+
+                    gsap.fromTo(
+                        card,
+                        {
+                            '--clip': '100%'
+                        },
+                        {
+                            '--clip': '0%',
+                            duration: 0.5
+                        }
+                    );
+
+                    ScrollTrigger.refresh();
+                });
+
             });
-
-            // Добавляем остатки, которыми не были заменены существующие карточки
-            // filteredCards.forEach(card => {
-            //     gsap.set(card, {
-            //         '--clip': '100%'
-            //     })
-            //     grid.appendChild(card);
-
-            //     gsap.fromTo(card, {
-            //         '--clip': '100%'
-            //     }, {
-            //         '--clip': '0%',
-            //         duration: 0.5,
-            //     })
-
-            //     ScrollTrigger.refresh();
-            // })
-
-            console.log('Remainder', filteredCards)
-
-           
-
         };
 
         links.forEach(link => {
