@@ -70,7 +70,7 @@
                                 style="bottom: -2rem; right: 0rem; width: 60rem;">
                         </div>
                         <div class="intro__slider-arrows">
-                            <button class="intro__slider-arrow intro__slider-arrow--prev" style="--slider-progress: 1;">
+                            <button class="intro__slider-arrow intro__slider-arrow--prev">
                                 <svg width="24" height="24" aria-hidden="true" class="icon-slider-arrow">
                                     <use xlink:href="#slider-arrow-left" />
                                 </svg>
@@ -84,7 +84,7 @@
                                     </circle>
                                 </svg>
                             </button>
-                            <button class="intro__slider-arrow intro__slider-arrow--next" style="--slider-progress: 1;">
+                            <button class="intro__slider-arrow intro__slider-arrow--next">
                                 <svg width="24" height="24" aria-hidden="true" class="icon-slider-arrow">
                                     <use xlink:href="#slider-arrow-right" />
                                 </svg>
@@ -107,7 +107,7 @@
 </section>
 
 
-<section class="stories-slider" data-midnight="dark">
+<section class="stories-slider js-stories-slider" data-midnight="dark">
     <div class="container">
         <div class="stories-slider__content">
             <div class="stories-slider__top-row">
@@ -126,7 +126,140 @@
                 <div class="swiper-container">
                     <div class="swiper-wrapper stories-slider__outer-slider-row">
                         <div class="swiper-slide stories-slider__outer-slider-main-col">
+                            <div class="stories-slider__master-slider">
+                                <div class="stories-slider__master-slider-main">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview-2.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview-2.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview-2.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" class="stories-slider__master-slider-main-card">
+                                                    <img src="img/stories-preview-2.jpg" alt="" class="stories-slider__master-slider-main-card-image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="stories-slider__master-slider-thumbs">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+                                                        
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/1.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
 
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/2.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/3.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/4.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+                                                        
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/1.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/2.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/3.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="stories-slider__master-slider-thumbs-card">
+                                                    <div class="stories-slider__master-slider-thumbs-card-progress">
+
+                                                    </div>
+                                                    <div class="stories-slider__master-slider-thumbs-card-preview">
+                                                        <img src="img/stories-previews/4.jpg" alt="" class="stories-slider__master-slider-thumbs-card-preview-image">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="swiper-slide stories-slider__outer-slider-news-col">
                             <a href="#" class="stories-slider__news-card">
@@ -452,7 +585,72 @@
                             <div class="expertise__main-slider-card-right-col">
                                 <div class="expertise__main-slider-card-image-container">
                                     <div class="expertise__main-slider-card-image-parallax-wrapper"
-                                        data-swiper-parallax-x="-10%" data-swiper-parallax-duration="1000">
+                                        data-swiper-parallax-x="-20%" data-swiper-parallax-duration="1000">
+                                        <img src="img/expertise-slider-image.jpg" alt=""
+                                            class="expertise__main-slider-card-image">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="expertise__main-slider-card">
+                            <div class="expertise__main-slider-card-left-col">
+                                <div class="expertise__main-slider-card-text">
+                                    Мы помогаем компаниям и брендам расширять границы своего digital-присутствия
+                                    и становиться еще ближе к пользователю
+                                </div>
+                                <div class="expertise__main-slider-card-features">
+                                    <div class="expertise__main-slider-card-feature">
+                                        <h4 class="expertise__main-slider-card-feature-heading">
+                                            Технологии
+                                        </h4>
+                                        <div class="expertise__main-slider-card-feature-text">
+                                            <p>
+                                                Мы помогаем компаниям полностью реализовывать свой потенциал в digital:
+                                                разрабатываем цифровые продукты, корпоративные и промосайты,
+                                                высоконагруженные порталы и e-commerce решения.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="expertise__main-slider-card-feature">
+                                        <h4 class="expertise__main-slider-card-feature-heading">
+                                            Дизайн
+                                        </h4>
+                                        <div class="expertise__main-slider-card-feature-text">
+                                            <p>
+                                                Мы уделяем особое внимание потребностям пользователей и чистоте
+                                                интерфейса, применяем самые новые технологии и подходы
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="expertise__main-slider-card-contact-link">
+                                    Задать вопрос
+                                </a>
+                                <div class="expertise__partners">
+                                    <a href="#" class="expertise__partners-link">
+                                        <img src="img/partners/1.png" alt="" class="expertise__partners-link-image">
+                                    </a>
+                                    <a href="#" class="expertise__partners-link">
+                                        <img src="img/partners/2.png" alt="" class="expertise__partners-link-image">
+                                    </a>
+                                    <a href="#" class="expertise__partners-link">
+                                        <img src="img/partners/3.png" alt="" class="expertise__partners-link-image">
+                                    </a>
+                                    <a href="#" class="expertise__partners-link">
+                                        <img src="img/partners/4.png" alt="" class="expertise__partners-link-image">
+                                    </a>
+                                    <a href="#" class="expertise__partners-link">
+                                        <img src="img/partners/5.png" alt="" class="expertise__partners-link-image">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="expertise__main-slider-card-right-col">
+                                <div class="expertise__main-slider-card-image-container">
+                                    <div class="expertise__main-slider-card-image-parallax-wrapper"
+                                        data-swiper-parallax-x="-20%" data-swiper-parallax-duration="1000">
                                         <img src="img/expertise-slider-image.jpg" alt=""
                                             class="expertise__main-slider-card-image">
                                     </div>
@@ -582,7 +780,7 @@
                             <div class="expertise__main-slider-card-right-col">
                                 <div class="expertise__main-slider-card-image-container">
                                     <div class="expertise__main-slider-card-image-parallax-wrapper"
-                                        data-swiper-parallax-x="-10%" data-swiper-parallax-duration="1000">
+                                        data-swiper-parallax-x="-20%" data-swiper-parallax-duration="1000">
                                         <img src="img/expertise-slider-image.jpg" alt=""
                                             class="expertise__main-slider-card-image">
                                     </div>
@@ -647,72 +845,7 @@
                             <div class="expertise__main-slider-card-right-col">
                                 <div class="expertise__main-slider-card-image-container">
                                     <div class="expertise__main-slider-card-image-parallax-wrapper"
-                                        data-swiper-parallax-x="-10%" data-swiper-parallax-duration="1000">
-                                        <img src="img/expertise-slider-image.jpg" alt=""
-                                            class="expertise__main-slider-card-image">
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="expertise__main-slider-card">
-                            <div class="expertise__main-slider-card-left-col">
-                                <div class="expertise__main-slider-card-text">
-                                    Мы помогаем компаниям и брендам расширять границы своего digital-присутствия
-                                    и становиться еще ближе к пользователю
-                                </div>
-                                <div class="expertise__main-slider-card-features">
-                                    <div class="expertise__main-slider-card-feature">
-                                        <h4 class="expertise__main-slider-card-feature-heading">
-                                            Технологии
-                                        </h4>
-                                        <div class="expertise__main-slider-card-feature-text">
-                                            <p>
-                                                Мы помогаем компаниям полностью реализовывать свой потенциал в digital:
-                                                разрабатываем цифровые продукты, корпоративные и промосайты,
-                                                высоконагруженные порталы и e-commerce решения.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="expertise__main-slider-card-feature">
-                                        <h4 class="expertise__main-slider-card-feature-heading">
-                                            Дизайн
-                                        </h4>
-                                        <div class="expertise__main-slider-card-feature-text">
-                                            <p>
-                                                Мы уделяем особое внимание потребностям пользователей и чистоте
-                                                интерфейса, применяем самые новые технологии и подходы
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#" class="expertise__main-slider-card-contact-link">
-                                    Задать вопрос
-                                </a>
-                                <div class="expertise__partners">
-                                    <a href="#" class="expertise__partners-link">
-                                        <img src="img/partners/1.png" alt="" class="expertise__partners-link-image">
-                                    </a>
-                                    <a href="#" class="expertise__partners-link">
-                                        <img src="img/partners/2.png" alt="" class="expertise__partners-link-image">
-                                    </a>
-                                    <a href="#" class="expertise__partners-link">
-                                        <img src="img/partners/3.png" alt="" class="expertise__partners-link-image">
-                                    </a>
-                                    <a href="#" class="expertise__partners-link">
-                                        <img src="img/partners/4.png" alt="" class="expertise__partners-link-image">
-                                    </a>
-                                    <a href="#" class="expertise__partners-link">
-                                        <img src="img/partners/5.png" alt="" class="expertise__partners-link-image">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="expertise__main-slider-card-right-col">
-                                <div class="expertise__main-slider-card-image-container">
-                                    <div class="expertise__main-slider-card-image-parallax-wrapper"
-                                        data-swiper-parallax-x="-10%" data-swiper-parallax-duration="1000">
+                                        data-swiper-parallax-x="-20%" data-swiper-parallax-duration="1000">
                                         <img src="img/expertise-slider-image.jpg" alt=""
                                             class="expertise__main-slider-card-image">
                                     </div>

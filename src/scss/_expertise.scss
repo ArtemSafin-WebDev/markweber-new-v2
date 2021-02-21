@@ -110,7 +110,9 @@
     line-height: 2.3rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid #24282b;
-    font-weight: 400;
+    font-weight: 500;
+
+   
 }
 
 .expertise__main-slider-card-feature-text {
@@ -127,8 +129,9 @@
     text-align: center;
     flex-shrink: 0;
     padding: 2rem 3rem;
-    background-color: var(--black);
-    transition: color .2s, background-color .2s;
+    background: #24282b;
+    border-radius: 4rem;
+    transition: color 0.2s, background-color 0.2s;
     display: inline-flex;
     margin-bottom: 3rem;
     align-self: flex-start;
@@ -139,10 +142,9 @@
 
     &:hover {
         background-color: var(--primary-color);
-        color: var(--black);
+        color: white;
     }
 }
-
 
 .expertise__main-slider-card-image-container {
     position: relative;
@@ -169,13 +171,12 @@
     position: absolute;
     left: 50%;
     top: 0;
-    width: 120%;
+    width: 140%;
     transform: translateX(-50%);
     height: 100%;
     max-width: none;
     @include objectFitCover();
 }
-
 
 .expertise__partners {
     display: flex;

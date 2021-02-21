@@ -9,6 +9,7 @@ import Orb from './orb';
 import ExpertiseSlider from './expertiseSlider';
 import Menu from './menu';
 import HeaderHovers from './headerHovers';
+import StoriesSlider from './storiesSlider';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ExpertiseSlider();
     Menu();
     HeaderHovers();
+    StoriesSlider();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

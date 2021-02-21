@@ -276,9 +276,16 @@
     transform: translate(-50%, -50%) rotate(-90deg);
     width: 5.5rem;
     height: 5.5rem;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.2s, visibility 0s linear 0.2s;
+ 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s, visibility 0s linear .2s;
+
+    .intro__slider-arrow.autoplay & {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.2s, visibility 0s linear 0.2s;
+    }
 
     circle {
         &:nth-child(1) {

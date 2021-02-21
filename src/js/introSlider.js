@@ -11,6 +11,7 @@ export default function IntroSlider() {
         const prevBtn = element.querySelector('.intro__slider-arrow--prev');
         const BACKGROUND_CHANGE_SPEED = 0.6;
         const DESCRIPTION_CHANGE_SPEED = 0.3;
+        const DESKTOP_AUTOPLAY_SPEED = 8;
 
         if (images.length !== descriptions.length) {
             console.error('Number of images must equal number of text slides');
@@ -28,7 +29,6 @@ export default function IntroSlider() {
             if (locked) return;
             element.classList.add('locked');
 
-            
             let direction;
 
             if (reverseDirection) {
@@ -38,8 +38,6 @@ export default function IntroSlider() {
             }
 
             locked = true;
-
-         
 
             const prevBG = backgrounds[activeIndex];
             const nextBG = backgrounds[index];
@@ -59,10 +57,10 @@ export default function IntroSlider() {
 
             gsap.set(prevBG, {
                 zIndex: 2
-            })
+            });
             gsap.set(nextBG, {
                 zIndex: 5
-            })
+            });
 
             const tl = gsap.timeline({
                 onComplete: () => {
@@ -71,14 +69,12 @@ export default function IntroSlider() {
                 }
             });
 
-            tl.timeScale(1.2)
+            tl.timeScale(1.2);
             tl.to(
                 prevBG,
                 {
                     autoAlpha: 0,
-                    duration: BACKGROUND_CHANGE_SPEED,
-                    
-
+                    duration: BACKGROUND_CHANGE_SPEED
                 },
                 0
             )
@@ -101,15 +97,20 @@ export default function IntroSlider() {
                 );
 
             if (direction === 'right') {
-                tl.fromTo(prevImage, {
-                    xPercent: 0,
-                    autoAlpha: 1
-                }, {
-                    xPercent: -70,
-                    autoAlpha: 0,
-                    duration: 0.6,
-                    ease: "power1.in"
-                }, 0);
+                tl.fromTo(
+                    prevImage,
+                    {
+                        xPercent: 0,
+                        autoAlpha: 1
+                    },
+                    {
+                        xPercent: -70,
+                        autoAlpha: 0,
+                        duration: 0.6,
+                        ease: 'power1.in'
+                    },
+                    0
+                );
                 tl.fromTo(
                     nextImage,
                     {
@@ -120,20 +121,25 @@ export default function IntroSlider() {
                         duration: 1.4,
                         xPercent: 0,
                         autoAlpha: 1,
-                        ease: "elastic.out(1, 1)"
+                        ease: 'elastic.out(1, 1)'
                     },
                     '>'
                 );
             } else {
-                tl.fromTo(prevImage, {
-                    xPercent: 0,
-                    autoAlpha: 1
-                }, {
-                    xPercent: 70,
-                    autoAlpha: 0,
-                    duration: 0.6,
-                    ease: "power1.in"
-                }, 0);
+                tl.fromTo(
+                    prevImage,
+                    {
+                        xPercent: 0,
+                        autoAlpha: 1
+                    },
+                    {
+                        xPercent: 70,
+                        autoAlpha: 0,
+                        duration: 0.6,
+                        ease: 'power1.in'
+                    },
+                    0
+                );
                 tl.fromTo(
                     nextImage,
                     {
@@ -144,7 +150,7 @@ export default function IntroSlider() {
                         duration: 1,
                         xPercent: 0,
                         autoAlpha: 1.4,
-                        ease: "elastic.out(1, 1)"
+                        ease: 'elastic.out(1, 1)'
                     },
                     '>'
                 );
@@ -165,6 +171,11 @@ export default function IntroSlider() {
             );
 
             activeIndex = index;
+
+            if (window.matchMedia('(max-width: 641px)').matches) {
+            } else {
+                desktopAutoplay(0);
+            }
         };
 
         const initialize = () => {
@@ -184,7 +195,6 @@ export default function IntroSlider() {
                 gsap.set(bg, {
                     autoAlpha: 0,
                     zIndex: 2
-
                 });
             });
 
@@ -230,5 +240,30 @@ export default function IntroSlider() {
             event.preventDefault();
             goPrevSlide();
         });
+
+        function desktopAutoplay() {
+            gsap.set(nextBtn, {
+                '--slider-progress': 0
+            });
+            gsap.killTweensOf(nextBtn);
+            gsap.fromTo(
+                nextBtn,
+                { '--slider-progress': 0 },
+                {
+                    '--slider-progress': 1,
+                    duration: DESKTOP_AUTOPLAY_SPEED,
+                    ease: 'linear',
+                    onComplete: () => {
+                        goNextSlide();
+                    }
+                }
+            );
+        }
+
+        if (window.matchMedia('(max-width: 641px)').matches) {
+        } else {
+            nextBtn.classList.add('autoplay');
+            desktopAutoplay(0);
+        }
     });
 }

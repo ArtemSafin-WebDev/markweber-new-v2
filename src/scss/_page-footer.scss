@@ -96,8 +96,43 @@
     }
 }
 
-.page-footer__download-link {
+.page-footer__buttons {
     margin-left: auto;
+    width: 26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.page-footer__brief-link {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    display: inline-flex;
+    padding: 2.6rem 3rem;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: #f9cc46;
+    border-radius: 9rem;
+    flex-shrink: 0;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: #24282B;
+    margin-bottom: 5rem;
+    transition: transform .3s;
+    &:link,
+    &:visited {
+        color: #24282B;
+    }
+
+    .no-touch &:hover {
+        transform: scale(1.04);
+    }
+}
+
+.page-footer__download-link {
     display: inline-flex;
     align-items: center;
     align-self: flex-start;
@@ -245,5 +280,4 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 3rem;
-
 }
