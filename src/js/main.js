@@ -1,12 +1,14 @@
 import polyfills from './polyfills';
 import detectTouch from './detectTouch';
-import MainSlider from './mainSliderNew';
+import imagesLoaded from 'imagesloaded';
 import IntroSlider from './introSlider';
 import AnchorLinks from './anchorLinks';
 import SectionsParallax from './sectionsParallax';
 import CasesFiltering from './casesFiltering';
 import Orb from './orb';
 import ExpertiseSlider from './expertiseSlider';
+import Menu from './menu';
+import HeaderHovers from './headerHovers';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -17,8 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
     CasesFiltering();
     Orb();
     ExpertiseSlider();
-    window.mainSlider = new MainSlider(document.querySelector('.js-main-slider'));
+    Menu();
+    HeaderHovers();
+    
+    const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 
+    imgLoaded.on('always', () => {
+        $('.page-header').midnight();    
+    });
 
 });
 

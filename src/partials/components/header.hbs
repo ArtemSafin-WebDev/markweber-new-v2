@@ -3,10 +3,13 @@
         <div class="page-header__row">
 
             <a href="#" class="page-header__logo-link">
-                <img src="img/logo.svg" alt="Лого" class="page-header__logo-image" width="100">
+                {{> logo }}
             </a>
-            <a href="#" class="page-header__about-link">
-                О студии
+            <a href="#" class="page-header__about-link" data-text="О студии">
+                <div class="page-header__about-link-inner">
+                    О студии
+                </div>
+
             </a>
             <div class="page-header__buttons">
                 <button class="page-header__button">
@@ -15,8 +18,10 @@
                         <span></span>
                     </span>
                 </button>
-                <a href="#" class="page-header__contact-link">
-                    Связаться
+                <a href="#" class="page-header__contact-link" data-text="Связаться">
+                    <div class="page-header__contact-link-inner">
+                        Связаться
+                    </div>
                 </a>
             </div>
 

@@ -9,7 +9,7 @@ export default function IntroSlider() {
         const backgrounds = Array.from(element.querySelectorAll('.intro__background'));
         const nextBtn = element.querySelector('.intro__slider-arrow--next');
         const prevBtn = element.querySelector('.intro__slider-arrow--prev');
-        const BACKGROUND_CHANGE_SPEED = 0.4;
+        const BACKGROUND_CHANGE_SPEED = 0.6;
         const DESCRIPTION_CHANGE_SPEED = 0.3;
 
         if (images.length !== descriptions.length) {
@@ -24,12 +24,22 @@ export default function IntroSlider() {
         let activeIndex = 0;
         let locked = false;
 
-        const setActiveSlide = index => {
+        const setActiveSlide = (index, reverseDirection = false) => {
             if (locked) return;
             element.classList.add('locked');
-            const direction = index > activeIndex ? 'right' : 'left';
+
+            
+            let direction;
+
+            if (reverseDirection) {
+                direction = index > activeIndex ? 'left' : 'right';
+            } else {
+                direction = index > activeIndex ? 'right' : 'left';
+            }
 
             locked = true;
+
+         
 
             const prevBG = backgrounds[activeIndex];
             const nextBG = backgrounds[index];
@@ -47,6 +57,13 @@ export default function IntroSlider() {
                 zIndex: 10
             });
 
+            gsap.set(prevBG, {
+                zIndex: 2
+            })
+            gsap.set(nextBG, {
+                zIndex: 5
+            })
+
             const tl = gsap.timeline({
                 onComplete: () => {
                     locked = false;
@@ -54,11 +71,14 @@ export default function IntroSlider() {
                 }
             });
 
+            tl.timeScale(1.2)
             tl.to(
                 prevBG,
                 {
                     autoAlpha: 0,
-                    duration: BACKGROUND_CHANGE_SPEED
+                    duration: BACKGROUND_CHANGE_SPEED,
+                    
+
                 },
                 0
             )
@@ -141,7 +161,7 @@ export default function IntroSlider() {
                     yPercent: 0,
                     duration: DESCRIPTION_CHANGE_SPEED
                 },
-                '<0.2'
+                '<-0.1'
             );
 
             activeIndex = index;
@@ -162,7 +182,9 @@ export default function IntroSlider() {
             });
             backgrounds.forEach(bg => {
                 gsap.set(bg, {
-                    autoAlpha: 0
+                    autoAlpha: 0,
+                    zIndex: 2
+
                 });
             });
 
@@ -186,11 +208,15 @@ export default function IntroSlider() {
         const goNextSlide = () => {
             if (descriptions[activeIndex + 1]) {
                 setActiveSlide(activeIndex + 1);
+            } else {
+                setActiveSlide(0, true);
             }
         };
         const goPrevSlide = () => {
             if (descriptions[activeIndex - 1]) {
                 setActiveSlide(activeIndex - 1);
+            } else {
+                setActiveSlide(descriptions.length - 1, true);
             }
         };
 

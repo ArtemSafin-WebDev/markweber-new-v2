@@ -19,7 +19,8 @@ export default function ExpertiseSlider() {
             spaceBetween: 45,
             allowTouchMove: true,
             slideToClickedSlide: true,
-            init: false
+            init: false,
+            longSwipesRatio: 0.95
         });
 
         const mainSlider = new Swiper(mainSliderContainer, {
@@ -28,7 +29,8 @@ export default function ExpertiseSlider() {
             watchOverflow: true,
             spaceBetween: 45,
             allowTouchMove: false,
-            parallax: true
+            parallax: true,
+           
         });
 
         function highlightActiveNavSlide(swiper) {

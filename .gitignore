@@ -82,24 +82,7 @@ typings/
 #DynamoDB Local files
 .dynamodb/
 
-# End of https://www.gitignore.io/api/node
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
 
-# Lock files
-
-yarn.lock
-package-lock.json
 
 
 # MacOS Files

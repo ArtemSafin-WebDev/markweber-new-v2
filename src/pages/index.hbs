@@ -1,7 +1,7 @@
 {{#extend "layout"}}
 {{#content "main"}}
 
-<section class="intro js-intro-slider">
+<section class="intro js-intro-slider" data-midnight="light">
     <div class="intro__backgrounds">
         <div class="intro__background" style="background: linear-gradient(91.34deg, #13b17c 2.06%, #0099cc 100%)">
 
@@ -64,8 +64,10 @@
                             </a>
                         </div>
                         <div class="intro__slider-images">
-                            <img src="img/iphone.png" alt="" class="intro__slider-image" style="bottom: -10rem; right: -14rem; width: 62rem; ">
-                            <img src="img/expert.png" alt="" class="intro__slider-image" style="bottom: -2rem; right: 0rem; width: 60rem;">
+                            <img src="img/iphone.png" alt="" class="intro__slider-image"
+                                style="bottom: -10rem; right: -14rem; width: 62rem; ">
+                            <img src="img/expert.png" alt="" class="intro__slider-image"
+                                style="bottom: -2rem; right: 0rem; width: 60rem;">
                         </div>
                         <div class="intro__slider-arrows">
                             <button class="intro__slider-arrow intro__slider-arrow--prev" style="--slider-progress: 1;">
@@ -105,197 +107,106 @@
 </section>
 
 
-<section class="main-slider" id="main-slider">
+<section class="stories-slider" data-midnight="dark">
     <div class="container">
-        <div class="main-slider__row">
-            <div class="main-slider__left-col">
-                <h2 class="main-slider__heading">
-                    Наши<br> истории
+        <div class="stories-slider__content">
+            <div class="stories-slider__top-row">
+                <h2 class="stories-slider__heading">
+                    Блог
                 </h2>
-                <ul class="main-slider__list">
-                    <li class="main-slider__list-item">
-                        <a href="#" class="main-slider__link active">
-                            Все подряд
-                            <span class="main-slider__link-count">
-                                26
-                            </span>
-                        </a>
-                    </li>
-                    <li class="main-slider__list-item">
-                        <a href="#" class="main-slider__link">
-                            Новость
-                            <span class="main-slider__link-count">
-                                12
-                            </span>
-                        </a>
-                    </li>
-                    <li class="main-slider__list-item">
-                        <a href="#" class="main-slider__link">
-                            Студия
-                            <span class="main-slider__link-count">
-                                16
-                            </span>
-                        </a>
-                    </li>
-                    <li class="main-slider__list-item">
-                        <a href="#" class="main-slider__link">
-                            Вакансии
-                            <span class="main-slider__link-count">
-                                8
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+
+                <a href="#" class="stories-slider__details-link">
+                    Перейти
+                    <svg width="24" height="24" aria-hidden="true" class="icon-arrow-right">
+                        <use xlink:href="#arrow-right"></use>
+                    </svg>
+                </a>
             </div>
-            <div class="main-slider__right-col">
-                <div class="main-slider__tabs">
-                    <div class="main-slider__tabs-item">
-                        <div class="main-slider__slider js-main-slider">
-                            <div class="main-slider__cards">
-                                <div class="main-slider__card main-slider__card--1">
-                                    <div class="main-slider__card-container">
-                                        <div class="main-slider__card-controls">
+            <div class="stories-slider__outer-slider">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper stories-slider__outer-slider-row">
+                        <div class="swiper-slide stories-slider__outer-slider-main-col">
 
-                                        </div>
-                                        <a href="#" class="main-slider__card-author">
-                                            <div class="main-slider__card-author-avatar">
-                                                <img src="img/author.jpg" alt=""
-                                                    class="main-slider__card-author-avatar-image">
-                                            </div>
-                                            <div class="main-slider__card-name">
-                                                Рустем Биктагиров
-                                            </div>
-                                        </a>
-                                        <div class="main-slider__card-images">
-                                            <img src="img/main-slider/5.jpg" alt=""
-                                                class="main-slider__card-image active">
-                                            <img src="img/main-slider/1.jpg" alt="" class="main-slider__card-image">
-                                            <img src="img/main-slider/2.jpg" alt="" class="main-slider__card-image">
-                                            <img src="img/main-slider/3.jpg" alt="" class="main-slider__card-image">
-                                        </div>
-                                        <div class="main-slider__card-text-slider">
-                                            <div class="main-slider__card-text active">
-                                                <span>
-                                                    Выступление<br> на конференции Битрикс<br> «Формула сайта» в IT
-                                                    Park<br>
-                                                    Казань
-                                                </span>
-
-                                            </div>
-                                            <div class="main-slider__card-text">
-                                                <span>
-                                                    Подпись для<br> второго изображения
-                                                </span>
-
-                                            </div>
-                                            <div class="main-slider__card-text">
-                                                <span>
-                                                    Подпись для<br> третьего изображения
-                                                </span>
-
-                                            </div>
-                                            <div class="main-slider__card-text">
-                                                <span>
-                                                    Подпись для<br> четвертого изображения
-                                                </span>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
+                        </div>
+                        <div class="swiper-slide stories-slider__outer-slider-news-col">
+                            <a href="#" class="stories-slider__news-card">
+                                <div class="stories-slider__news-card-image-container">
+                                    <img src="img/news-card-image.jpg" alt="" class="stories-slider__news-card-image">
                                 </div>
-                                <div class="main-slider__card main-slider__card--2">
-                                    <div class="main-slider__card-container">
-                                        <div class="main-slider__card-controls">
-
-                                        </div>
-                                        <a href="#" class="main-slider__card-author">
-                                            <div class="main-slider__card-author-avatar">
-                                                <img src="img/author.jpg" alt=""
-                                                    class="main-slider__card-author-avatar-image">
-                                            </div>
-                                            <div class="main-slider__card-name">
-                                                Рустем Биктагиров
-                                            </div>
-                                        </a>
-                                        <div class="main-slider__card-images">
-                                            <img src="img/main-slider/1.jpg" alt="" class="main-slider__card-image">
-                                            <img src="img/main-slider/4.jpg" alt="" class="main-slider__card-image">
-                                        </div>
-
-                                    </div>
+                                <h4 class="stories-slider__news-card-title">
+                                    Как лучше решить про­блему отоб­ра­же­ния това­ров в кор­зине?
+                                </h4>
+                                <div class="stories-slider__news-card-category">
+                                    Фирстиль
                                 </div>
-                                <div class="main-slider__card main-slider__card--3">
-                                    <div class="main-slider__card-container">
-                                        <div class="main-slider__card-controls">
-
-                                        </div>
-                                        <a href="#" class="main-slider__card-author">
-                                            <div class="main-slider__card-author-avatar">
-                                                <img src="img/author.jpg" alt=""
-                                                    class="main-slider__card-author-avatar-image">
-                                            </div>
-                                            <div class="main-slider__card-name">
-                                                Рустем Биктагиров
-                                            </div>
-                                        </a>
-                                        <div class="main-slider__card-images">
-                                            <img src="img/main-slider/2.jpg" alt="" class="main-slider__card-image">
-                                            <img src="img/main-slider/3.jpg" alt="" class="main-slider__card-image">
-                                        </div>
-
-
-                                        <div class="main-slider__card-text-slider">
-                                            <div class="main-slider__card-text">
-                                                <span>
-                                                    Выступление<br> на конференции Битрикс<br> «Формула сайта» в IT
-                                                    Park<br>
-                                                    Казань
-                                                </span>
-
-                                            </div>
-                                            <div class="main-slider__card-text">
-                                                <span>
-                                                    Выступление<br> на другой конференции
-                                                </span>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="main-slider__card main-slider__card--4">
-                                    <div class="main-slider__card-container">
-                                        <div class="main-slider__card-images">
-                                            <img src="img/main-slider/3.jpg" alt="" class="main-slider__card-image">
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="main-slider__card main-slider__card--5">
-                                    <div class="main-slider__card-container">
-                                        <div class="main-slider__card-images">
-                                            <img src="img/main-slider/4.jpg" alt="" class="main-slider__card-image">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="#" class="main-slider__all-stories-link">
-                                Все истории
                             </a>
+                        </div>
+                        <div class="swiper-slide stories-slider__outer-slider-articles-col">
+                            <h3 class="stories-slider__articles-heading">
+                                Полезные статьи
+                            </h3>
+                            <ul class="stories-slider__articles-list">
+                                <li class="stories-slider__articles-list-item">
+                                    <a href="#" class="stories-slider__articles-card">
+                                        <h4 class="stories-slider__articles-card-title">
+                                            Как отличить хороший шрифт
+                                        </h4>
+                                        <div class="stories-slider__articles-card-category">
+                                            Типографика
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="stories-slider__articles-list-item">
+                                    <a href="#" class="stories-slider__articles-card">
+                                        <h4 class="stories-slider__articles-card-title">
+                                            Как можно улуч­шить вид таб­лицы?
+                                        </h4>
+                                        <div class="stories-slider__articles-card-category">
+                                            Шрифт
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="stories-slider__articles-list-item">
+                                    <a href="#" class="stories-slider__articles-card">
+                                        <h4 class="stories-slider__articles-card-title">
+                                            Как отличить хороший шрифт
+                                        </h4>
+                                        <div class="stories-slider__articles-card-category">
+                                            Типографика
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="stories-slider__articles-list-item">
+                                    <a href="#" class="stories-slider__articles-card">
+                                        <h4 class="stories-slider__articles-card-title">
+                                            Как лучше решить про­блему отоб­ра­же­ния това­ров в кор­зине?
+                                        </h4>
+                                        <div class="stories-slider__articles-card-category">
+                                            Фирстиль
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="stories-slider__articles-list-item">
+                                    <a href="#" class="stories-slider__articles-card">
+                                        <h4 class="stories-slider__articles-card-title">
+                                            Как отличить хороший шрифт
+                                        </h4>
+                                        <div class="stories-slider__articles-card-category">
+                                            Типографика
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
 </section>
 
 
-<section class="cases js-cases">
+<section class="cases js-cases" data-midnight="light">
     <div class="container">
         <div class="cases__top-nav">
             <div class="cases__top-nav-intro-row">
@@ -318,37 +229,37 @@
 
                 <nav class="cases__top-navigation">
                     <a href="#" class="cases__top-navigation-link active" data-all-categories="">
-                        <span class="cases__top-navigation-link-text">
+                        <span class="cases__top-navigation-link-text" data-text="Все подряд">
                             Все подряд
                         </span>
 
-                        <span class="cases__top-navigation-link-count">
+                        <span class="cases__top-navigation-link-count" data-text="56">
                             56
                         </span>
                     </a>
                     <a href="#" class="cases__top-navigation-link" data-category="websites">
 
-                        <span class="cases__top-navigation-link-text">
+                        <span class="cases__top-navigation-link-text" data-text="Сайты">
                             Сайты
                         </span>
-                        <span class="cases__top-navigation-link-count">
+                        <span class="cases__top-navigation-link-count" data-text="43">
                             43
                         </span>
                     </a>
                     <a href="#" class="cases__top-navigation-link" data-category="applications">
-                        <span class="cases__top-navigation-link-text">
+                        <span class="cases__top-navigation-link-text" data-text="Приложения">
                             Приложения
                         </span>
-                        <span class="cases__top-navigation-link-count">
+                        <span class="cases__top-navigation-link-count" data-text="5">
                             5
                         </span>
                     </a>
                     <a href="#" class="cases__top-navigation-link" data-category="branding">
 
-                        <span class="cases__top-navigation-link-text">
+                        <span class="cases__top-navigation-link-text" data-text="Брендинг">
                             Брендинг
                         </span>
-                        <span class="cases__top-navigation-link-count">
+                        <span class="cases__top-navigation-link-count" data-text="11">
                             11
                         </span>
                     </a>
@@ -357,12 +268,7 @@
 
 
             </div>
-            <a href="#" class="cases__promo">
-                <picture>
-                    <source data-srcset="img/iphone-cases.webp" type="image/webp">
-                    <img data-src="img/iphone-cases.png" alt="" class="lazyload">
-                </picture>
-            </a>
+            
         </div>
 
         <div class="cases__image-grid">
@@ -416,7 +322,7 @@
 </section>
 
 
-<section class="expertise js-expertise">
+<section class="expertise js-expertise" data-midnight="dark">
     <div class="container">
         <div class="expertise__nav">
             <h2 class="expertise__heading">
@@ -951,7 +857,7 @@
     </div>
 </section>
 
-<section class="contact-us">
+<section class="contact-us" data-midnight="light">
     <div class="contact-us__orb">
         <div class="contact-us__orb-inner">
 

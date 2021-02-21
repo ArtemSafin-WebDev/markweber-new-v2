@@ -3,33 +3,24 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 export default function SectionsParallax() {
-    // const sections = Array.from(document.querySelectorAll('section'));
+    const intro = document.querySelector('.intro');
 
+    if (intro) {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: intro,
+                start: 'bottom bottom',
+                end: () => `+=${intro.offsetHeight}`,
+                pin: true,
+                pinSpacing: false,
+                scrub: true
+            }
+        });
 
-    // sections.forEach((element, elementIndex) => {
-    //     const nextSection = sections[elementIndex + 1];
-
-    //     gsap.set(element, {
-    //         position: 'relative',
-    //         zIndex: elementIndex + 1
-    //     })
-
-    //     if (nextSection) {
-    //         gsap.to(element, {
-    //             y: 60,
-    //             scrollTrigger: {
-    //                 scrub: 1,
-    //                 trigger: sections[elementIndex + 1],
-    //                 start: 'top bottom',
-    //                 end: 'top top'
-    //             }
-    //         })
-    //     } else {
-    //         console.log('No next section')
-    //     }
-        
-    // })
-
+        tl.to(intro, {
+            yPercent: -70,
+            ease: 'none'
+        });
+    }
 }
