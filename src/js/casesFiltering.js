@@ -8,7 +8,7 @@ export default function CasesFiltering() {
         const links = Array.from(element.querySelectorAll('.cases__top-navigation-link'));
         const cards = Array.from(element.querySelectorAll('.cases__image-grid-card')).map(item => item.cloneNode(true));
         const grid = element.querySelector('.cases__image-grid');
-        const PARALLAX = true;
+        const PARALLAX = false;
         const DEBUG = false;
 
         const isAnimating = () => {
