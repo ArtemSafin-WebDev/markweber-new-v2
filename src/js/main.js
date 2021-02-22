@@ -10,6 +10,7 @@ import ExpertiseSlider from './expertiseSlider';
 import Menu from './menu';
 import HeaderHovers from './headerHovers';
 import StoriesSlider from './storiesSlider';
+import ContactUsModal from './contactUsModal';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     Menu();
     HeaderHovers();
     StoriesSlider();
+    ContactUsModal();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

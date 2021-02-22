@@ -178,7 +178,8 @@
     z-index: 1;
     overflow: hidden;
     clip-path: polygon(var(--clip, 0) 0, 100% 0, 100% 100%, var(--clip, 0) 100%);
-
+    backface-visibility: hidden;
+    transform: translateZ(0);
     &--dark {
         color: #24282B;
         &:link,

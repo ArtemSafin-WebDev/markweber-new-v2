@@ -11,6 +11,18 @@
     z-index: 1;
 }
 
+.contact-us__bg {
+    background: #24282b;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
 .contact-us__orb {
     position: absolute;
     left: 50%;
@@ -62,7 +74,24 @@
     align-items: center;
 }
 
-.contact-us__link {
+.contact-us__checkbox {
+    margin: 1.5rem 2.5rem;
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+        .contact-us__checkbox-content {
+            box-shadow: none;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.contact-us__checkbox-input {
+    @include visuallyHidden();
+}
+
+.contact-us__checkbox-content {
     font-size: 2rem;
     color: #303639;
     line-height: 2.4rem;
@@ -75,17 +104,53 @@
     border: 1px solid #eeeeee;
     box-shadow: 0px 0.2rem 0px rgba(0, 0, 0, 0.13);
     border-radius: 7rem;
-    margin: 1.5rem 2.5rem;
-    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
+    
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s, transform 0.2s;
     &:link,
     &:visited {
         color: #303639;
     }
+}
 
-    &:hover {
-        background-color: var(--primary-color);
-        border-color: var(--primary-color);
-        color: white;
-        box-shadow: none;
+
+.contact-us__layers {
+    position: relative;
+}
+
+.contacts-us__layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+    transition: opacity .6s, transform .6s, visibility 0s linear .6s;
+    transform: translateY(6rem);
+    &.active {
+        position: relative;
+        z-index: 10;
+        opacity: 1;
+        visibility: inherit;
+        transition: opacity .6s ease .6s, visibility .6s ease .6s, transform .6s ease .6s;
+        transform: translateY(0);
+    }
+}
+
+.contact-us__close-btn {
+    z-index: 2000;
+    position: fixed;
+    right: 4rem;
+    top: 4rem;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2100;
+
+    svg {
+        width: 3rem;
+        height: 3rem;
+        display: block;
+        fill: white;
     }
 }

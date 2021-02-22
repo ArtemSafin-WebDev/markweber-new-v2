@@ -53,7 +53,7 @@ export default function Orb() {
         gsap.set(contactUsOrbInner, {
             '--first-color': '#ffec45',
             '--second-color': '#ff998b',
-            autoAlpha: 0
+            // autoAlpha: 0
         });
 
         colorChangeTimeline
@@ -91,15 +91,15 @@ export default function Orb() {
 
         
 
-        gsap.to(contactUsOrbInner, {
-            autoAlpha: 1,
-            duration: 1,
-            scrollTrigger: {
-                start: 'top center',
-                end: 'bottom top',
-                trigger: contactUsOrbInner,
-                toggleActions: 'play reverse play reverse'
-            }
-        })
+        // gsap.to(contactUsOrbInner, {
+        //     autoAlpha: 1,
+        //     duration: 1,
+        //     scrollTrigger: {
+        //         start: 'top center',
+        //         end: 'bottom top',
+        //         trigger: contactUsOrbInner,
+        //         toggleActions: 'play reverse play reverse'
+        //     }
+        // })
     }
 }

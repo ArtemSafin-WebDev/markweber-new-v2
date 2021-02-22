@@ -2186,7 +2186,11 @@ select:-webkit-autofill:focus {
   z-index: 1;
   overflow: hidden;
   -webkit-clip-path: polygon(var(--clip, 0) 0, 100% 0, 100% 100%, var(--clip, 0) 100%);
-          clip-path: polygon(var(--clip, 0) 0, 100% 0, 100% 100%, var(--clip, 0) 100%); }
+          clip-path: polygon(var(--clip, 0) 0, 100% 0, 100% 100%, var(--clip, 0) 100%);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0); }
   .cases__image-grid-card--dark {
     color: #24282B; }
     .cases__image-grid-card--dark:link, .cases__image-grid-card--dark:visited {
@@ -2385,6 +2389,17 @@ select:-webkit-autofill:focus {
   overflow: hidden;
   z-index: 1; }
 
+.contact-us__bg {
+  background: #24282b;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden; }
+
 .contact-us__orb {
   position: absolute;
   left: 50%;
@@ -2445,7 +2460,32 @@ select:-webkit-autofill:focus {
       -ms-flex-align: center;
           align-items: center; }
 
-.contact-us__link {
+.contact-us__checkbox {
+  margin: 1.5rem 2.5rem;
+  display: block;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+  .contact-us__checkbox:hover .contact-us__checkbox-content {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05); }
+
+.contact-us__checkbox-input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; }
+
+.contact-us__checkbox-content {
   font-size: 2rem;
   color: #303639;
   line-height: 2.4rem;
@@ -2465,19 +2505,56 @@ select:-webkit-autofill:focus {
   -webkit-box-shadow: 0px 0.2rem 0px rgba(0, 0, 0, 0.13);
           box-shadow: 0px 0.2rem 0px rgba(0, 0, 0, 0.13);
   border-radius: 7rem;
-  margin: 1.5rem 2.5rem;
-  -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s; }
-  .contact-us__link:link, .contact-us__link:visited {
+  -webkit-transition: background-color 0.2s, color 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, -webkit-box-shadow 0.2s, -webkit-transform 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s, transform 0.2s, -webkit-box-shadow 0.2s, -webkit-transform 0.2s; }
+  .contact-us__checkbox-content:link, .contact-us__checkbox-content:visited {
     color: #303639; }
-  .contact-us__link:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: white;
-    -webkit-box-shadow: none;
-            box-shadow: none; }
+
+.contact-us__layers {
+  position: relative; }
+
+.contacts-us__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  -webkit-transition: opacity .6s, visibility 0s linear .6s, -webkit-transform .6s;
+  transition: opacity .6s, visibility 0s linear .6s, -webkit-transform .6s;
+  transition: opacity .6s, transform .6s, visibility 0s linear .6s;
+  transition: opacity .6s, transform .6s, visibility 0s linear .6s, -webkit-transform .6s;
+  -webkit-transform: translateY(6rem);
+          transform: translateY(6rem); }
+  .contacts-us__layer.active {
+    position: relative;
+    z-index: 10;
+    opacity: 1;
+    visibility: inherit;
+    -webkit-transition: opacity .6s ease .6s, visibility .6s ease .6s, -webkit-transform .6s ease .6s;
+    transition: opacity .6s ease .6s, visibility .6s ease .6s, -webkit-transform .6s ease .6s;
+    transition: opacity .6s ease .6s, visibility .6s ease .6s, transform .6s ease .6s;
+    transition: opacity .6s ease .6s, visibility .6s ease .6s, transform .6s ease .6s, -webkit-transform .6s ease .6s;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+
+.contact-us__close-btn {
+  z-index: 2000;
+  position: fixed;
+  right: 4rem;
+  top: 4rem;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2100; }
+  .contact-us__close-btn svg {
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    fill: white; }
 
 .expertise {
   padding-top: 14rem;
