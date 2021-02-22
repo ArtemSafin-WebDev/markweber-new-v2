@@ -20,7 +20,7 @@ export default function FixedFooter() {
             end: () => `+=${pageFooter.offsetHeight}`,
            
             scrub: true,
-            markers: true
+            markers: false
           
         }
     });

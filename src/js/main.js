@@ -12,13 +12,14 @@ import HeaderHovers from './headerHovers';
 import StoriesSlider from './storiesSlider';
 import ContactUsModal from './contactUsModal';
 import FixedFooter from './fixedFooter';
+import ContactLink from './contactLink';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
     detectTouch();
     IntroSlider();
     AnchorLinks();
-    // SectionsParallax();
+    SectionsParallax();
     CasesFiltering();
     Orb();
     ExpertiseSlider();
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     StoriesSlider();
     ContactUsModal();
     FixedFooter();
+    ContactLink();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

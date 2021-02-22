@@ -8,7 +8,7 @@ export default function CasesFiltering() {
         const links = Array.from(element.querySelectorAll('.cases__top-navigation-link'));
         const cards = Array.from(element.querySelectorAll('.cases__image-grid-card')).map(item => item.cloneNode(true));
         const grid = element.querySelector('.cases__image-grid');
-        const PARALLAX = false;
+        const PARALLAX = true;
         const DEBUG = false;
 
         const isAnimating = () => {
@@ -57,6 +57,7 @@ export default function CasesFiltering() {
         const setParallax = () => {
             if (!PARALLAX) return;
             parallaxTimelines.forEach(tl => tl.kill());
+            parallaxTimelines = [];
             const currentCards = Array.from(grid.children);
             currentCards.forEach(card => setCardParallax(card));
 

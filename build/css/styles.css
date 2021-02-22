@@ -1549,18 +1549,18 @@ select:-webkit-autofill:focus {
   font-size: 1.5rem;
   line-height: 1.8rem;
   font-weight: 400;
-  -webkit-transition: color .2s;
-  transition: color .2s;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
   justify-self: flex-start;
-  transition: color .2s;
+  transition: color 0.2s;
   overflow: hidden;
   position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   letter-spacing: 0.02em;
-  -webkit-transition: color .2s, opacity .2s;
-  transition: color .2s, opacity .2s; }
+  -webkit-transition: color 0.2s, opacity 0.2s;
+  transition: color 0.2s, opacity 0.2s; }
   .page-header__about-link:link, .page-header__about-link:visited {
     color: currentColor; }
   .page-header__about-link::after {
@@ -1570,12 +1570,12 @@ select:-webkit-autofill:focus {
     left: 0;
     width: 100%;
     pointer-events: none;
-    -webkit-transition: opacity .2s, -webkit-transform .2s;
-    transition: opacity .2s, -webkit-transform .2s;
-    transition: transform .2s, opacity .2s;
-    transition: transform .2s, opacity .2s, -webkit-transform .2s; }
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, -webkit-transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
+    transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s; }
   .no-touch .page-header__about-link.hovered {
-    opacity: .8; }
+    opacity: 0.8; }
     .no-touch .page-header__about-link.hovered .page-header__about-link-inner {
       -webkit-transform: translateY(-100%);
               transform: translateY(-100%); }
@@ -1584,10 +1584,10 @@ select:-webkit-autofill:focus {
               transform: translateY(-100%); }
 
 .page-header__about-link-inner {
-  -webkit-transition: opacity .2s, -webkit-transform .2s;
-  transition: opacity .2s, -webkit-transform .2s;
-  transition: transform .2s, opacity .2s;
-  transition: transform .2s, opacity .2s, -webkit-transform .2s; }
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s; }
 
 .page-header__logo-image {
   width: 10rem; }
@@ -1651,43 +1651,61 @@ select:-webkit-autofill:focus {
   letter-spacing: 0.02em;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-transition: color .2s, opacity .2s;
-  transition: color .2s, opacity .2s;
+  -webkit-transition: color 0.2s, opacity 0.2s, -webkit-transform .2s;
+  transition: color 0.2s, opacity 0.2s, -webkit-transform .2s;
+  transition: color 0.2s, opacity 0.2s, transform .2s;
+  transition: color 0.2s, opacity 0.2s, transform .2s, -webkit-transform .2s;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
   .page-header__contact-link:link, .page-header__contact-link:visited {
     color: currentColor; }
-  .page-header__contact-link::after {
-    content: attr(data-text);
+  .page-header__contact-link::before {
+    content: '';
     position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    pointer-events: none;
-    -webkit-transition: opacity .2s, -webkit-transform .2s;
-    transition: opacity .2s, -webkit-transform .2s;
-    transition: transform .2s, opacity .2s;
-    transition: transform .2s, opacity .2s, -webkit-transform .2s; }
-  .no-touch .page-header__contact-link:hover {
-    opacity: .8; }
-    .no-touch .page-header__contact-link:hover .page-header__contact-link-inner {
-      -webkit-transform: translateY(-100%);
-              transform: translateY(-100%); }
-    .no-touch .page-header__contact-link:hover::after {
-      -webkit-transform: translateY(-100%);
-              transform: translateY(-100%); }
+    top: -0.9rem;
+    bottom: -0.9rem;
+    right: -1.5rem;
+    left: -1.5rem;
+    z-index: -1;
+    background: #24282b;
+    border-radius: 4rem;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.2s, visibility 0s linear 0.2s, background-color .2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, visibility 0s linear 0.2s, background-color .2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, visibility 0s linear 0.2s, transform 0.2s, background-color .2s;
+    transition: opacity 0.2s, visibility 0s linear 0.2s, transform 0.2s, background-color .2s, -webkit-transform 0.2s; }
+  .no-touch:not(.contact-link-expanded) .page-header__contact-link:hover {
+    opacity: 0.8; }
+  .contact-link-expanded .page-header__contact-link {
+    overflow: visible;
+    -webkit-transform: translate(-1.5rem, 0.9rem);
+            transform: translate(-1.5rem, 0.9rem);
+    color: white !important; }
+    .contact-link-expanded .page-header__contact-link::after {
+      display: none; }
+    .contact-link-expanded .page-header__contact-link::before {
+      opacity: 1;
+      visibility: inherit;
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transition: opacity .2s ease .1s, visibility .2s ease .1s, background-color .2s, -webkit-transform .2s ease .1s;
+      transition: opacity .2s ease .1s, visibility .2s ease .1s, background-color .2s, -webkit-transform .2s ease .1s;
+      transition: opacity .2s ease .1s, transform .2s ease .1s, visibility .2s ease .1s, background-color .2s;
+      transition: opacity .2s ease .1s, transform .2s ease .1s, visibility .2s ease .1s, background-color .2s, -webkit-transform .2s ease .1s; }
 
 .page-header__contact-link-inner {
-  -webkit-transition: opacity .2s, -webkit-transform .2s;
-  transition: opacity .2s, -webkit-transform .2s;
-  transition: transform .2s, opacity .2s;
-  transition: transform .2s, opacity .2s, -webkit-transform .2s; }
+  -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: opacity 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s; }
 
 .midnightHeader.dark {
-  color: #24282B; }
+  color: #24282b; }
 
 .page-footer__content {
   padding-left: var(--left-column-width); }

@@ -20,7 +20,8 @@ export default function ExpertiseSlider() {
             allowTouchMove: true,
             slideToClickedSlide: true,
             init: false,
-            longSwipesRatio: 0.95
+            longSwipesRatio: 0.95,
+            threshold: 5,
         });
 
         const mainSlider = new Swiper(mainSliderContainer, {
