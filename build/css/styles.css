@@ -1251,7 +1251,8 @@ select:-webkit-autofill:focus {
 .intro {
   color: white;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  background-color: #13b17c; }
 
 .intro__backgrounds {
   z-index: -1;
@@ -2456,7 +2457,9 @@ img.intro__slider-image--expert {
 .cases {
   background: #24282b;
   color: white;
-  padding-top: 6.2rem; }
+  padding-top: 6.2rem;
+  position: relative;
+  z-index: 1; }
   @media only screen and (max-width: 640px) {
     .cases {
       padding-top: 1rem; } }
@@ -3902,7 +3905,8 @@ img.intro__slider-image--expert {
 .stories-slider {
   background-color: #fff;
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  color: #24282b; }
 
 .stories-slider__content {
   padding-top: 7rem;

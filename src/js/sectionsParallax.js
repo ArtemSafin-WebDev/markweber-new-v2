@@ -6,6 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 export default function SectionsParallax() {
     const intro = document.querySelector('.intro');
 
+   
+
     if (intro) {
         ScrollTrigger.matchMedia({
             '(min-width: 1025px)': () => {
