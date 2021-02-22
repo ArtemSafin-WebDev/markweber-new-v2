@@ -13,6 +13,7 @@ import StoriesSlider from './storiesSlider';
 import ContactUsModal from './contactUsModal';
 import FixedFooter from './fixedFooter';
 import ContactLink from './contactLink';
+import FixedHeader from './fixedHeader';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -29,11 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
     ContactUsModal();
     FixedFooter();
     ContactLink();
+    FixedHeader();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 
     imgLoaded.on('always', () => {
-        $('.page-header').midnight();    
+        if (!window.matchMedia('(max-width: 640px)').matches) {
+            $('.page-header').midnight();    
+        }
     });
 
 });

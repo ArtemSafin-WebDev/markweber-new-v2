@@ -16,6 +16,15 @@
     --golos: 'Golos Text', sans-serif;
     --black: #24282B;
     --inter: 'Inter', sans-serif;
+
+    @include breakpoint(tablet) {
+        --content-padding: 4rem;
+    }
+
+    @include breakpoint(mobile) {
+        --content-padding: 2rem;
+        --header-height: 5.6rem;
+    }
 }
 
 html {
@@ -45,6 +54,10 @@ html {
     }
     @include breakpoint(small-tablet) {
         font-size: 5px;
+    }
+
+    @include breakpoint(mobile) {
+        font-size: 10px;
     }
 }
 

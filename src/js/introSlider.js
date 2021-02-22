@@ -1,4 +1,5 @@
 import gsap from 'gsap';
+import Hammer from 'hammerjs';
 
 export default function IntroSlider() {
     const elements = Array.from(document.querySelectorAll('.js-intro-slider'));
@@ -12,9 +13,10 @@ export default function IntroSlider() {
         const BACKGROUND_CHANGE_SPEED = 0.6;
         const DESCRIPTION_CHANGE_SPEED = 0.3;
         const DESKTOP_AUTOPLAY_SPEED = 8;
+        const progressBullets = Array.from(element.querySelectorAll('.intro__slider-pagination-bullet'));
 
         if (images.length !== descriptions.length) {
-            console.error('Number of images must equal number of text slides');
+            console.error('Number of images must equal number of text slides', images.length, descriptions.length);
             return;
         }
         if (backgrounds.length !== descriptions.length) {
@@ -172,9 +174,10 @@ export default function IntroSlider() {
 
             activeIndex = index;
 
-            if (window.matchMedia('(max-width: 641px)').matches) {
+            if (window.matchMedia('(max-width: 640px)').matches) {
+                mobileAutoplay(activeIndex);
             } else {
-                desktopAutoplay(0);
+                desktopAutoplay();
             }
         };
 
@@ -260,10 +263,59 @@ export default function IntroSlider() {
             );
         }
 
-        if (window.matchMedia('(max-width: 641px)').matches) {
+        function mobileAutoplay(startIndex) {
+           
+
+            progressBullets.forEach(bullet => {
+                gsap.set(bullet, {
+                    '--slider-progress': 0
+                });
+                gsap.killTweensOf(bullet);
+            });
+
+            progressBullets.forEach((bullet, bulletIndex) => {
+                if (bulletIndex < startIndex) {
+                    gsap.set(bullet, {
+                        '--slider-progress': 1
+                    });
+                }
+            });
+            gsap.fromTo(
+                progressBullets[startIndex],
+                { '--slider-progress': 0 },
+                {
+                    '--slider-progress': 1,
+                    duration: 50,
+                    ease: 'linear',
+                    onComplete: () => {
+                        goNextSlide();
+                    }
+                }
+            );
+        }
+
+        progressBullets.forEach((bullet, bulletIndex) => {
+            bullet.addEventListener('click', event => {
+                event.preventDefault();
+
+                setActiveSlide(bulletIndex)
+            })
+        })
+
+        if (window.matchMedia('(max-width: 640px)').matches) {
+            const hammertime = new Hammer(element);
+
+            hammertime.on('swipeleft', () => {
+                goNextSlide();
+            });
+            hammertime.on('swiperight', () => {
+                goPrevSlide();
+            });
+
+            mobileAutoplay(activeIndex);
         } else {
             nextBtn.classList.add('autoplay');
-            desktopAutoplay(0);
+            desktopAutoplay();
         }
     });
 }

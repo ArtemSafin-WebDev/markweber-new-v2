@@ -9,6 +9,11 @@
     position: relative;
     overflow: hidden;
     z-index: 1;
+
+    @include breakpoint(mobile) {
+        padding-top: 4rem;
+        padding-bottom: 5rem;
+    }
 }
 
 .contact-us__bg {
@@ -49,6 +54,10 @@
     justify-content: center;
     max-width: 120rem;
     margin: 0 auto;
+
+    @include breakpoint(mobile) {
+        max-width: none;
+    }
 }
 
 .contact-us__small-heading {
@@ -56,6 +65,11 @@
     line-height: 1.8rem;
     margin-bottom: 4rem;
     font-weight: 400;
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        margin-bottom: 1.9rem;
+    }
 }
 
 .contact-us__intro-text {
@@ -65,6 +79,12 @@
     font-size: 3.2rem;
     line-height: 3.8rem;
     letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        margin-bottom: 3rem;
+    }
 }
 
 .contact-us__links {
@@ -72,6 +92,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+
+    @include breakpoint(mobile) {
+        max-width: 25rem;
+        flex-direction: column;
+        align-items: initial;
+        justify-content: initial;
+    }
 }
 
 .contact-us__checkbox {
@@ -83,6 +110,14 @@
         .contact-us__checkbox-content {
             box-shadow: none;
             transform: scale(1.05);
+        }
+    }
+
+    @include breakpoint(mobile) {
+        margin: 0;
+        margin-bottom: 1rem;
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
@@ -104,14 +139,22 @@
     border: 1px solid #eeeeee;
     box-shadow: 0px 0.2rem 0px rgba(0, 0, 0, 0.13);
     border-radius: 7rem;
-    
+
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, border-color 0.2s, transform 0.2s;
     &:link,
     &:visited {
         color: #303639;
     }
-}
 
+    @include breakpoint(mobile) {
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        min-width: auto;
+        padding: 2rem 3.2rem;
+        width: 100%;
+        font-weight: 500;
+    }
+}
 
 .contact-us__layers {
     position: relative;
@@ -126,14 +169,14 @@
     opacity: 0;
     visibility: hidden;
     z-index: 10;
-    transition: opacity .6s, transform .6s, visibility 0s linear .6s;
+    transition: opacity 0.6s, transform 0.6s, visibility 0s linear 0.6s;
     transform: translateY(6rem);
     &.active {
         position: relative;
         z-index: 10;
         opacity: 1;
         visibility: inherit;
-        transition: opacity .6s ease .6s, visibility .6s ease .6s, transform .6s ease .6s;
+        transition: opacity 0.6s ease 0.6s, visibility 0.6s ease 0.6s, transform 0.6s ease 0.6s;
         transform: translateY(0);
     }
 }

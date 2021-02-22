@@ -1,5 +1,7 @@
-import cssVars from 'css-vars-ponyfill';
+
+
 import lazySizes from 'lazysizes';
+import './lazysizes.unveilhooks';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import 'lazysizes/plugins/respimg/ls.respimg';
 

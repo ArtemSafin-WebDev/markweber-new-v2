@@ -133,7 +133,7 @@
                     Делаем мир комфортным местом через создание полезных и удобных digital сервисов
                 </p>
             </div>
-            <h3 class="intro__services">
+            <div class="intro__services">
                 <a href="#" class="intro__services-link" data-text="Сайты">
                     <div class="intro__services-link-inner">
                         Сайты
@@ -153,7 +153,7 @@
 
 
 
-            </h3>
+            </div>
 
             <div class="intro__slider">
                 <div class="intro__slider-content">
@@ -180,10 +180,10 @@
                             </a>
                         </div>
                         <div class="intro__slider-images">
-                            <img src="img/iphone.png" alt="" class="intro__slider-image"
-                                style="bottom: -10rem; right: -14rem; width: 62rem; ">
-                            <img src="img/expert.png" alt="" class="intro__slider-image"
-                                style="bottom: -2rem; right: 0rem; width: 60rem;">
+                            <img src="img/iphone.png" alt="" class="intro__slider-image intro__slider-image--phone">
+
+                           
+                            <img src="img/expert.png" alt="" class="intro__slider-image intro__slider-image--expert">
                         </div>
                         <div class="intro__slider-arrows">
                             <button class="intro__slider-arrow intro__slider-arrow--prev">
@@ -215,6 +215,14 @@
                                 </svg>
                             </button>
                         </div>
+                        <div class="intro__slider-pagination">
+                            <div class="intro__slider-pagination-bullet">
+
+                            </div>
+                            <div class="intro__slider-pagination-bullet">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,7 +240,8 @@
                 </h2>
 
                 <a href="#" class="stories-slider__details-link">
-                    Перейти
+                    <span class="stories-slider__details-link-text"> Перейти</span>
+
                     <svg width="24" height="24" aria-hidden="true" class="icon-arrow-right">
                         <use xlink:href="#arrow-right"></use>
                     </svg>
@@ -494,7 +503,10 @@
                 </div>
 
                 <a href="#" class="cases__top-nav-show-all">
-                    Смотреть все
+                    <span class="cases__top-nav-show-all-text">
+                        Смотреть все
+                    </span>
+
 
                     <svg width="24" height="24" aria-hidden="true" class="icon-arrow-right">
                         <use xlink:href="#arrow-right" />
@@ -1420,12 +1432,15 @@
                     <div class="page-footer__top-row">
                         <div class="page-footer__left-col">
                             <div class="page-footer__contacts">
-                                <a href="#" class="page-footer__phone-link">
-                                    +7 987 419-41-91
-                                </a>
-                                <a href="#" class="page-footer__mail-link">
-                                    info@markweber.ru
-                                </a>
+                                <div class="page-footer__contacts-data">
+                                    <a href="#" class="page-footer__phone-link">
+                                        +7 987 419-41-91
+                                    </a>
+                                    <a href="#" class="page-footer__mail-link">
+                                        info@markweber.ru
+                                    </a>
+                                </div>
+        
                                 <ul class="page-footer__social-list">
                                     <li class="page-footer__social-list-item">
                                         <a href="#" class="page-footer__social-link">

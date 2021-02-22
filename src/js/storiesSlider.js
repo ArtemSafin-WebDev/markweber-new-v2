@@ -9,6 +9,7 @@ export default function StoriesSlider() {
     elements.forEach(element => {
         const thumbsContainer = element.querySelector('.stories-slider__master-slider-thumbs .swiper-container');
         const mainContainer = element.querySelector('.stories-slider__master-slider-main .swiper-container');
+        const outerSliderContainer = element.querySelector('.stories-slider__outer-slider > .swiper-container');
         const progressBullets = Array.from(element.querySelectorAll('.stories-slider__master-slider-thumbs-card-progress'));
         const mainSlides = Array.from(element.querySelectorAll('.stories-slider__master-slider-main .swiper-slide'));
         const AUTOPLAY_SPEED = 4;
@@ -41,15 +42,29 @@ export default function StoriesSlider() {
 
         mainSliderOptions.thumbs.swiper = new Swiper(thumbsContainer, {
             watchOverflow: true,
-            spaceBetween: 10,
+            spaceBetween: 4,
             slidesPerView: 'auto',
             threshold: 10,
             speed: 500,
 
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
+            breakpoints: {
+                641: {
+                    spaceBetween: 10,
+                }
+            }
            
         });
+
+
+        // if (window.matchMedia('(max-width: 640px)').matches) {
+        //     new Swiper(outerSliderContainer, {
+        //         slidesPerView: 'auto',
+        //         spaceBetween: 30,
+        //         watchOverflow: true
+        //     })
+        // }
 
         const mainSlider = new Swiper(mainContainer, mainSliderOptions);
 

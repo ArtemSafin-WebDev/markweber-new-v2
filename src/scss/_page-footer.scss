@@ -3,26 +3,70 @@
 
 .page-footer__content {
     padding-left: var(--left-column-width);
+
+    @include breakpoint(mobile) {
+        padding-left: 0;
+        padding-top: var(--header-height);
+    }
 }
 
+
+.page-footer__top-row,
+.page-footer__bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 3rem;
+
+    @include breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        grid-gap: initial;
+    }
+}
+
+
 .page-footer__top-row {
-    display: flex;
+    
     padding-top: 14.7rem;
     padding-bottom: 14rem;
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        padding: 0;
+        padding-bottom: 5rem;
+        padding-top: 4.2rem;
+        border-top: 1px solid #24282B;
+
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-areas: 'mainnav mainnav secnav secnav' 'contactsdata contactsdata contactsdata social' 'download download download social';
+    }
 }
 
 .page-footer__left-col {
     flex-shrink: 0;
+
+    @include breakpoint(mobile) {
+        flex-shrink: 1;
+        display: contents;
+    }
 }
 
 .page-footer__contacts {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    @include breakpoint(mobile) {
+        display: contents;
+    }
 }
 
 .page-footer__right-col {
     display: flex;
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        display: contents;
+    }
 }
 
 .page-footer__phone-link {
@@ -31,6 +75,13 @@
     color: #24282b;
     letter-spacing: -0.02em;
     margin-bottom: 1.2rem;
+    display: inline-flex;
+    @include breakpoint(mobile) {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
     &:link,
     &:visited {
         color: #24282b;
@@ -41,13 +92,26 @@
     }
 }
 
+.page-footer__contacts-data {
+    margin-bottom: 5.7rem;
+    @include breakpoint(mobile) {
+        margin-bottom: 0;
+        grid-area: contactsdata;
+    }
+}
+
 .page-footer__mail-link {
     font-size: 2.4rem;
     line-height: 2.9rem;
     letter-spacing: -0.02em;
     text-decoration-line: underline;
     color: #586267;
-    margin-bottom: 5.7rem;
+  
+    @include breakpoint(mobile) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+       
+    }
     &:link,
     &:visited {
         color: #586267;
@@ -62,11 +126,26 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    @include breakpoint(mobile) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: initial;
+        grid-area: social;
+        align-items: flex-end;
+    }
 }
 
 .page-footer__social-list-item {
     margin-right: 2rem;
     margin-bottom: 2rem;
+
+    @include breakpoint(mobile) {
+        margin: 0;
+        margin-bottom: 2rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 }
 
 .page-footer__social-link {
@@ -102,6 +181,14 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @include breakpoint(mobile) {
+        width: 100%;
+        margin: 0;
+        align-items: initial;
+        grid-area: download;
+        
+    }
 }
 
 .page-footer__brief-link {
@@ -119,12 +206,16 @@
     flex-shrink: 0;
     letter-spacing: -0.02em;
     text-align: center;
-    color: #24282B;
+    color: #24282b;
     margin-bottom: 5rem;
-    transition: transform .3s;
+    transition: transform 0.3s;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
     &:link,
     &:visited {
-        color: #24282B;
+        color: #24282b;
     }
 
     .no-touch &:hover {
@@ -136,6 +227,10 @@
     display: inline-flex;
     align-items: center;
     align-self: flex-start;
+
+    @include breakpoint(mobile) {
+        margin-top: auto;
+    }
     &:hover {
         .page-footer__download-link-icon {
             background-color: #586267;
@@ -179,6 +274,12 @@
     line-height: 1.8rem;
     color: #24282b;
     margin-bottom: 0.4rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        font-weight: 500;
+    }
     &:last-child {
         margin-bottom: 0;
     }
@@ -188,12 +289,22 @@
     color: #586267;
     font-size: 1.5rem;
     line-height: 1.8rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
 }
 
 .page-footer__navigation {
     display: flex;
     align-items: baseline;
     margin-right: 4rem;
+
+    @include breakpoint(mobile) {
+        margin-right: 0;
+        display: contents;
+    }
 }
 
 .page-footer__main-nav {
@@ -201,6 +312,11 @@
     flex-direction: column;
     align-items: flex-start;
     margin-right: 8.5rem;
+    @include breakpoint(mobile) {
+        margin-right: 0;
+        grid-area: mainnav;
+        margin-bottom: 6rem;
+    }
 }
 
 .page-footer__main-nav-link {
@@ -208,6 +324,13 @@
     line-height: 3.8rem;
     letter-spacing: -0.02em;
     margin-bottom: 4rem;
+
+    @include breakpoint(mobile) {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        letter-spacing: -0.02em;
+        margin-bottom: 3rem;
+    }
     &:last-child {
         margin-bottom: 0;
     }
@@ -225,6 +348,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @include breakpoint(mobile) {
+        grid-area: secnav;
+        padding-top: .7rem;
+    }
 }
 
 .page-footer__navigation-secondary-link {
@@ -233,6 +361,13 @@
     letter-spacing: -0.02em;
     color: #24282b;
     margin-bottom: 3.5rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        margin-bottom: 2rem;
+        letter-spacing: -0.02em;
+    }
     &:last-child {
         margin-bottom: 0;
     }
@@ -251,6 +386,13 @@
     display: flex;
     padding-top: 4rem;
     padding-bottom: 14rem;
+
+    @include breakpoint(mobile) {
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 4.4rem 0;
+        flex-direction: row;
+    }
 }
 
 .page-footer__copyright {
@@ -258,6 +400,12 @@
     font-size: 1.5rem;
     line-height: 1.8rem;
     font-family: var(--inter);
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        margin-right: 2rem;
+    }
 }
 
 .page-footer__policy-link {
@@ -265,6 +413,11 @@
     line-height: 1.8rem;
     color: #586267;
     text-decoration: underline;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
     &:link,
     &:visited {
         color: #586267;
@@ -273,11 +426,4 @@
     &:hover {
         color: #24282b;
     }
-}
-
-.page-footer__top-row,
-.page-footer__bottom-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-gap: 3rem;
 }

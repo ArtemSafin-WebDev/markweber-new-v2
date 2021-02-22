@@ -6,33 +6,32 @@ gsap.registerPlugin(ScrollTrigger);
 export default function FixedFooter() {
     const pageFooter = document.querySelector('.page-footer');
     const contactUs = document.querySelector('.contact-us');
-    const pageFooterWrapper = document.querySelector('.page-footer__wrapper')
+   
     if (!pageFooter || !contactUs) return;
 
+    ScrollTrigger.matchMedia({
+        '(min-width: 1025px)': () => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: contactUs,
+                    start: 'bottom bottom',
 
-    
+                    end: () => `+=${pageFooter.offsetHeight}`,
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: contactUs,
-            start: 'bottom bottom',
-            
-            end: () => `+=${pageFooter.offsetHeight}`,
-           
-            scrub: true,
-            markers: false
-          
+                    scrub: true,
+                    markers: false
+                }
+            });
+
+            tl.fromTo(
+                pageFooter,
+                {
+                    yPercent: -100
+                },
+                {
+                    yPercent: 0
+                }
+            );
         }
     });
-
-    tl.fromTo(pageFooter, {
-        yPercent: -100
-       
-    }, {
-        yPercent: 0
-    });
-    
-
-
-  
 }

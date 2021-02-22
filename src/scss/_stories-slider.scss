@@ -4,11 +4,16 @@
     z-index: 1;
 }
 
-
 .stories-slider__content {
     padding-top: 7rem;
     padding-left: var(--left-column-width);
     padding-bottom: 10rem;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
 }
 
 .stories-slider__top-row {
@@ -18,6 +23,11 @@
     margin-bottom: 8rem;
     border-bottom: 1px solid #24282b;
     padding: 3.2rem 0;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 3.8rem;
+        padding: 2rem 0;
+    }
 }
 
 .stories-slider__heading {
@@ -26,6 +36,11 @@
     letter-spacing: -0.02em;
     margin-right: 2rem;
     font-weight: 400;
+
+    @include breakpoint(mobile) {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+    }
 }
 
 .stories-slider__details-link {
@@ -33,25 +48,41 @@
     align-items: center;
     font-size: 1.5rem;
     line-height: 1.8rem;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
     svg {
         width: 2.2rem;
         height: 1.4rem;
         flex-shrink: 0;
         margin-left: 1.7rem;
+
+        @include breakpoint(mobile) {
+            margin: 0;
+            width: 2.2rem;
+            height: 1.4rem;
+        }
     }
 
     .no-touch &:hover {
-        opacity: .8;
+        opacity: 0.8;
+    }
+}
+
+.stories-slider__details-link-text {
+    @include breakpoint(mobile) {
+        display: none;
     }
 }
 
 .stories-slider__outer-slider > .swiper-container {
-    @include breakpointMF(small-tablet) {
-        margin: 0;
-        overflow: visible;
-    }
+    margin: 0;
+    overflow: visible;
 }
+
+// .stories-slider__outer-slider > .swiper-container > .swiper-wrapper > .swiper-slide {
+//     @include breakpoint(mobile) {
+//         width: 31.5rem;
+//     }
+// }
 
 .stories-slider__outer-slider-row {
     display: flex;
@@ -60,6 +91,11 @@
         box-sizing: border-box;
         justify-content: space-between;
     }
+
+    @include breakpoint(mobile) {
+        box-sizing: border-box;
+        flex-direction: column;
+    }
 }
 
 .stories-slider__outer-slider-main-col {
@@ -67,12 +103,20 @@
         width: 43rem;
         margin-right: 2rem;
     }
+
+    @include breakpoint(mobile) {
+        margin-bottom: 4rem;
+    }
 }
 
 .stories-slider__outer-slider-news-col {
     @include breakpointMF(small-tablet) {
         width: 43.5rem;
         margin-right: 2rem;
+    }
+
+    @include breakpoint(mobile) {
+        margin-bottom: 4rem;
     }
 }
 
@@ -89,7 +133,7 @@
     .no-touch &:hover {
         .stories-slider__news-card-image {
             transform: scale(1.04);
-            transition: transform .3s ease-out;
+            transition: transform 0.3s ease-out;
         }
 
         .stories-slider__news-card-title {
@@ -104,6 +148,10 @@
     backface-visibility: hidden;
     transform: translateZ(0);
     overflow: hidden;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 2.5rem;
+    }
     &::after {
         content: '';
         display: block;
@@ -118,7 +166,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    transition: transform .3s;
+    transition: transform 0.3s;
     @include objectFitCover();
 }
 
@@ -128,13 +176,25 @@
     letter-spacing: -0.02em;
     margin-bottom: 1.6rem;
     font-weight: 400;
-    transition: color .2s;
+    transition: color 0.2s;
+
+    @include breakpoint(mobile) {
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+    }
 }
 
 .stories-slider__news-card-category {
     font-size: 1.5rem;
     line-height: 1.8rem;
     color: #586267;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
 }
 
 .stories-slider__articles-heading {
@@ -142,10 +202,17 @@
     line-height: 1.8rem;
     font-weight: 400;
     margin-bottom: 4rem;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
 }
 
 .stories-slider__articles-list-item {
     margin-bottom: 4rem;
+    @include breakpoint(mobile) {
+        margin-bottom: 2rem;
+    }
 }
 
 .stories-slider__articles-card {
@@ -165,13 +232,24 @@
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
     font-weight: 500;
-    transition: color .2s;
+    transition: color 0.2s;
+
+    @include breakpoint(mobile) {
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
 }
 
 .stories-slider__articles-card-category {
     font-size: 1.5rem;
     line-height: 1.8rem;
     color: #586267;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+    }
 }
 
 .stories-slider__master-slider {
@@ -187,11 +265,11 @@
         background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
         z-index: 10;
         pointer-events: none;
-        transition: opacity .3s;
+        transition: opacity 0.3s;
         opacity: 0;
     }
 
-    .no-touch &:hover {
+    &:hover {
         &::after {
             opacity: 1;
         }
@@ -224,8 +302,8 @@
     top: 0;
     width: 100%;
     height: 0.2rem;
-    background: rgba(white, .4);
-    transition: opacity .3s;
+    background: rgba(white, 0.4);
+    transition: opacity 0.3s;
     &::before {
         content: '';
         position: absolute;
@@ -236,7 +314,6 @@
         background: white;
         transform-origin: left center;
         transform: scaleX(var(--slider-progress, 0));
-        
     }
 }
 
@@ -256,14 +333,21 @@
     top: 3rem;
     z-index: 20;
 
-
-  
+    @include breakpoint(mobile) {
+        left: 2rem;
+        top: 2rem;
+        right: 2rem;
+    }
 
     .swiper-container {
         overflow: visible;
     }
     .swiper-slide {
         width: 6rem;
+
+        @include breakpoint(mobile) {
+            width: 4.2rem;
+        }
     }
 }
 
@@ -278,9 +362,11 @@
     backface-visibility: hidden;
     position: relative;
     cursor: pointer;
-    transition: transform .3s;
+    transition: transform 0.3s;
     transform: rotateX(-180deg);
     transform-origin: center top;
+
+   
     &::before {
         content: '';
         display: block;
@@ -295,8 +381,8 @@
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        border: .2rem solid white;
-        transition: opacity .2s;
+        border: 0.2rem solid white;
+        transition: opacity 0.2s;
         opacity: 0;
     }
 
@@ -327,6 +413,14 @@
     line-height: 3.1rem;
     letter-spacing: -0.02em;
     color: #24282b;
+
+    @include breakpoint(mobile) {
+        left: 2rem;
+        right: 2rem;
+        bottom: 2rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
     span {
         background: #f9cc46;
         color: #24282b;
@@ -335,5 +429,4 @@
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
     }
-
 }
