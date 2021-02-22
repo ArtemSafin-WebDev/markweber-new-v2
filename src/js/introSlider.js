@@ -285,7 +285,7 @@ export default function IntroSlider() {
                 { '--slider-progress': 0 },
                 {
                     '--slider-progress': 1,
-                    duration: 50,
+                    duration: 10,
                     ease: 'linear',
                     onComplete: () => {
                         goNextSlide();
