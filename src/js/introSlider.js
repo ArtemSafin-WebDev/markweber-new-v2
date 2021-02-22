@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import Hammer from 'hammerjs';
+import detectIt from 'detect-it';
 
 export default function IntroSlider() {
     const elements = Array.from(document.querySelectorAll('.js-intro-slider'));
@@ -264,8 +265,6 @@ export default function IntroSlider() {
         }
 
         function mobileAutoplay(startIndex) {
-           
-
             progressBullets.forEach(bullet => {
                 gsap.set(bullet, {
                     '--slider-progress': 0
@@ -298,11 +297,11 @@ export default function IntroSlider() {
             bullet.addEventListener('click', event => {
                 event.preventDefault();
 
-                setActiveSlide(bulletIndex)
-            })
-        })
+                setActiveSlide(bulletIndex);
+            });
+        });
 
-        if (window.matchMedia('(max-width: 640px)').matches) {
+        if (detectIt.hasTouch || window.matchMedia('(max-width: 640px)').matches) {
             const hammertime = new Hammer(element);
 
             hammertime.on('swipeleft', () => {
@@ -311,7 +310,10 @@ export default function IntroSlider() {
             hammertime.on('swiperight', () => {
                 goPrevSlide();
             });
+        }
 
+        if (window.matchMedia('(max-width: 640px)').matches) {
+    
             mobileAutoplay(activeIndex);
         } else {
             nextBtn.classList.add('autoplay');

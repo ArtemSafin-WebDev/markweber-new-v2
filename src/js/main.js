@@ -14,6 +14,7 @@ import ContactUsModal from './contactUsModal';
 import FixedFooter from './fixedFooter';
 import ContactLink from './contactLink';
 import FixedHeader from './fixedHeader';
+import MobileContactLink from './mobileContactLink';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     FixedFooter();
     ContactLink();
     FixedHeader();
+    MobileContactLink();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

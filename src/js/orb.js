@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import detectIt from 'detect-it';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Orb() {
@@ -12,6 +12,8 @@ export default function Orb() {
 
     function followMouse(e) {
         e.stopPropagation();
+
+        if (detectIt.hasTouch) return;
 
         const rect = e.currentTarget.getBoundingClientRect();
         const offsetX = parseInt(e.clientX - rect.left, 10);
@@ -31,6 +33,8 @@ export default function Orb() {
 
     function mouseLeave() {
         console.log('Mouseleave');
+
+        if (detectIt.hasTouch) return;
 
         gsap.to(contactUsOrb, {
             duration: 0.6,

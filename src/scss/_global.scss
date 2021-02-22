@@ -21,6 +21,10 @@
         --content-padding: 4rem;
     }
 
+    @include breakpoint(small-tablet) {
+        --left-column-width: 0;
+    }
+
     @include breakpoint(mobile) {
         --content-padding: 2rem;
         --header-height: 5.6rem;
@@ -53,7 +57,7 @@ html {
         font-size: 6px;
     }
     @include breakpoint(small-tablet) {
-        font-size: 5px;
+        font-size: 6px;
     }
 
     @include breakpoint(mobile) {

@@ -5,16 +5,16 @@
     width: 100%;
     color: white;
     z-index: 700;
-    transition: background-color .2s, box-shadow .2s, color .2s;
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
 
     &.fixed {
         // background-color: #24282B;
-        box-shadow: 0 0 1rem rgba(#24282B, .2);
-        color: #24282B;
+        box-shadow: 0 0 1rem rgba(#24282b, 0.2);
+        color: #24282b;
         background-color: white;
 
         .menu-open & {
-            background: #24282B;
+            background: #24282b;
             color: white;
         }
     }
@@ -49,6 +49,11 @@
     display: inline-flex;
     letter-spacing: 0.02em;
     transition: color 0.2s, opacity 0.2s;
+
+    @include breakpoint(small-tablet) {
+        opacity: 0;
+        visibility: hidden;
+    }
 
     @include breakpoint(mobile) {
         display: none;
@@ -93,7 +98,7 @@
     @include breakpoint(mobile) {
         width: 8.4rem;
         position: relative;
-        bottom: -.2rem;
+        bottom: -0.2rem;
     }
 }
 
@@ -192,19 +197,6 @@
     display: inline-flex;
     position: relative;
 
-    @include breakpoint(mobile) {
-        position: fixed;
-        right: var(--content-padding);
-        bottom: 2rem;
-        z-index: 60;
-        background: #24282b;
-        border-radius: 4rem;
-        padding: 0.9rem 1.5rem;
-
-
-        display: none;
-    }
-
     &:link,
     &:visited {
         color: currentColor;
@@ -232,6 +224,30 @@
 
     .no-touch:not(.contact-link-expanded) &:hover {
         opacity: 0.8;
+    }
+
+    @include breakpoint(mobile) {
+        position: fixed;
+        right: var(--content-padding);
+        bottom: 3rem;
+        z-index: 60;
+        background: #24282b;
+        border-radius: 4rem;
+        padding: 0.9rem 1.5rem;
+        transition: opacity .3s, visibility .3s;
+        color: white;
+
+        &:link,
+        &:visited {
+            color: white;
+        }
+
+        &.scrolled-to-the-bottom {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0s linear 0.3s;
+        }
+        // display: none;
     }
 
     .contact-link-expanded & {
