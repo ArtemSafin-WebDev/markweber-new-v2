@@ -68,8 +68,12 @@
         }
     }
 
-    @include breakpoint(tablet) {
+    @media screen and (max-width: 1366px) {
         min-height: 100rem;
+    }
+
+    @include breakpoint(tablet) {
+      
     }
 
     @include breakpoint(mobile) {

@@ -143,189 +143,225 @@
     <div class="container">
         <div class="contact__row">
             <div class="contact__left-col">
-                <div class="contact__intro">
-                    <img src="img/person.png" alt="" class="contact__intro-illustration">
-                    <div class="contact__intro-content">
-                        <div class="contact__intro-text">
-                            Вау, нам нравится, насколько вы готовы. Мы обычно не делаю этого, но определенно есть
-                            какая-то химия между нами.
-                        </div>
-                        <div class="contact__intro-author">
-                            <div class="contact__intro-author-name">
-                                Рустем Биктагиров
+                <div class="contact__layers">
+                    <div class="contact__form-layer active">
+                        <div class="contact__intro">
+                            <img src="img/person.png" alt="" class="contact__intro-illustration">
+                            <div class="contact__intro-content">
+                                <div class="contact__intro-text">
+                                    Вау, нам нравится, насколько вы готовы. Мы обычно не делаю этого, но определенно
+                                    есть
+                                    какая-то химия между нами.
+                                </div>
+                                <div class="contact__intro-author">
+                                    <div class="contact__intro-author-name">
+                                        Рустем Биктагиров
+                                    </div>
+                                    <div class="contact__intro-author-role">
+                                        Директор Студии Марк Вебер
+                                    </div>
+                                </div>
                             </div>
-                            <div class="contact__intro-author-role">
-                                Директор Студии Марк Вебер
+                        </div>
+                        <form action="/" method="POST" class="contact__form" data-need-validation id="contact-form">
+                            <h3 class="contact__form-heading">
+                                Оставьте заявку
+                            </h3>
+                            <div class="contact__form-rows">
+                                <div class="contact__form-row">
+                                    <h4 class="contact__form-subheading">
+                                        Что бы вы хотели
+                                    </h4>
+                                    <div class="contact__form-checkboxes">
+                                        <label class="contact__form-checkbox">
+                                            <input type="checkbox" name="type" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Сайт
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="checkbox" name="type" value="2"
+                                                class="contact__form-checkbox-input" checked>
+                                            <span class="contact__form-checkbox-content">
+                                                Веб-сервис
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="checkbox" name="type" value="3"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Мобильное приложение
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="checkbox" name="type" value="4"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Продвижение сайта
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="checkbox" name="type" value="5"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Другое
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="contact__form-row">
+                                    <h4 class="contact__form-subheading">
+                                        Бюджет
+                                    </h4>
+                                    <div class="contact__form-checkboxes">
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="price" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Менее 1 млн ₽
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="price" value="2"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                1—3 млн ₽
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="price" value="3"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                3—5 млн ₽
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="price" value="4"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                5—10 млн ₽
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="price" value="5"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Более 25 млн ₽
+                                            </span>
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="contact__form-row">
+                                    <h4 class="contact__form-subheading">
+                                        Задача
+                                    </h4>
+                                    <textarea name="task" class="contact__form-input"></textarea>
+                                    <label class="contact__form-file js-file-upload">
+                                        <input type="file" class="contact__form-file-input">
+                                        <span class="contact__form-file-content">
+                                            <svg width="14" height="14" aria-hidden="true" class="icon-file">
+                                                <use xlink:href="#file" />
+                                            </svg>
+                                            <span class="contact__form-file-text js-file-upload-text">
+                                                Прикрепите файл
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+
+                                <div class="contact__form-row">
+                                    <h4 class="contact__form-subheading">
+                                        Откуда вы о нас узнали?
+                                    </h4>
+                                    <div class="contact__form-checkboxes">
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="source" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Рейтинги
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="source" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Рекомендации
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="source" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Работы
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="source" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                СМИ
+                                            </span>
+                                        </label>
+                                        <label class="contact__form-checkbox">
+                                            <input type="radio" name="source" value="1"
+                                                class="contact__form-checkbox-input">
+                                            <span class="contact__form-checkbox-content">
+                                                Соцсети
+                                            </span>
+                                        </label>
+
+
+                                    </div>
+                                </div>
+
+
+                                <div class="contact__form-row">
+                                    <h4 class="contact__form-subheading">
+                                        Как вас зовут
+                                    </h4>
+
+                                    <input type="text" name="name" class="contact__form-input" required>
+                                </div>
+                                <div class="contact__form-row contact__form-row--half">
+                                    <h4 class="contact__form-subheading">
+                                        Телефон
+                                    </h4>
+
+                                    <input type="tel" name="phone" class="contact__form-input js-phone-input"
+                                        data-parsley-phone>
+                                </div>
+                                <div class="contact__form-row contact__form-row--half">
+                                    <h4 class="contact__form-subheading">
+                                        Эл. почта
+                                    </h4>
+
+                                    <input type="email" name="email" class="contact__form-input">
+                                </div>
+                            </div>
+                            <button class="contact__form-submit" type="submit">
+                                Отправить
+                            </button>
+                        </form>
+                    </div>
+                    <div class="contact__success-layer">
+                        <div class="contact__success">
+                            <h3 class="contact__success-heading">
+                                Спасибо!
+                            </h3>
+                            <div class="contact__success-content">
+                                <div class="contact__success-message">
+                                    Вы получите ответ от нас в ближайшее время!
+                                </div>
+                                <a href="#" class="contact__success-back-link">
+                                    Написать еще
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <form action="/" method="POST" class="contact__form" data-need-validation>
-                    <h3 class="contact__form-heading">
-                        Оставьте заявку
-                    </h3>
-                    <div class="contact__form-rows">
-                        <div class="contact__form-row">
-                            <h4 class="contact__form-subheading">
-                                Что бы вы хотели
-                            </h4>
-                            <div class="contact__form-checkboxes">
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="type" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Сайт
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="type" value="2" class="contact__form-checkbox-input"
-                                        checked>
-                                    <span class="contact__form-checkbox-content">
-                                        Веб-сервис
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="type" value="3" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Мобильное приложение
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="type" value="4" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Продвижение сайта
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="type" value="5" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Другое
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="contact__form-row">
-                            <h4 class="contact__form-subheading">
-                                Бюджет
-                            </h4>
-                            <div class="contact__form-checkboxes">
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="price" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Менее 1 млн ₽
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="price" value="2" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        1—3 млн ₽
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="price" value="3" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        3—5 млн ₽
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="price" value="4" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        5—10 млн ₽
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="price" value="5" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Более 25 млн ₽
-                                    </span>
-                                </label>
 
-                            </div>
-                        </div>
-                        <div class="contact__form-row">
-                            <h4 class="contact__form-subheading">
-                                Задача
-                            </h4>
-                            <textarea name="task" class="contact__form-input"></textarea>
-                            <label class="contact__form-file js-file-upload">
-                                <input type="file" class="contact__form-file-input">
-                                <span class="contact__form-file-content">
-                                    <svg width="14" height="14" aria-hidden="true" class="icon-file">
-                                        <use xlink:href="#file" />
-                                    </svg>
-                                    <span class="contact__form-file-text js-file-upload-text">
-                                        Прикрепите файл
-                                    </span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <div class="contact__form-row">
-                            <h4 class="contact__form-subheading">
-                                Откуда вы о нас узнали?
-                            </h4>
-                            <div class="contact__form-checkboxes">
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="source" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Рейтинги
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="source" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Рекомендации
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="source" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Работы
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="source" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        СМИ
-                                    </span>
-                                </label>
-                                <label class="contact__form-checkbox">
-                                    <input type="radio" name="source" value="1" class="contact__form-checkbox-input">
-                                    <span class="contact__form-checkbox-content">
-                                        Соцсети
-                                    </span>
-                                </label>
-
-
-                            </div>
-                        </div>
-
-
-                        <div class="contact__form-row">
-                            <h4 class="contact__form-subheading">
-                                Как вас зовут
-                            </h4>
-
-                            <input type="text" name="name" class="contact__form-input" required>
-                        </div>
-                        <div class="contact__form-row contact__form-row--half">
-                            <h4 class="contact__form-subheading">
-                                Телефон
-                            </h4>
-
-                            <input type="tel" name="phone" class="contact__form-input js-phone-input" data-parsley-phone>
-                        </div>
-                        <div class="contact__form-row contact__form-row--half">
-                            <h4 class="contact__form-subheading">
-                                Эл. почта
-                            </h4>
-
-                            <input type="email" name="email" class="contact__form-input">
-                        </div>
-                    </div>
-                    <button class="contact__form-submit" type="submit">
-                        Отправить
-                    </button>
-                </form>
             </div>
             <div class="contact__right-col">
                 <div class="contact__sidebar">
@@ -422,6 +458,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="assets/js/midnight.js"></script>
         <script src="js/app.js"></script>
+        <script src="assets/js/backend.js"></script>
     </div>
 </body>
 

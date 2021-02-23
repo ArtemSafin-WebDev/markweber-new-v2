@@ -19,6 +19,7 @@ import FileUpload from './fileUpload';
 import FixedContactsSidebar from './fixedContactsSidebar';
 import Validation from './validation';
 import PhoneMask from './phoneMask';
+import RefreshScroll from './refreshScroll';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     FixedContactsSidebar();
     Validation();
     PhoneMask();
+    RefreshScroll();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

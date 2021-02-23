@@ -1,7 +1,6 @@
 .contact {
     padding-top: 5rem;
     padding-bottom: 7rem;
- 
 
     @include breakpoint(mobile) {
         padding-top: 3rem;
@@ -20,7 +19,8 @@
 .contact__left-col {
     width: 78rem;
     margin-right: 5rem;
-
+    display: flex;
+    flex-direction: column;
     @include breakpoint(mobile) {
         width: 100%;
         margin: 0;
@@ -59,7 +59,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-row-gap: 4.8rem;
     margin-bottom: 18rem;
-
 
     @include breakpoint(mobile) {
         grid-row-gap: 3rem;
@@ -195,7 +194,7 @@
     padding-left: var(--left-column-width);
     display: flex;
     align-items: flex-start;
-    margin-bottom: 17.8rem;
+    margin-bottom: 16rem;
     padding-top: 1.2rem;
 
     @include breakpoint(mobile) {
@@ -460,7 +459,7 @@ textarea.contact__form-input {
     background-color: #fff;
     color: #24282b;
     border-radius: 9rem;
-    transition: transform .3s;
+    transition: transform 0.3s;
     text-align: center;
     align-self: flex-start;
 
@@ -470,6 +469,117 @@ textarea.contact__form-input {
 
     @include breakpoint(mobile) {
         margin-top: 4rem;
+        padding: 2rem 4.8rem;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        margin-left: 0;
+        border-radius: 4rem;
+    }
+}
+
+.contact__layers {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.contact__form-layer,
+.contact__success-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0s linear 0.5s;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+   
+    &.active {
+        position: relative;
+        z-index: 10;
+        opacity: 1;
+        visibility: inherit;
+        transition: opacity 0.5s ease .5s, visibility 0.5s ease .5s;
+    }
+}
+
+.contact__success {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: 16rem;
+
+    @include breakpoint(mobile) {
+        padding-top: 0;
+        padding-bottom: 5rem;
+    }
+}
+
+.contact__success-heading {
+    font-size: 12rem;
+    line-height: 14.4rem;
+    font-weight: 400;
+    margin-bottom: 6rem;
+
+    @include breakpoint(mobile) {
+        font-size: 5rem;
+        line-height: 1.2;
+        margin-bottom: 2rem;
+    }
+}
+
+.contact__success-content {
+    padding-left: var(--left-column-width);
+}
+
+.contact__success-message {
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 5rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin-bottom: 3rem;
+    }
+}
+
+
+.contact__success-back-link {
+    padding: 2.7rem 7rem;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    flex-shrink: 0;
+    margin-left: auto;
+    text-align: center;
+    display: inline-flex;
+    
+    background-color: #fff;
+    color: #24282b;
+    border-radius: 9rem;
+    transition: transform 0.3s;
+    text-align: center;
+    align-self: flex-start;
+
+    &:link,
+    &:visited {
+        color: #24282b;
+    }
+
+    .no-touch &:hover {
+        transform: scale(1.03);
+    }
+
+    @include breakpoint(mobile) {
+       
         padding: 2rem 4.8rem;
         font-size: 1.5rem;
         line-height: 1.8rem;

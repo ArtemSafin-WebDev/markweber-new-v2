@@ -1,7 +1,7 @@
 import { Swiper, Autoplay, Navigation, Parallax, Controller } from 'swiper';
 
 Swiper.use([Autoplay, Navigation, Parallax, Controller]);
-
+import Hammer from 'hammerjs';
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
@@ -17,8 +17,7 @@ export default function ExpertiseSlider() {
         const scrollWrapper = element.querySelector('.expertise__nav-slider .swiper-wrapper');
         const navSlides = Array.from(element.querySelectorAll('.expertise__nav-slider .swiper-slide'));
 
-
-        
+        const expertiseNavSlider = element.querySelector('.expertise__nav-slider');
 
         let navSlider = null;
 
@@ -34,7 +33,7 @@ export default function ExpertiseSlider() {
                 longSwipesRatio: 0.95,
                 threshold: 5
             });
-        } 
+        }
 
         const mainSlider = new Swiper(mainSliderContainer, {
             slidesPerView: 1,
@@ -59,7 +58,6 @@ export default function ExpertiseSlider() {
         function setActiveNavLinkMobile(index) {
             if (!window.matchMedia('(max-width: 640px)').matches) return;
 
-           
             navSlides.forEach((slide, slideIndex) => {
                 const card = slide.querySelector('.expertise__nav-slider-card');
                 if (slideIndex === index) {
@@ -80,7 +78,10 @@ export default function ExpertiseSlider() {
             });
             const activeSlide = navSlides[index];
 
-            gsap.to(scrollWrapper, { duration: 0.6, scrollTo: { x: activeSlide.offsetLeft - parseFloat(window.getComputedStyle(scrollWrapper).paddingLeft) } });
+            gsap.to(scrollWrapper, {
+                duration: 0.6,
+                scrollTo: { x: activeSlide.offsetLeft - parseFloat(window.getComputedStyle(scrollWrapper).paddingLeft) }
+            });
 
             navLinks.forEach(link => link.classList.remove('active'));
             navLinks[index].classList.add('active');
@@ -135,16 +136,33 @@ export default function ExpertiseSlider() {
         if (window.matchMedia('(max-width: 640px)').matches) {
             scrollWrapper.addEventListener('touchmove', event => {
                 event.preventDefault();
-            })
+            });
             navSlides.forEach((slide, slideIndex) => {
                 const card = slide.querySelector('.expertise__nav-slider-card');
 
                 card.addEventListener('click', event => {
                     event.preventDefault();
                     mainSlider.slideTo(slideIndex);
-                })
+                });
+            });
+
+            const hammertime = new Hammer(expertiseNavSlider);
+
+            hammertime.on('swipeleft', () => {
+                const currentIndex = mainSlider.activeIndex;
+                if (navSlides[currentIndex + 1]) {
+                    mainSlider.slideTo(currentIndex + 1)
+                }
+
                 
-            })
+            });
+            hammertime.on('swiperight', () => {
+                const currentIndex = mainSlider.activeIndex;
+                if (navSlides[currentIndex - 1]) {
+                    mainSlider.slideTo(currentIndex - 1)
+                }
+                
+            });
         }
     });
 }

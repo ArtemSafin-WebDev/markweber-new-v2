@@ -10,7 +10,7 @@ export default function SectionsParallax() {
 
     if (intro) {
         ScrollTrigger.matchMedia({
-            '(min-width: 1025px)': () => {
+            '(min-width: 1367px)': () => {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: intro,
