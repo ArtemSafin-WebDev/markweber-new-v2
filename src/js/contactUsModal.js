@@ -11,7 +11,8 @@ export default function ContactUsModal() {
     const layers = Array.from(contactUsModal.querySelectorAll('.contacts-us__layer'));
     const contactUsForm = contactUsModal.querySelector('.contact-us__form');
     const contactUsCheckboxes = Array.from(contactUsModal.querySelectorAll('.contact-us__checkbox-input'));
-    const closeBtn = document.querySelector('.contact-us__close-btn')
+    const closeBtn = document.querySelector('.contact-us__close-btn');
+    const orbWrapper = document.querySelector('.contact-us__orb-wrapper')
 
     const setLayer = index => {
       
@@ -34,8 +35,10 @@ export default function ContactUsModal() {
 
     setLayer(0)
 
+    const OFFSET = window.matchMedia(`(max-width: 640px)`).matches ? 50 : 100;
+
     const openModal = () => {
-        return gsap.to(window, { duration: 0.3, scrollTo: {y: contactUsModal, offsetY: 100}, onComplete: () => {
+        return gsap.to(window, { duration: 0.3, scrollTo: {y: contactUsModal, offsetY: OFFSET}, onComplete: () => {
             gsap.set(contactUsModal, {
                 position: 'fixed',
                 left: 0,
@@ -44,7 +47,7 @@ export default function ContactUsModal() {
                 top: contactUsModal.getBoundingClientRect().top
             });
     
-          
+         
     
             disableBodyScroll(contactUsModal, {
                 reserveScrollBarGap: true
@@ -72,6 +75,8 @@ export default function ContactUsModal() {
             autoAlpha: 0,
             duration: 0.3
         })
+
+    
 
         setLayer(0);
         contactUsForm.reset();

@@ -23,7 +23,7 @@ export default function HeaderHovers() {
         });
     };
 
-    const selectors = ['.page-header__button', '.page-header__about-link'];
+    const selectors = ['.page-header__button'];
 
     selectors.forEach(selector => {
         addHoverToElement(selector)

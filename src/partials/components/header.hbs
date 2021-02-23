@@ -5,12 +5,7 @@
             <a href="#" class="page-header__logo-link">
                 {{> logo }}
             </a>
-            <a href="#" class="page-header__about-link" data-text="О студии">
-                <div class="page-header__about-link-inner">
-                    О студии
-                </div>
-
-            </a>
+         
             <div class="page-header__buttons">
                 <button class="page-header__button">
                     <span class="page-header__button-content">
@@ -18,7 +13,7 @@
                         <span></span>
                     </span>
                 </button>
-                <a href="#" class="page-header__contact-link" data-text="Связаться">
+                <a href="#" class="page-header__contact-link {{#if dark}} disabled {{/if}}" data-text="Связаться">
                     <div class="page-header__contact-link-inner">
                         Связаться
                     </div>

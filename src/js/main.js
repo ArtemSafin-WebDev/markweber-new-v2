@@ -15,6 +15,10 @@ import FixedFooter from './fixedFooter';
 import ContactLink from './contactLink';
 import FixedHeader from './fixedHeader';
 import MobileContactLink from './mobileContactLink';
+import FileUpload from './fileUpload';
+import FixedContactsSidebar from './fixedContactsSidebar';
+import Validation from './validation';
+import PhoneMask from './phoneMask';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -33,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
     ContactLink();
     FixedHeader();
     MobileContactLink();
+    FileUpload();
+    FixedContactsSidebar();
+    Validation();
+    PhoneMask();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

@@ -6,7 +6,7 @@
     color: white;
     z-index: 700;
     transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
-
+    pointer-events: none;
     &.fixed {
         // background-color: #24282B;
         box-shadow: 0 0 1rem rgba(#24282b, 0.2);
@@ -37,59 +37,9 @@
     }
 }
 
-.page-header__about-link {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-    font-weight: 400;
-    transition: color 0.2s;
-    justify-self: flex-start;
-    transition: color 0.2s;
-    overflow: hidden;
-    position: relative;
-    display: inline-flex;
-    letter-spacing: 0.02em;
-    transition: color 0.2s, opacity 0.2s;
-
-    @include breakpoint(small-tablet) {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    @include breakpoint(mobile) {
-        display: none;
-    }
-    &:link,
-    &:visited {
-        color: currentColor;
-    }
-
-    &::after {
-        content: attr(data-text);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        pointer-events: none;
-        transition: transform 0.2s, opacity 0.2s;
-    }
-
-    .no-touch &.hovered {
-        opacity: 0.8;
-        .page-header__about-link-inner {
-            transform: translateY(-100%);
-        }
-        &::after {
-            transform: translateY(-100%);
-        }
-    }
-}
-
-.page-header__about-link-inner {
-    transition: transform 0.2s, opacity 0.2s;
-}
-
 .page-header__logo-link {
     transition: none;
+    pointer-events: initial;
 }
 
 .page-header__logo-image {
@@ -106,6 +56,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    grid-column: 3 / 4;
 }
 
 .page-header__button {
@@ -114,7 +65,7 @@
     height: 60px;
     flex-shrink: 0;
     cursor: pointer;
-
+    pointer-events: initial;
     @include breakpoint(tablet) {
         width: 40px;
         height: 40px;
@@ -196,7 +147,7 @@
     transition: color 0.2s, opacity 0.2s, transform 0.2s;
     display: inline-flex;
     position: relative;
-
+    pointer-events: initial;
     &:link,
     &:visited {
         color: currentColor;
@@ -222,7 +173,18 @@
         }
     }
 
-    .no-touch:not(.contact-link-expanded) &:hover {
+    .dark & {
+        color: #586267;
+    }
+
+    &.disabled  {
+        pointer-events: none;
+        @include breakpoint(mobile) {
+            display: none;
+        }
+    }
+
+    .no-touch:not(.contact-link-expanded) &:not(.disabled):hover {
         opacity: 0.8;
     }
 
@@ -234,7 +196,7 @@
         background: #24282b;
         border-radius: 4rem;
         padding: 0.9rem 1.5rem;
-        transition: opacity .3s, visibility .3s;
+        transition: opacity 0.3s, visibility 0.3s;
         color: white;
 
         &:link,
@@ -250,11 +212,13 @@
         // display: none;
     }
 
-    .contact-link-expanded & {
+    .contact-link-expanded &:not(.disabled) {
         @include breakpointMF(small-tablet) {
             overflow: visible;
             transform: translate(-1.5rem, 0.9rem);
             color: white !important;
+
+           
             &::after {
                 display: none;
             }
@@ -265,6 +229,16 @@
                 transition: opacity 0.2s ease 0.1s, transform 0.2s ease 0.1s, visibility 0.2s ease 0.1s, background-color 0.2s;
             }
         }
+    }
+
+    .dark.contact-link-expanded &:not(.disabled) {
+        @include breakpointMF(small-tablet) {
+            color: #24282b !important;
+            &::before {
+                background-color: white;
+            }
+        }
+        
     }
 }
 

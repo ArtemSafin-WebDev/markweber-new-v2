@@ -63,6 +63,9 @@ html {
     @include breakpoint(mobile) {
         font-size: 10px;
     }
+    @include breakpoint(supersmall-mobile) {
+        font-size: 9px;
+    }
 }
 
 body {
@@ -75,6 +78,12 @@ body {
     font-family: sans-serif;
     color: var(--black);
     font-family: var(--golos);
+
+
+    &.dark {
+        background-color: #24282A;
+        color: white;
+    }
 }
 
 main {

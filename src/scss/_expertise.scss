@@ -365,6 +365,13 @@
         margin-right: calc(-1 * var(--content-padding));
         padding-left: var(--content-padding);
         padding-right: var(--content-padding);
+
+        &::after {
+            content: '';
+            width: var(--content-padding);
+            height: 1px;
+            flex-shrink: 0;
+        }
     }
 }
 

@@ -39,6 +39,11 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
+
+    @include breakpoint(mobile) {
+        mask-image: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 1) 1.5rem);
+    }
+   
 }
 
 .contact-us__bg {
@@ -82,7 +87,8 @@
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
-    mask-image: url('../img/mask.png');
+    // mask-image: url('../img/mask.png');
+    mask-image: url('../img/mask-optimized.png');
     
    
 }
@@ -236,10 +242,20 @@
     visibility: hidden;
     z-index: 2100;
 
+    @include breakpoint(mobile) {
+        top: 2.4rem;
+        right: 2.4rem;
+    }
+
     svg {
         width: 3rem;
         height: 3rem;
         display: block;
         fill: white;
+
+        @include breakpoint(mobile) {
+            width: 2.4rem;
+            height: 2.4rem;
+        }
     }
 }
