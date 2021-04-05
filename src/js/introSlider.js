@@ -65,6 +65,12 @@ export default function IntroSlider() {
                 zIndex: 5
             });
 
+            if (nextBG.hasAttribute('data-light-bg')) {
+                document.body.classList.add('light-background');
+            } else {
+                document.body.classList.remove('light-background');
+            }
+
             const tl = gsap.timeline({
                 onComplete: () => {
                     locked = false;

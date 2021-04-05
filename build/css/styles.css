@@ -1258,7 +1258,11 @@ select:-webkit-autofill:focus {
   color: white;
   position: relative;
   z-index: 1;
-  background-color: #13b17c; }
+  background-color: #13b17c;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s; }
+  .light-background .intro {
+    color: var(--black); }
 
 .intro__backgrounds {
   z-index: -1;
@@ -1305,7 +1309,7 @@ select:-webkit-autofill:focus {
     height: 1px;
     display: block;
     width: 100%;
-    background-color: #fff;
+    background-color: currentColor;
     grid-column: 2 / -1;
     grid-row: 2 / 3; }
     @media only screen and (max-width: 640px) {
@@ -1391,7 +1395,7 @@ select:-webkit-autofill:focus {
           -ms-flex-order: -1;
               order: -1;
       padding-top: 2.8rem;
-      border-top: 1px solid white; } }
+      border-top: 1px solid currentColor; } }
 
 .intro__services-link {
   -webkit-transition: color 0.2s;
@@ -1416,6 +1420,8 @@ select:-webkit-autofill:focus {
     color: inherit; }
   .intro__services-link:hover {
     color: rgba(255, 255, 255, 0.8); }
+  .light-background .intro__services-link:hover {
+    color: rgba(36, 40, 43, 0.8); }
   .intro__services-link::after {
     content: attr(data-text);
     pointer-events: none;
@@ -1474,7 +1480,7 @@ select:-webkit-autofill:focus {
 
 .intro__slider-content {
   max-width: 78rem;
-  border-top: 1px solid white;
+  border-top: 1px solid currentColor;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -1604,13 +1610,15 @@ select:-webkit-autofill:focus {
     height: 4.3rem;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.16);
-    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
-    transition: opacity 0.2s, -webkit-transform 0.2s;
-    transition: transform 0.2s, opacity 0.2s;
-    transition: transform 0.2s, opacity 0.2s, -webkit-transform 0.2s;
+    -webkit-transition: opacity 0.2s, background-color .2s, -webkit-transform 0.2s;
+    transition: opacity 0.2s, background-color .2s, -webkit-transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s, background-color .2s;
+    transition: transform 0.2s, opacity 0.2s, background-color .2s, -webkit-transform 0.2s;
     -webkit-transform: translate(-50%, -50%) scale(0);
             transform: translate(-50%, -50%) scale(0);
     z-index: -1; }
+    .light-background .intro__slider-arrow::before {
+      background: rgba(36, 40, 43, 0.1); }
   .intro__slider-arrow:last-child {
     margin-right: 0; }
   .intro__slider-arrow .icon-slider-arrow {
@@ -1622,7 +1630,11 @@ select:-webkit-autofill:focus {
             transform: translate(-50%, -50%);
     width: 0.9rem;
     height: 1.7rem;
-    z-index: -1; }
+    z-index: -1;
+    -webkit-transition: fill .2s;
+    transition: fill .2s; }
+    .light-background .intro__slider-arrow .icon-slider-arrow {
+      fill: #24282b; }
   .intro.locked .intro__slider-arrow {
     cursor: default; }
   .no-touch .intro:not(.locked) .intro__slider-arrow:hover::before {
@@ -1651,6 +1663,10 @@ select:-webkit-autofill:focus {
   .intro__slider-arrow-progress circle:nth-child(2) {
     stroke-dashoffset: calc(480px - 480px * var(--slider-progress, 0));
     stroke: white; }
+  .light-background .intro__slider-arrow-progress circle:nth-child(1) {
+    stroke: rgba(36, 40, 43, 0.3); }
+  .light-background .intro__slider-arrow-progress circle:nth-child(2) {
+    stroke: #24282b; }
 
 @media only screen and (max-width: 640px) {
   .intro__slider-images {
@@ -1713,6 +1729,8 @@ img.intro__slider-image--expert {
   background: rgba(255, 255, 255, 0.4);
   margin-right: 0.6rem;
   position: relative; }
+  .light-background .intro__slider-pagination-bullet {
+    background: rgba(36, 40, 43, 0.4); }
   .intro__slider-pagination-bullet:last-child {
     margin-right: 0; }
   .intro__slider-pagination-bullet::before {
@@ -1727,6 +1745,8 @@ img.intro__slider-image--expert {
             transform-origin: left center;
     -webkit-transform: scaleX(var(--slider-progress, 0));
             transform: scaleX(var(--slider-progress, 0)); }
+    .light-background .intro__slider-pagination-bullet::before {
+      background: #24282B; }
 
 .intro__about-link {
   font-size: 1.5rem;
@@ -1791,6 +1811,8 @@ img.intro__slider-image--expert {
   transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
   transition: background-color 0.2s, box-shadow 0.2s, color 0.2s, -webkit-box-shadow 0.2s;
   pointer-events: none; }
+  .light-background .page-header {
+    color: #24282B; }
   .page-header.fixed {
     -webkit-box-shadow: 0 0 1rem rgba(36, 40, 43, 0.2);
             box-shadow: 0 0 1rem rgba(36, 40, 43, 0.2);
