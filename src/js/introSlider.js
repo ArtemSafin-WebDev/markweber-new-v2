@@ -27,10 +27,11 @@ export default function IntroSlider() {
 
         let activeIndex = 0;
         let locked = false;
+        let nextCallback = null;
 
         const setActiveSlide = (index, reverseDirection = false) => {
             if (locked) return;
-            element.classList.add('locked');
+           
 
             let direction;
 
@@ -74,7 +75,10 @@ export default function IntroSlider() {
             const tl = gsap.timeline({
                 onComplete: () => {
                     locked = false;
-                    element.classList.remove('locked');
+                    if (typeof nextCallback === 'function') {
+                        nextCallback();
+                        nextCallback = null;
+                    }
                 }
             });
 
@@ -226,18 +230,32 @@ export default function IntroSlider() {
         };
 
         const goNextSlide = () => {
+            if (locked) {
+                nextCallback = goNextSlide;
+            } else {
+                nextCallback = null;
+            }
             if (descriptions[activeIndex + 1]) {
                 setActiveSlide(activeIndex + 1);
             } else {
                 setActiveSlide(0, true);
             }
+
+          
         };
         const goPrevSlide = () => {
+            if (locked) {
+                nextCallback = goPrevSlide;
+            } else {
+                nextCallback = null;
+            }
             if (descriptions[activeIndex - 1]) {
                 setActiveSlide(activeIndex - 1);
             } else {
                 setActiveSlide(descriptions.length - 1, true);
             }
+
+            
         };
 
         initialize();
