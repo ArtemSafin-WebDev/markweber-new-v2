@@ -8,20 +8,17 @@
     transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
     pointer-events: none;
 
-    .light-background & {
-        color: #24282B;
-    }
-    &.fixed {
-        // background-color: #24282B;
-        box-shadow: 0 0 1rem rgba(#24282b, 0.2);
-        color: #24282b;
-        background-color: white;
+    // &.fixed {
 
-        .menu-open & {
-            background: #24282b;
-            color: white;
-        }
-    }
+    //     box-shadow: 0 0 1rem rgba(#24282b, 0.2);
+    //     color: #24282b;
+    //     background-color: white;
+
+    //     .menu-open & {
+    //         background: #24282b;
+    //         color: white;
+    //     }
+    // }
 }
 
 .menu-open .midnightHeader {
@@ -154,7 +151,16 @@
     pointer-events: initial;
     &:link,
     &:visited {
-        color: currentColor;
+        color: white;
+    }
+
+    .light-background & {
+       
+
+        &:link,
+        &:visited {
+            color: #24282B;
+        }
     }
 
     &::before {
@@ -181,7 +187,7 @@
         color: #586267;
     }
 
-    &.disabled  {
+    &.disabled {
         pointer-events: none;
         @include breakpoint(mobile) {
             display: none;
@@ -222,7 +228,6 @@
             transform: translate(-1.5rem, 0.9rem);
             color: white !important;
 
-           
             &::after {
                 display: none;
             }
@@ -242,7 +247,6 @@
                 background-color: white;
             }
         }
-        
     }
 }
 
@@ -252,4 +256,51 @@
 
 .midnightHeader.dark {
     color: #24282b;
+
+    .page-header__logo-link svg {
+        fill: #24282b;
+    }
+
+    .page-header__button-content > span {
+        background-color: #24282b;
+    }
+}
+.midnightHeader.light {
+    color: white;
+
+    .page-header__logo-link svg {
+        fill: white;
+    }
+
+    .page-header__button-content > span {
+        background-color: white;
+    }
+}
+
+.light-background {
+    .page-header__logo-link svg {
+        fill: #24282b;
+    }
+    .page-header__button-content > span {
+        background-color: #24282b;
+    }
+}
+
+.menu-open {
+    .page-header {
+        color: white !important;
+    }
+  
+
+    .page-header__logo-link svg {
+        fill: white !important;
+    }
+
+    .page-header__button-content > span {
+        background-color: white !important;
+    }
+
+    .page-header__contact-link  {
+        color: white !important;
+    }
 }

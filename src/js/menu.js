@@ -16,9 +16,9 @@ export default function Menu() {
 
     if (!menu) return;
 
-    let menuOpen = false;
+    window.menuOpen = false;
     const openMenu = () => {
-        if (menuOpen) return;
+        if (window.menuOpen) return;
 
         document.body.classList.add('menu-open');
 
@@ -104,10 +104,10 @@ export default function Menu() {
                 );
         }
 
-        menuOpen = true;
+        window.menuOpen = true;
     };
     const closeMenu = () => {
-        if (!menuOpen) return;
+        if (!window.menuOpen) return;
 
         document.body.classList.remove('menu-open');
 
@@ -120,12 +120,15 @@ export default function Menu() {
             duration: 0.4
         });
 
-        menuOpen = false;
+        window.menuOpen = false;
     };
+
+    window.openMenu = openMenu;
+    window.closeMenu = closeMenu;
 
     document.addEventListener('click', event => {
         if (event.target.matches('.page-header__button') || event.target.closest('.page-header__button')) {
-            if (!menuOpen) {
+            if (!window.menuOpen) {
                 openMenu();
             } else {
                 closeMenu();

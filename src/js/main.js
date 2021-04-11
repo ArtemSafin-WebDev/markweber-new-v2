@@ -47,9 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 
     imgLoaded.on('always', () => {
-        if (!window.matchMedia('(max-width: 640px)').matches) {
-            $('.page-header').midnight();    
-        }
+        $('.page-header').midnight();    
     });
 
 });

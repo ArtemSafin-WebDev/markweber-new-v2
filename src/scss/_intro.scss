@@ -547,7 +547,16 @@ img.intro__slider-image--expert {
     }
     &:link,
     &:visited {
-        color: currentColor;
+        color: white;
+    }
+
+    .light-background & {
+       
+
+        &:link,
+        &:visited {
+            color: #24282B;
+        }
     }
 
     &::after {
