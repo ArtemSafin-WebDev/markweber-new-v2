@@ -6,7 +6,7 @@ export default function IntroSlider() {
     const elements = Array.from(document.querySelectorAll('.js-intro-slider'));
 
     elements.forEach(element => {
-        const images = Array.from(element.querySelectorAll('.intro__slider-image'));
+        const images = Array.from(element.querySelectorAll('.intro__slider-image-wrapper'));
         const descriptions = Array.from(element.querySelectorAll('.intro__slider-description'));
         const backgrounds = Array.from(element.querySelectorAll('.intro__background'));
         const nextBtn = element.querySelector('.intro__slider-arrow--next');
