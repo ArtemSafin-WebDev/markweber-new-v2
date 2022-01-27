@@ -8,6 +8,8 @@
     transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
     pointer-events: none;
 
+ 
+
     // &.fixed {
 
     //     box-shadow: 0 0 1rem rgba(#24282b, 0.2);
@@ -31,12 +33,16 @@
     grid-template-columns: var(--left-column-width) minmax(0, 1fr) var(--right-column-width);
     min-height: var(--header-height);
 
+  
+
     @include breakpoint(mobile) {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 }
+
+
 
 .page-header__logo-link {
     transition: none;
@@ -155,11 +161,9 @@
     }
 
     .light-background & {
-       
-
         &:link,
         &:visited {
-            color: #24282B;
+            color: #24282b;
         }
     }
 
@@ -290,7 +294,6 @@
     .page-header {
         color: white !important;
     }
-  
 
     .page-header__logo-link svg {
         fill: white !important;
@@ -300,7 +303,7 @@
         background-color: white !important;
     }
 
-    .page-header__contact-link  {
+    .page-header__contact-link {
         color: white !important;
     }
 }

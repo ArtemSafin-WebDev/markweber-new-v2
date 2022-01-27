@@ -68,7 +68,7 @@
     font-size: 1.5rem;
     line-height: 1.8rem;
     transition: color 0.2s;
-
+    font-weight: 500;
     &:link,
     &:visited {
         color: white;
@@ -80,7 +80,7 @@
         flex-shrink: 0;
         margin-left: 1.7rem;
         fill: currentColor;
-
+        margin-top: 0.2rem;
         @include breakpoint(mobile) {
             width: 1.7rem;
             height: 1rem;

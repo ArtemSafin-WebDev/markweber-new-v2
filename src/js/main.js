@@ -20,6 +20,11 @@ import FixedContactsSidebar from './fixedContactsSidebar';
 import Validation from './validation';
 import PhoneMask from './phoneMask';
 import RefreshScroll from './refreshScroll';
+import setScrollbarWidth from './setScrollbarWidth';
+import newsSlider from './newsSlider';
+import introSliderDrag from './introSliderDrag';
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -43,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
     Validation();
     PhoneMask();
     RefreshScroll();
+    setScrollbarWidth();
+    newsSlider();
+    introSliderDrag();
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 

@@ -32,7 +32,7 @@
     "parsleyjs": "^2.9.2",
     "picturefill": "^3.0.3",
     "rellax": "^1.12.1",
-    "swiper": "^6.3.2"
+    "swiper": "^7.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

@@ -1,4 +1,4 @@
-import { lockScroll, unlockScroll } from './scrollBlocker';
+
 import gsap from 'gsap';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 

@@ -39,25 +39,11 @@ html {
     @include noHighlight();
 
 
-    @media screen and (min-width: 2600px) {
-        font-size: 14px;
-    }
+    font-size: clamp(5px, 0.56vw, 25px);
 
 
-    @include breakpoint(large-desktop) {
-        font-size: 9px;
-    }
-    @include breakpoint(desktop) {
-        font-size: 8px;
-    }
-    @include breakpoint(laptop) {
-        font-size: 7px;
-    }
-    @include breakpoint(tablet) {
-        font-size: 6px;
-    }
-    @include breakpoint(small-tablet) {
-        font-size: 6px;
+    @media screen and (max-width: 1680px) {
+        font-size: clamp(5px, 0.6vw, 25px);
     }
 
     @include breakpoint(mobile) {
