@@ -10,7 +10,7 @@
 }
 
 .intro__backgrounds {
-    z-index: -1;
+    z-index: -2;
     position: absolute;
     left: 0;
     top: 0;
@@ -167,9 +167,9 @@
         color: inherit;
     }
 
-    &:hover {
-        color: rgba(white, 0.8);
-    }
+    // &:hover {
+    //     color: rgba(white, 0.8);
+    // }
 
     .light-background & {
         &:hover {
@@ -466,7 +466,6 @@
 }
 
 .intro__slider-image {
-  
     height: 100%;
     max-width: none;
     width: auto;
@@ -597,4 +596,24 @@
 
 .intro__about-link-inner {
     transition: transform 0.2s, opacity 0.2s;
+}
+
+.intro__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70rem;
+    height: 70rem;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    
+    z-index: -1;
+    pointer-events: none;
+    background-color: rgba(white, 0.2);
+    // background-color: red;
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    
+    mask-image: url('../img/mask-optimized.png');
 }

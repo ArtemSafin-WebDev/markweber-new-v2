@@ -1,6 +1,7 @@
 import { Swiper } from 'swiper';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import detectIt from 'detect-it';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,21 +22,23 @@ export default function newsSlider() {
         const cursor = element.querySelector('.news-slider__card-cursor');
         const cursorLayers = Array.from(cursor.querySelectorAll('.news-slider__card-cursor-layer'));
 
-        const cursorHandler = e => {
-            const xmouse = e.clientX || e.pageX;
-            const ymouse = e.clientY || e.pageY - window.scrollY;
-            cursor.style.left = xmouse + 'px';
-            cursor.style.top = ymouse + 'px';
-        };
+        if (!detectIt.hasTouch) {
+            const cursorHandler = e => {
+                const xmouse = e.clientX || e.pageX;
+                const ymouse = e.clientY || e.pageY - window.scrollY;
+                cursor.style.left = xmouse + 'px';
+                cursor.style.top = ymouse + 'px';
+            };
 
-        tabsContainer.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-        });
-        tabsContainer.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-        });
+            tabsContainer.addEventListener('mouseenter', () => {
+                cursor.classList.add('active');
+            });
+            tabsContainer.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+            });
 
-        document.addEventListener('mousemove', cursorHandler);
+            document.addEventListener('mousemove', cursorHandler);
+        }
 
         tabs.forEach((tab, tabIndex) => {
             const container = tab.querySelector('.swiper-container');
@@ -73,25 +76,27 @@ export default function newsSlider() {
 
             sliders.push(instance);
 
-            slides.forEach((slide, slideIndex) => {
-                slide.addEventListener('mouseenter', () => {
-                    slides.forEach(otherSlide => {
-                        if (otherSlide !== slide) {
-                            otherSlide.classList.add('faded');
+            if (!detectIt.hasTouch) {
+                slides.forEach((slide, slideIndex) => {
+                    slide.addEventListener('mouseenter', () => {
+                        slides.forEach(otherSlide => {
+                            if (otherSlide !== slide) {
+                                otherSlide.classList.add('faded');
+                            }
+                        });
+
+                        if (cursorImages[slideIndex]) {
+                            cursorImages[slideIndex].classList.add('active');
                         }
                     });
 
-                    if (cursorImages[slideIndex]) {
-                        cursorImages[slideIndex].classList.add('active');
-                    }
-                });
+                    slide.addEventListener('mouseleave', () => {
+                        slides.forEach(slide => slide.classList.remove('faded'));
 
-                slide.addEventListener('mouseleave', () => {
-                    slides.forEach(slide => slide.classList.remove('faded'));
-
-                    cursorImages[slideIndex].classList.remove('active');
+                        cursorImages[slideIndex].classList.remove('active');
+                    });
                 });
-            });
+            }
         });
 
         const setActiveTab = index => {
