@@ -1882,6 +1882,14 @@ select:-webkit-autofill:focus {
   .touch .intro__cursor {
     display: none; }
 
+.intro__slider-image-hover-area {
+  position: absolute;
+  right: 8rem;
+  bottom: 0;
+  height: 50rem;
+  width: 50rem;
+  pointer-events: initial; }
+
 .page-header {
   position: fixed;
   left: 0;
