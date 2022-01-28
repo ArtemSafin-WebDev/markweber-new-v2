@@ -47,23 +47,28 @@
 .page-header__logo-link {
     transition: none;
     pointer-events: initial;
-}
+    position: relative;
+    z-index: 200;
 
-.page-header__logo-image {
-    width: 10rem;
+    svg {
+        width: 10rem;
 
-    @include breakpoint(mobile) {
-        width: 8.4rem;
-        position: relative;
-        bottom: -0.2rem;
+        @include breakpoint(mobile) {
+            width: 8.4rem;
+            position: relative;
+            bottom: -0.2rem;
+        }
     }
 }
+
+
 
 .page-header__buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
     grid-column: 3 / 4;
+  
 }
 
 .page-header__button {
@@ -307,3 +312,5 @@
         color: white !important;
     }
 }
+
+

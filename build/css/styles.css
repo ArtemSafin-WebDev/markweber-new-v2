@@ -1472,7 +1472,40 @@ select:-webkit-autofill:focus {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  position: relative; }
+  position: relative;
+  -webkit-transition: color 0.2s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s, -webkit-transform 0.4s ease-out 1.6s;
+  transition: color 0.2s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s, -webkit-transform 0.4s ease-out 1.6s;
+  transition: color 0.2s, transform 0.4s ease-out 1.6s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s;
+  transition: color 0.2s, transform 0.4s ease-out 1.6s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s, -webkit-transform 0.4s ease-out 1.6s;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateX(8rem);
+          transform: translateX(8rem); }
+  .intro__services-link:nth-child(2) {
+    -webkit-transition: color 0.2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s, -webkit-transform 0.4s ease-out 2s;
+    transition: color 0.2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s, -webkit-transform 0.4s ease-out 2s;
+    transition: color 0.2s, transform 0.4s ease-out 2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s;
+    transition: color 0.2s, transform 0.4s ease-out 2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s, -webkit-transform 0.4s ease-out 2s; }
+  .intro__services-link:nth-child(3) {
+    -webkit-transition: color 0.2s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s, -webkit-transform 0.4s ease-out 2.4s;
+    transition: color 0.2s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s, -webkit-transform 0.4s ease-out 2.4s;
+    transition: color 0.2s, transform 0.4s ease-out 2.4s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s;
+    transition: color 0.2s, transform 0.4s ease-out 2.4s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s, -webkit-transform 0.4s ease-out 2.4s; }
+  .intro__services-link:nth-child(4) {
+    -webkit-transition: color 0.2s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s, -webkit-transform 0.4s ease-out 2.8s;
+    transition: color 0.2s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s, -webkit-transform 0.4s ease-out 2.8s;
+    transition: color 0.2s, transform 0.4s ease-out 2.8s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s;
+    transition: color 0.2s, transform 0.4s ease-out 2.8s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s, -webkit-transform 0.4s ease-out 2.8s; }
+  .intro__services-link:nth-child(5) {
+    -webkit-transition: color 0.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s, -webkit-transform 0.4s ease-out 3.2s;
+    transition: color 0.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s, -webkit-transform 0.4s ease-out 3.2s;
+    transition: color 0.2s, transform 0.4s ease-out 3.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s;
+    transition: color 0.2s, transform 0.4s ease-out 3.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s, -webkit-transform 0.4s ease-out 3.2s; }
+  .animatable .intro__services-link {
+    opacity: 1;
+    visibility: inherit;
+    -webkit-transform: translateX(0);
+            transform: translateX(0); }
   @media only screen and (max-width: 640px) {
     .intro__services-link {
       font-size: 4rem;
@@ -1889,6 +1922,9 @@ select:-webkit-autofill:focus {
   height: 50rem;
   width: 50rem;
   pointer-events: initial; }
+  @media only screen and (max-width: 640px) {
+    .intro__slider-image-hover-area {
+      pointer-events: none; } }
 
 .page-header {
   position: fixed;
@@ -1928,15 +1964,16 @@ select:-webkit-autofill:focus {
 .page-header__logo-link {
   -webkit-transition: none;
   transition: none;
-  pointer-events: initial; }
-
-.page-header__logo-image {
-  width: 10rem; }
-  @media only screen and (max-width: 640px) {
-    .page-header__logo-image {
-      width: 8.4rem;
-      position: relative;
-      bottom: -0.2rem; } }
+  pointer-events: initial;
+  position: relative;
+  z-index: 200; }
+  .page-header__logo-link svg {
+    width: 10rem; }
+    @media only screen and (max-width: 640px) {
+      .page-header__logo-link svg {
+        width: 8.4rem;
+        position: relative;
+        bottom: -0.2rem; } }
 
 .page-header__buttons {
   display: -webkit-box;
@@ -5575,3 +5612,12 @@ textarea.contact__form-input {
     transition: -webkit-clip-path 0.3s;
     transition: clip-path 0.3s;
     transition: clip-path 0.3s, -webkit-clip-path 0.3s; }
+
+.loader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #24282b;
+  z-index: 800; }

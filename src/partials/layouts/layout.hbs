@@ -25,6 +25,97 @@
     <div class="page-content">
         {{> menu }}
         {{> header }}
+        <style>
+            .loader {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #24282b;
+                z-index: 800;
+                display: flex;
+                flex-direction: column;
+                transition: clip-path .5s ease-out 1.1s;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .loader-container {
+                width: 100%;
+                max-width: calc(var(--max-container-width) + 2 * var(--content-padding));
+                margin: 0 auto;
+                padding: 0 var(--content-padding);
+                position: relative;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+
+            }
+
+            .loader-container::before,
+            .loader-container::after {
+                content: '';
+                width: 1px;
+                flex-grow: 1;
+                transition: flex-grow .7s ease .4s;
+            }
+
+            @supports (width: max(20vw, 100px)) {
+                .loader-container {
+                    padding-left: max(env(safe-area-inset-left, 1.4rem), var(--content-padding));
+                    padding-right: max(env(safe-area-inset-right, 1.4rem), var(--content-padding));
+                }
+
+            }
+
+            .loader-logo-wrapper {
+                min-height: var(--header-height);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .loader svg {
+                width: 10rem;
+                fill: white;
+            }
+
+            .loader svg .bar {
+                transition: clip-path .4s;
+                clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+            }
+
+            .animatable .loader svg .bar {
+                  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .animatable .loader-container::before {
+                flex-grow: 0;
+            }
+
+            .animatable .loader {
+                clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+            }
+
+            @media screen and (max-width: 640px) {
+                .loader svg {
+                    width: 8.4rem;
+                    position: relative;
+                    bottom: -0.2rem;
+                }
+            }
+        </style>
+        <div class="loader">
+            <div class="loader-container">
+
+                <div class="loader-logo-wrapper">
+
+
+                    {{> logo }}
+                </div>
+            </div>
+        </div>
         <main class="page-main">
             {{#block "main"}}
 

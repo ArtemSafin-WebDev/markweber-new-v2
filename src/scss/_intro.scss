@@ -153,6 +153,28 @@
     overflow: hidden;
     display: inline-flex;
     position: relative;
+    transition: color 0.2s, transform 0.4s ease-out 1.6s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(8rem);
+    &:nth-child(2) {
+        transition: color 0.2s, transform 0.4s ease-out 2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s;
+    }
+    &:nth-child(3) {
+        transition: color 0.2s, transform 0.4s ease-out 2.4s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s;
+    }
+    &:nth-child(4) {
+        transition: color 0.2s, transform 0.4s ease-out 2.8s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s;
+    }
+    &:nth-child(5) {
+        transition: color 0.2s, transform 0.4s ease-out 3.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s;
+    }
+
+    .animatable & {
+        opacity: 1;
+        visibility: inherit;
+        transform: translateX(0);
+    }
 
     @include breakpoint(mobile) {
         font-size: 4rem;
@@ -622,7 +644,6 @@
     }
 }
 
-
 .intro__slider-image-hover-area {
     position: absolute;
     right: 8rem;
@@ -630,4 +651,8 @@
     height: 50rem;
     width: 50rem;
     pointer-events: initial;
+
+    @include breakpoint(mobile) {
+        pointer-events: none;
+    }
 }
