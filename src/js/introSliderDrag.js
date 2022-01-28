@@ -1,6 +1,8 @@
 import gsap from 'gsap';
+import detectIt from 'detect-it';
 
 export default function introSliderDrag() {
+    if (detectIt.hasTouch) return;
     const elements = Array.from(document.querySelectorAll('.js-intro-slider'));
 
     elements.forEach(element => {

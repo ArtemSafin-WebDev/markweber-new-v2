@@ -1879,6 +1879,8 @@ select:-webkit-autofill:focus {
           mask-repeat: no-repeat;
   -webkit-mask-image: url("../img/mask-optimized.png");
           mask-image: url("../img/mask-optimized.png"); }
+  .touch .intro__cursor {
+    display: none; }
 
 .page-header {
   position: fixed;
