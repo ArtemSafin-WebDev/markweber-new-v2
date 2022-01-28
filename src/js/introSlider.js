@@ -31,7 +31,6 @@ export default function IntroSlider() {
 
         const setActiveSlide = (index, reverseDirection = false) => {
             if (locked) return;
-           
 
             let direction;
 
@@ -79,6 +78,9 @@ export default function IntroSlider() {
                         nextCallback();
                         nextCallback = null;
                     }
+
+                    var evt = new Event('intro-slider-change', { bubbles: true });
+                    document.dispatchEvent(evt);
                 }
             });
 
@@ -240,8 +242,6 @@ export default function IntroSlider() {
             } else {
                 setActiveSlide(0, true);
             }
-
-          
         };
         const goPrevSlide = () => {
             if (locked) {
@@ -254,8 +254,6 @@ export default function IntroSlider() {
             } else {
                 setActiveSlide(descriptions.length - 1, true);
             }
-
-            
         };
 
         initialize();
@@ -337,7 +335,6 @@ export default function IntroSlider() {
         }
 
         if (window.matchMedia('(max-width: 640px)').matches) {
-    
             mobileAutoplay(activeIndex);
         } else {
             nextBtn.classList.add('autoplay');

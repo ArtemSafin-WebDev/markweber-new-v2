@@ -36,6 +36,8 @@ export default function introSliderDrag() {
         let imageTop = image.getBoundingClientRect().top;
         let imageLeft = image.getBoundingClientRect().left;
 
+       
+
         window.addEventListener('resize', () => {
             imageTop = image.getBoundingClientRect().top;
             imageLeft = image.getBoundingClientRect().left;
