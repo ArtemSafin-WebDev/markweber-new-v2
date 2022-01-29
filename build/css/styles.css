@@ -2901,7 +2901,7 @@ select:-webkit-autofill:focus {
   margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr)) var(--right-column-width);
-  margin-top: 8rem;
+  margin-top: 0rem;
   grid-gap: 5rem;
   margin-bottom: 17rem; }
   @media only screen and (max-width: 640px) {

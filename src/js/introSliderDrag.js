@@ -23,76 +23,121 @@ export default function introSliderDrag() {
                 overwrite: true
             });
         });
-        let imgLoad = imagesLoaded(element);
-        function onAlways(instance) {
-            const imageWrappers = Array.from(document.querySelectorAll('.intro__slider-image-wrapper'));
 
-            imageWrappers.forEach(wrapper => {
-                let hovered = false;
-                const image = wrapper.querySelector('.intro__slider-image');
-                const hoverArea = wrapper.querySelector('.intro__slider-image-hover-area');
+        function makeImageDrag() {
+            let mouseEnterTuple = null;
+            let mouseLeaveTuple = null;
+            let mouseMoveTuple = null;
+            function initializeImageDrag() {
+                const imageWrappers = Array.from(document.querySelectorAll('.intro__slider-image-wrapper'));
 
-                let imageTop = 0;
-                let imageLeft = 0;
+                imageWrappers.forEach(wrapper => {
+                    let hovered = false;
+                    const image = wrapper.querySelector('.intro__slider-image');
+                    const hoverArea = wrapper.querySelector('.intro__slider-image-hover-area');
 
-                const setImagePosition = () => {
+                    let imageTop = 0;
+                    let imageLeft = 0;
 
-                    const blockLeft = element.getBoundingClientRect().left;
-                    const blockTop = element.getBoundingClientRect().top + window.pageYOffset;
+                    const setImagePosition = () => {
+                        const blockLeft = element.getBoundingClientRect().left;
+                        const blockTop = element.getBoundingClientRect().top + window.pageYOffset;
 
-                    const imageInsideTop = image.getBoundingClientRect().top + window.pageYOffset;
-                    const imageInsideLeft = image.getBoundingClientRect().left;
+                        const imageInsideTop = image.getBoundingClientRect().top + window.pageYOffset;
+                        const imageInsideLeft = image.getBoundingClientRect().left;
 
-                    imageTop = imageInsideTop - blockTop;
-                    imageLeft = imageInsideLeft - blockLeft;
+                        imageTop = imageInsideTop - blockTop;
+                        imageLeft = imageInsideLeft - blockLeft;
 
-                    console.log('Image top', imageTop), console.log('Image left', imageLeft);
-                };
+                        console.log('Image top', imageTop), console.log('Image left', imageLeft);
+                    };
 
-                setImagePosition();
+                    setImagePosition();
 
-                window.addEventListener(
-                    'resize',
-                    debounce(() => {
-                        setImagePosition();
-                    }),
-                    300
-                );
-                hoverArea.addEventListener('mouseenter', () => {
-                    hovered = true;
-                });
-                hoverArea.addEventListener('mouseleave', () => {
-                    hovered = false;
+                    // window.addEventListener(
+                    //     'resize',
+                    //     debounce(() => {
+                    //         setImagePosition();
+                    //     }),
+                    //     300
+                    // );
 
-                    gsap.to(image, {
-                        x: 0,
-                        y: 0,
+                    const handleMouseEnter = () => {
+                        hovered = true;
+                    };
 
-                        duration: 0.3,
-                        overwrite: true
-                    });
-                });
-
-                element.addEventListener('mousemove', e => {
-                    if (hovered) {
-                        const x = e.pageX;
-                        const y = e.pageY;
-
-                        const xOffset = x - imageLeft - image.offsetWidth / 2;
-                        const yOffset = y - imageTop - image.offsetHeight / 2;
+                    const handleMouseLeave = () => {
+                        hovered = false;
 
                         gsap.to(image, {
-                            x: xOffset * 0.3,
-                            y: yOffset * 0.3,
+                            x: 0,
+                            y: 0,
 
                             duration: 0.3,
                             overwrite: true
                         });
-                    }
+                    };
+
+                    const handleMouseMove = e => {
+                        if (hovered) {
+                            const x = e.pageX;
+                            const y = e.pageY;
+
+                            const xOffset = x - imageLeft - image.offsetWidth / 2;
+                            const yOffset = y - imageTop - image.offsetHeight / 2;
+
+                            gsap.to(image, {
+                                x: xOffset * 0.3,
+                                y: yOffset * 0.3,
+
+                                duration: 0.3,
+                                overwrite: true
+                            });
+                        }
+                    };
+
+                    hoverArea.addEventListener('mouseenter', handleMouseEnter);
+                    hoverArea.addEventListener('mouseleave', handleMouseLeave);
+
+                    element.addEventListener('mousemove', handleMouseMove);
+
+                    mouseEnterTuple = [hoverArea, handleMouseEnter];
+                    mouseLeaveTuple = [hoverArea, handleMouseLeave];
+                    mouseMoveTuple = [element, handleMouseMove];
                 });
-            });
+            }
+
+            function destroyImageDrag() {
+                if (mouseEnterTuple) {
+                    mouseEnterTuple[0].removeEventListener('mouseenter', mouseEnterTuple[1]);
+                }
+                if (mouseEnterTuple) {
+                    mouseLeaveTuple[0].removeEventListener('mouseleave', mouseLeaveTuple[1]);
+                }
+                if (mouseMoveTuple) {
+                    mouseMoveTuple[0].addEventListener('mousemove', mouseMoveTuple[1]);
+                }
+            }
+
+            return {
+                initialize: initializeImageDrag,
+                destroy: destroyImageDrag
+            };
         }
 
+        const imageDrag = makeImageDrag();
+
+        let imgLoad = imagesLoaded(element);
+        function onAlways(instance) {
+            imageDrag.initialize();
+        }
         imgLoad.on('always', onAlways);
+
+        document.addEventListener('intro-slider-destroy', () => {
+            imageDrag.destroy();
+            setTimeout(() => {
+                imageDrag.initialize();
+            }, 100);
+        });
     });
 }
