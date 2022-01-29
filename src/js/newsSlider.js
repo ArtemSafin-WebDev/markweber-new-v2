@@ -67,9 +67,7 @@ export default function newsSlider() {
                             nextBtn.classList.remove('swiper-button-disabled');
                         }
 
-                        console.log('Progress', swiper.progress);
-                        console.log('Is end', swiper.isEnd);
-                        console.log('active index', swiper.activeIndex);
+                      
                     }
                 }
             });

@@ -32,24 +32,37 @@ export default function introSliderDrag() {
                 const image = wrapper.querySelector('.intro__slider-image');
                 const hoverArea = wrapper.querySelector('.intro__slider-image-hover-area');
 
-                let imageTop = image.getBoundingClientRect().top;
-                let imageLeft = image.getBoundingClientRect().left;
+                let imageTop = 0;
+                let imageLeft = 0;
+
+                const setImagePosition = () => {
+
+                    const blockLeft = element.getBoundingClientRect().left;
+                    const blockTop = element.getBoundingClientRect().top + window.pageYOffset;
+
+                    const imageInsideTop = image.getBoundingClientRect().top + window.pageYOffset;
+                    const imageInsideLeft = image.getBoundingClientRect().left;
+
+                    imageTop = imageInsideTop - blockTop;
+                    imageLeft = imageInsideLeft - blockLeft;
+
+                    console.log('Image top', imageTop), console.log('Image left', imageLeft);
+                };
+
+                setImagePosition();
 
                 window.addEventListener(
                     'resize',
                     debounce(() => {
-                        imageTop = image.getBoundingClientRect().top;
-                        imageLeft = image.getBoundingClientRect().left;
+                        setImagePosition();
                     }),
                     300
                 );
                 hoverArea.addEventListener('mouseenter', () => {
                     hovered = true;
-                    console.log('hovered');
                 });
                 hoverArea.addEventListener('mouseleave', () => {
                     hovered = false;
-                    console.log('not hovered');
 
                     gsap.to(image, {
                         x: 0,
@@ -60,16 +73,13 @@ export default function introSliderDrag() {
                     });
                 });
 
-                document.addEventListener('mousemove', e => {
+                element.addEventListener('mousemove', e => {
                     if (hovered) {
-                        const x = e.clientX;
-                        const y = e.clientY;
+                        const x = e.pageX;
+                        const y = e.pageY;
 
                         const xOffset = x - imageLeft - image.offsetWidth / 2;
                         const yOffset = y - imageTop - image.offsetHeight / 2;
-
-                        console.log('Y offset', yOffset);
-                        console.log('X offset', xOffset);
 
                         gsap.to(image, {
                             x: xOffset * 0.3,

@@ -301,7 +301,7 @@
     flex-grow: 1;
     position: relative;
     overflow: hidden;
-
+   
     @include breakpoint(mobile) {
         width: 100%;
         flex-grow: 0;
@@ -319,6 +319,7 @@
     height: auto;
     display: block;
     z-index: 5;
+  
 
     &.active {
         z-index: 10;
@@ -355,7 +356,7 @@
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    margin-left: 2rem;
+    padding-left: 2rem;
 
     @include breakpoint(mobile) {
         display: none;
@@ -646,11 +647,12 @@
 
 .intro__slider-image-hover-area {
     position: absolute;
-    right: 13rem;
-    bottom: 0;
-    height: 50rem;
+    right: 15rem;
+    bottom: 15rem;
+    height: 40rem;
     width: 50rem;
     pointer-events: initial;
+    // background-color: red;
 
     @include breakpoint(mobile) {
         pointer-events: none;

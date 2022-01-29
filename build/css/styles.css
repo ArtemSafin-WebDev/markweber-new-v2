@@ -1683,7 +1683,7 @@ select:-webkit-autofill:focus {
           align-items: center;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-left: 2rem; }
+  padding-left: 2rem; }
   @media only screen and (max-width: 640px) {
     .intro__slider-arrows {
       display: none; } }
@@ -1917,9 +1917,9 @@ select:-webkit-autofill:focus {
 
 .intro__slider-image-hover-area {
   position: absolute;
-  right: 13rem;
-  bottom: 0;
-  height: 50rem;
+  right: 15rem;
+  bottom: 15rem;
+  height: 40rem;
   width: 50rem;
   pointer-events: initial; }
   @media only screen and (max-width: 640px) {
