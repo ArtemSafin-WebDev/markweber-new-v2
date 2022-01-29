@@ -29,6 +29,7 @@ import introSliderDrag from './introSliderDrag';
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
     detectTouch();
+    introSliderDrag();
     IntroSlider();
     AnchorLinks();
     SectionsParallax();
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     RefreshScroll();
     setScrollbarWidth();
     newsSlider();
-    introSliderDrag();
+  
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 
