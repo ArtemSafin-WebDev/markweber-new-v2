@@ -2707,8 +2707,27 @@ select:-webkit-autofill:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-bottom: 4rem;
-  border-bottom: 1px solid white;
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem;
+  position: relative; }
+  .cases__top-nav-intro-row::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0); }
+  .cases__top-nav-intro-row.revealed::before {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1); }
   @media only screen and (max-width: 640px) {
     .cases__top-nav-intro-row {
       padding: 2.4rem 0;
@@ -3491,7 +3510,26 @@ select:-webkit-autofill:focus {
       line-height: 2.9rem;
       margin-bottom: 0;
       padding-bottom: 2rem;
-      border-bottom: 1px solid #24282b; } }
+      position: relative; }
+      .expertise__heading::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #24282b;
+        -webkit-transform-origin: left center;
+                transform-origin: left center;
+        -webkit-transition: -webkit-transform 0.5s ease-out;
+        transition: -webkit-transform 0.5s ease-out;
+        transition: transform 0.5s ease-out;
+        transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+        -webkit-transform: scaleX(0);
+                transform: scaleX(0); }
+      .expertise__heading.revealed::before {
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1); } }
 
 .expertise__navigation-links {
   display: -webkit-box;
@@ -3503,7 +3541,26 @@ select:-webkit-autofill:focus {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding-top: 3.5rem;
-  border-top: 1px solid #24282b; }
+  position: relative; }
+  .expertise__navigation-links::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #24282b;
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0); }
+  .expertise__navigation-links.revealed::before {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1); }
   @media only screen and (max-width: 640px) {
     .expertise__navigation-links {
       -ms-flex-wrap: nowrap;
@@ -3526,6 +3583,8 @@ select:-webkit-autofill:focus {
         background-color: transparent; }
       .expertise__navigation-links::-webkit-scrollbar-thumb {
         background-color: transparent; }
+      .expertise__navigation-links::before {
+        display: none; }
       .expertise__navigation-links::after {
         content: '';
         height: 1px;
@@ -3695,6 +3754,21 @@ select:-webkit-autofill:focus {
   grid-column-gap: 13rem;
   grid-row-gap: 6rem;
   margin-bottom: 8rem; }
+  @media only screen and (min-width: 641px) {
+    .expertise__main-slider-card-features {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translateY(6rem);
+              transform: translateY(6rem); }
+      .revealed .expertise__main-slider-card-features {
+        opacity: 1;
+        visibility: inherit;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        -webkit-transition: opacity .4s, visibility .4s, -webkit-transform .4s;
+        transition: opacity .4s, visibility .4s, -webkit-transform .4s;
+        transition: opacity .4s, visibility .4s, transform .4s;
+        transition: opacity .4s, visibility .4s, transform .4s, -webkit-transform .4s; } }
   @media only screen and (max-width: 640px) {
     .expertise__main-slider-card-features {
       margin-bottom: 3.8rem;
@@ -3739,6 +3813,21 @@ select:-webkit-autofill:focus {
   margin-bottom: 3rem;
   -ms-flex-item-align: start;
       align-self: flex-start; }
+  @media only screen and (min-width: 641px) {
+    .expertise__main-slider-card-contact-link {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translateY(6rem);
+              transform: translateY(6rem); }
+      .revealed .expertise__main-slider-card-contact-link {
+        opacity: 1;
+        visibility: inherit;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        -webkit-transition: color 0.2s, background-color 0.2s, opacity .4s, visibility .4s, -webkit-transform .4s;
+        transition: color 0.2s, background-color 0.2s, opacity .4s, visibility .4s, -webkit-transform .4s;
+        transition: color 0.2s, background-color 0.2s, opacity .4s, visibility .4s, transform .4s;
+        transition: color 0.2s, background-color 0.2s, opacity .4s, visibility .4s, transform .4s, -webkit-transform .4s; } }
   @media only screen and (max-width: 640px) {
     .expertise__main-slider-card-contact-link {
       -webkit-box-ordinal-group: 16;
@@ -3761,6 +3850,17 @@ select:-webkit-autofill:focus {
   overflow: hidden;
   background-color: var(--black);
   margin-top: 1rem; }
+  @media only screen and (min-width: 641px) {
+    .expertise__main-slider-card-image-container {
+      -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+              clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+      -webkit-transition: -webkit-clip-path 0.5s;
+      transition: -webkit-clip-path 0.5s;
+      transition: clip-path 0.5s;
+      transition: clip-path 0.5s, -webkit-clip-path 0.5s; }
+      .revealed .expertise__main-slider-card-image-container {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); } }
   @media only screen and (max-width: 640px) {
     .expertise__main-slider-card-image-container {
       margin-top: 0;
@@ -3815,6 +3915,21 @@ select:-webkit-autofill:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: auto; }
+  @media only screen and (min-width: 641px) {
+    .expertise__partners {
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transform: translateY(6rem);
+              transform: translateY(6rem); }
+      .revealed .expertise__partners {
+        opacity: 1;
+        visibility: inherit;
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        -webkit-transition: opacity .4s, visibility .4s, -webkit-transform .4s;
+        transition: opacity .4s, visibility .4s, -webkit-transform .4s;
+        transition: opacity .4s, visibility .4s, transform .4s;
+        transition: opacity .4s, visibility .4s, transform .4s, -webkit-transform .4s; } }
   @media only screen and (max-width: 640px) {
     .expertise__partners {
       margin: 0;
@@ -5471,7 +5586,20 @@ textarea.contact__form-input {
     color: var(--black); }
 
 .news-slider__tabs {
-  position: relative; }
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(5rem);
+          transform: translateY(5rem); }
+  .news-slider__tabs.revealed {
+    opacity: 1;
+    visibility: inherit;
+    -webkit-transition: opacity .4s, visibility .4s, -webkit-transform .4s ease-out;
+    transition: opacity .4s, visibility .4s, -webkit-transform .4s ease-out;
+    transition: opacity .4s, visibility .4s, transform .4s ease-out;
+    transition: opacity .4s, visibility .4s, transform .4s ease-out, -webkit-transform .4s ease-out;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
 
 .news-slider__tab {
   position: absolute;

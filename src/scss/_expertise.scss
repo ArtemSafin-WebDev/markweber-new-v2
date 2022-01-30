@@ -34,7 +34,29 @@
         line-height: 2.9rem;
         margin-bottom: 0;
         padding-bottom: 2rem;
-        border-bottom: 1px solid #24282b;
+       
+
+
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #24282b;
+            transform-origin: left center;
+            transition: transform 0.5s ease-out;
+            transform: scaleX(0);
+        }
+    
+        &.revealed {
+            &::before {
+                transform: scaleX(1);
+            }
+        }
     }
 }
 
@@ -43,7 +65,27 @@
     align-items: baseline;
     flex-wrap: wrap;
     padding-top: 3.5rem;
-    border-top: 1px solid #24282b;
+
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #24282b;
+        transform-origin: left center;
+        transition: transform 0.5s ease-out;
+        transform: scaleX(0);
+    }
+
+    &.revealed {
+        &::before {
+            transform: scaleX(1);
+        }
+    }
 
     @include breakpoint(mobile) {
         flex-wrap: nowrap;
@@ -57,6 +99,10 @@
         -webkit-overflow-scrolling: touch;
         border: none;
         @include noScrollbar();
+
+        &::before {
+            display: none;
+        }
 
         &::after {
             content: '';
@@ -110,7 +156,6 @@
             margin-right: 0;
         }
     }
-   
 }
 
 .expertise__nav-slider {
@@ -232,6 +277,21 @@
     grid-row-gap: 6rem;
     margin-bottom: 8rem;
 
+
+    @include breakpointMF(small-tablet) {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6rem);
+    
+        .revealed & {
+            opacity: 1;
+            visibility: inherit;
+            transform: translateY(0);
+            transition: opacity .4s, visibility .4s, transform .4s;
+        }
+    }
+   
+
     @include breakpoint(mobile) {
         margin-bottom: 3.8rem;
         grid-gap: 2rem;
@@ -277,6 +337,20 @@
     margin-bottom: 3rem;
     align-self: flex-start;
 
+    @include breakpointMF(small-tablet) {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6rem);
+    
+        .revealed & {
+            opacity: 1;
+            visibility: inherit;
+            transform: translateY(0);
+            transition: color 0.2s, background-color 0.2s, opacity .4s, visibility .4s, transform .4s;
+        }
+    }
+  
+
     @include breakpoint(mobile) {
         order: 15;
         margin-bottom: 0;
@@ -306,6 +380,17 @@
     overflow: hidden;
     background-color: var(--black);
     margin-top: 1rem;
+
+
+    @include breakpointMF(small-tablet) {
+        clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        transition: clip-path 0.5s;
+    
+        .revealed & {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+   
     @include breakpoint(mobile) {
         margin-top: 0;
         order: -1;
@@ -352,6 +437,21 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: auto;
+
+    @include breakpointMF(small-tablet) {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6rem);
+    
+        .revealed & {
+            opacity: 1;
+            visibility: inherit;
+            transform: translateY(0);
+            transition: opacity .4s, visibility .4s, transform .4s;
+        }
+    }
+
+  
 
     @include breakpoint(mobile) {
         margin: 0;

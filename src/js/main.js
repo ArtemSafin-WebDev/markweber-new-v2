@@ -23,6 +23,7 @@ import RefreshScroll from './refreshScroll';
 import setScrollbarWidth from './setScrollbarWidth';
 import newsSlider from './newsSlider';
 import introSliderDrag from './introSliderDrag';
+import blocksReveal from './blocksReveal';
 
 
 
@@ -51,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     RefreshScroll();
     setScrollbarWidth();
     newsSlider();
+    blocksReveal();
   
     
     const imgLoaded = imagesLoaded(document.querySelector('.page-content'));

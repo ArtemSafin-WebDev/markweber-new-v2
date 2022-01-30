@@ -44,8 +44,28 @@
     align-items: baseline;
     justify-content: space-between;
     padding-bottom: 4rem;
-    border-bottom: 1px solid white;
+
     margin-bottom: 4rem;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+        transform-origin: left center;
+        transition: transform 0.5s ease-out;
+        transform: scaleX(0);
+    }
+
+    &.revealed {
+        &::before {
+            transform: scaleX(1);
+        }
+    }
 
     @include breakpoint(mobile) {
         padding: 2.4rem 0;
@@ -267,7 +287,6 @@
 }
 
 .cases__image-grid-card-sizer {
-    
     display: block;
     width: 100%;
 }
@@ -289,8 +308,6 @@
     align-self: flex-start;
     padding-bottom: 62.5%;
     // aspect-ratio: 16 / 10;
-
-   
 
     &::after,
     &::before {
