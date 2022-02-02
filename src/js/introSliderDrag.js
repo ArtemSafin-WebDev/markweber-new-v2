@@ -87,8 +87,8 @@ export default function introSliderDrag() {
                             const yOffset = y - imageTop - image.offsetHeight / 2;
 
                             gsap.to(image, {
-                                x: xOffset * 0.3,
-                                y: yOffset * 0.3,
+                                x: xOffset * 0.15,
+                                y: yOffset * 0.15,
 
                                 duration: 0.3,
                                 overwrite: true

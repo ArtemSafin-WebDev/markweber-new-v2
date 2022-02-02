@@ -1,5 +1,5 @@
 import { Swiper, Autoplay, Navigation, Parallax, Controller } from 'swiper';
-
+import detectIt from 'detect-it';
 Swiper.use([Autoplay, Navigation, Parallax, Controller]);
 import Hammer from 'hammerjs';
 import gsap from 'gsap';
@@ -30,7 +30,7 @@ export default function ExpertiseSlider() {
                 allowTouchMove: true,
                 slideToClickedSlide: true,
                 init: false,
-                longSwipesRatio: 0.95,
+                longSwipesRatio: 0.7,
                 threshold: 5
             });
         }
@@ -133,6 +133,31 @@ export default function ExpertiseSlider() {
             });
         });
 
+        if (!window.matchMedia('(max-width: 640px)').matches && !detectIt.hasTouch) {
+            navSlides.forEach(slide => {
+                const card = slide.querySelector('.expertise__nav-slider-card');
+                slide.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        duration: 0.3,
+                        ease: 'easeOut',
+                        webkitTextFillColor: 'rgba(36, 40, 43, 1)',
+                        webkitTextStrokeColor: '#24282b'
+                    });
+                });
+
+                slide.addEventListener('mouseleave', () => {
+                    if (!slide.classList.contains('swiper-slide-active')) {
+                        gsap.to(card, {
+                            duration: 0.3,
+                            ease: 'easeOut',
+                            webkitTextFillColor: 'rgba(36, 40, 43, 0)',
+                            webkitTextStrokeColor: '#9BA1A4'
+                        });
+                    }
+                });
+            });
+        }
+
         if (window.matchMedia('(max-width: 640px)').matches) {
             scrollWrapper.addEventListener('touchmove', event => {
                 event.preventDefault();
@@ -151,17 +176,14 @@ export default function ExpertiseSlider() {
             hammertime.on('swipeleft', () => {
                 const currentIndex = mainSlider.activeIndex;
                 if (navSlides[currentIndex + 1]) {
-                    mainSlider.slideTo(currentIndex + 1)
+                    mainSlider.slideTo(currentIndex + 1);
                 }
-
-                
             });
             hammertime.on('swiperight', () => {
                 const currentIndex = mainSlider.activeIndex;
                 if (navSlides[currentIndex - 1]) {
-                    mainSlider.slideTo(currentIndex - 1)
+                    mainSlider.slideTo(currentIndex - 1);
                 }
-                
             });
         }
     });

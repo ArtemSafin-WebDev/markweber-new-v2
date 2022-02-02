@@ -116,6 +116,22 @@
     grid-column: 2 / 3;
     align-self: flex-start;
     max-width: 38.8rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4rem);
+    
+
+    .animatable & {
+        opacity: 1;
+        visibility: inherit;
+        transform: translateX(0);
+        transition: transform .6s ease-out 1.4s, opacity .6s ease 1.4s, visibility .6s ease 1.4s;
+        @include breakpoint(mobile) {
+            transition: transform .4s ease-out 1.6s, opacity .4s ease 1.6s, visibility .4s ease 1.6s;
+        }
+    }
+
+
 
     @include breakpoint(mobile) {
         font-size: 1.6rem;
@@ -147,27 +163,49 @@
 .intro__services-link {
     transition: color 0.2s;
     font-size: 7rem;
-    line-height: 1.4;
+    line-height: 1;
     letter-spacing: -0.02em;
     font-weight: 400;
     overflow: hidden;
     display: inline-flex;
     position: relative;
-    transition: color 0.2s, transform 0.4s ease-out 1.6s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s;
+
     opacity: 0;
     visibility: hidden;
     transform: translateX(8rem);
-    &:nth-child(2) {
-        transition: color 0.2s, transform 0.4s ease-out 2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s;
+    margin-bottom: 2.5rem;
+    &:last-child {
+        margin-bottom: 0;
     }
-    &:nth-child(3) {
+
+    transition: color 0.2s, transform 0.4s ease-out 2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s;
+    &:nth-child(2) {
         transition: color 0.2s, transform 0.4s ease-out 2.4s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s;
     }
-    &:nth-child(4) {
+    &:nth-child(3) {
         transition: color 0.2s, transform 0.4s ease-out 2.8s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s;
     }
-    &:nth-child(5) {
+    &:nth-child(4) {
         transition: color 0.2s, transform 0.4s ease-out 3.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s;
+    }
+    &:nth-child(5) {
+        transition: color 0.2s, transform 0.4s ease-out 3.6s, opacity 0.4s ease 3.6s, visibility 0.4s ease 3.6s;
+    }
+
+    @include breakpoint(mobile) {
+        transition: color 0.2s, transform 0.4s ease-out 1.6s, opacity 0.4s ease 1.6s, visibility 0.4s ease 1.6s;
+        &:nth-child(2) {
+            transition: color 0.2s, transform 0.4s ease-out 2s, opacity 0.4s ease 2s, visibility 0.4s ease 2s;
+        }
+        &:nth-child(3) {
+            transition: color 0.2s, transform 0.4s ease-out 2.4s, opacity 0.4s ease 2.4s, visibility 0.4s ease 2.4s;
+        }
+        &:nth-child(4) {
+            transition: color 0.2s, transform 0.4s ease-out 2.8s, opacity 0.4s ease 2.8s, visibility 0.4s ease 2.8s;
+        }
+        &:nth-child(5) {
+            transition: color 0.2s, transform 0.4s ease-out 3.2s, opacity 0.4s ease 3.2s, visibility 0.4s ease 3.2s;
+        }
     }
 
     .animatable & {
@@ -193,11 +231,11 @@
     //     color: rgba(white, 0.8);
     // }
 
-    .light-background & {
-        &:hover {
-            color: rgba(#24282b, 0.8);
-        }
-    }
+    // .light-background & {
+    //     &:hover {
+    //         color: rgba(#24282b, 0.8);
+    //     }
+    // }
 
     &::after {
         content: attr(data-text);
@@ -207,7 +245,7 @@
         width: 100%;
         height: auto;
         position: absolute;
-        transition: transform 0.3s, opacity 0.3s;
+        transition: transform 0.3s, opacity 0.2s;
         opacity: 0;
     }
 
@@ -224,7 +262,7 @@
 }
 
 .intro__services-link-inner {
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.2s;
 }
 
 .intro__scroll-down-link {
@@ -266,6 +304,21 @@
     position: relative;
     padding-top: 2rem;
 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4rem);
+    
+
+    .animatable & {
+        opacity: 1;
+        visibility: inherit;
+        transform: translateX(0);
+        transition: transform .6s ease-out 1.4s, opacity .6s ease 1.4s, visibility .6s ease 1.4s;
+        @include breakpoint(mobile) {
+            transition: transform .4s ease-out 1.6s, opacity .4s ease 1.6s, visibility .4s ease 1.6s;
+        }
+    }
+
     @include breakpoint(mobile) {
         max-width: none;
         padding-top: 1.8rem;
@@ -301,7 +354,7 @@
     flex-grow: 1;
     position: relative;
     overflow: hidden;
-   
+
     @include breakpoint(mobile) {
         width: 100%;
         flex-grow: 0;
@@ -319,7 +372,6 @@
     height: auto;
     display: block;
     z-index: 5;
-  
 
     &.active {
         z-index: 10;
@@ -623,8 +675,8 @@
 
 .intro__cursor {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     width: 70rem;
     height: 70rem;
     border-radius: 50%;
@@ -632,13 +684,20 @@
 
     z-index: -1;
     pointer-events: none;
-    background-color: rgba(white, 0.2);
-    // background-color: red;
-    mask-size: contain;
-    mask-position: center;
-    mask-repeat: no-repeat;
+    // background-color: rgba(white, 0.3);
+    // mask-image: url('../img/mask-optimized.png');
+    // mask-size: contain;
+    // mask-position: center;
+    // mask-repeat: no-repeat;
+    mix-blend-mode: overlay;
 
-    mask-image: url('../img/mask-optimized.png');
+    opacity: 0.3;
+    background-image: url('../img/intro-orb.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50rem;
+    height: 50rem;
 
     .touch & {
         display: none;

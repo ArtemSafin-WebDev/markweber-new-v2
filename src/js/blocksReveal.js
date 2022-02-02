@@ -8,6 +8,8 @@ export default function blocksReveal() {
                 entry.target.classList.add('revealed');
             }
 
+            console.log('Entry', entry.target);
+
             console.log('Intersection ratio', entry.intersectionRatio);
         });
     };

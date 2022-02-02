@@ -1,5 +1,6 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 const plumber = require('gulp-plumber');
 const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
@@ -59,15 +60,14 @@ gulp.task('handlebars', function () {
         .pipe(browserSync.stream());
 });
 
-gulp.task('styles', function () {
+gulp.task('styles', function() {
     return gulp
-        .src('src/scss/styles.scss')
-        .pipe(plumber())
-        .pipe(sass())
+        .src('src/scss/**/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
         .pipe(autoprefixer())
-        .pipe(gulp.dest('build/css'))
         .pipe(cssMinify())
-        .pipe(rename('styles.min.css'))
         .pipe(gulp.dest('build/css'))
         .pipe(browserSync.stream());
 });

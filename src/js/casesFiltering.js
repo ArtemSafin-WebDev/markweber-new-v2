@@ -12,7 +12,7 @@ export default function CasesFiltering() {
         };
         const callback = function(entries, observer) {
             entries.forEach(entry => {
-                if (entry.intersectionRatio > 0.7) {
+                if (entry.intersectionRatio > 0.35) {
                     entry.target.classList.add('revealed');
                 }
 
