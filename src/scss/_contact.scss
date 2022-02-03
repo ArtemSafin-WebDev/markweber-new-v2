@@ -463,6 +463,10 @@ textarea.contact__form-input {
     text-align: center;
     align-self: flex-start;
 
+    &--left-auto {
+        margin-left: auto;
+    }
+
     .no-touch &:hover {
         transform: scale(1.03);
     }
@@ -586,4 +590,14 @@ textarea.contact__form-input {
         margin-left: 0;
         border-radius: 4rem;
     }
+}
+
+
+.contact-us__application {
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }

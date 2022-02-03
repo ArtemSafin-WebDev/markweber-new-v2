@@ -1043,8 +1043,8 @@
                     </h3>
                 </div>
             </a>
-          
-          
+
+
         </div>
 
         <div class="cases__bottom-nav">
@@ -1612,7 +1612,7 @@
             <h2 class="contact-us__small-heading">
                 Расчитать проект
             </h2>
-            <form action="/" method="GET" class="contact-us__form">
+            <form action="/" method="GET" class="contact-us__form" data-need-validation="">
                 <div class="contact-us__layers">
                     <div class="contacts-us__layer active">
                         <div class="contact-us__intro-text">
@@ -1665,48 +1665,52 @@
                     <div class="contacts-us__layer">
                         <div class="contact-us__intro-text">
                             <p>
-                                Говорить о деньгах - это грубо? У меня нет манер, я компьютер. Каков ваш бюджет для
-                                этого
-                                полного веб-проекта?
+                                Опишите свою задачу
                             </p>
                         </div>
-                        <div class="contact-us__links">
-                            <label class="contact-us__checkbox">
-                                <input type="radio" name="price" value="300" class="contact-us__checkbox-input">
-                                <span class="contact-us__checkbox-content">
-                                    До 300 000 ₽
-                                </span>
+                        <div class="contact-us__application">
+                            <div class="contact__form-rows">
+                                <div class="contact__form-row">
 
-                            </label>
-                            <label class="contact-us__checkbox">
-                                <input type="radio" name="price" value="500" class="contact-us__checkbox-input">
-                                <span class="contact-us__checkbox-content">
-                                    300 000 - 500 000 ₽
-                                </span>
+                                    <textarea name="task" class="contact__form-input"></textarea>
+                                    <label class="contact__form-file js-file-upload">
+                                        <input type="file" class="contact__form-file-input">
+                                        <span class="contact__form-file-content">
+                                            <svg width="14" height="14" aria-hidden="true" class="icon-file">
+                                                <use xlink:href="#file" />
+                                            </svg>
+                                            <span class="contact__form-file-text js-file-upload-text">
+                                                Прикрепите файл
+                                            </span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="contact__form-row">
+                                    <h4 class="contact__form-subheading">
+                                        Как вас зовут
+                                    </h4>
 
-                            </label>
-                            <label class="contact-us__checkbox">
-                                <input type="radio" name="price" value="800" class="contact-us__checkbox-input">
-                                <span class="contact-us__checkbox-content">
-                                    500 000 - 800 000 ₽
-                                </span>
+                                    <input type="text" name="name" class="contact__form-input" required>
+                                </div>
+                                <div class="contact__form-row contact__form-row--half">
+                                    <h4 class="contact__form-subheading">
+                                        Телефон
+                                    </h4>
 
-                            </label>
-                            <label class="contact-us__checkbox">
-                                <input type="radio" name="price" value="1000" class="contact-us__checkbox-input">
-                                <span class="contact-us__checkbox-content">
-                                    Больше 1 000 000 ₽
-                                </span>
+                                    <input type="tel" name="phone" class="contact__form-input js-phone-input"
+                                        data-parsley-phone="" required="">
+                                </div>
+                                <div class="contact__form-row contact__form-row--half">
+                                    <h4 class="contact__form-subheading">
+                                        Эл. почта
+                                    </h4>
 
-                            </label>
-                            <label class="contact-us__checkbox">
-                                <input type="radio" name="price" value="2000" class="contact-us__checkbox-input">
-                                <span class="contact-us__checkbox-content">
-                                    Больше 2 000 000 ₽
-                                </span>
-
-                            </label>
-
+                                    <input type="email" name="email" class="contact__form-input" required="">
+                                </div>
+                            </div>
+                            <button class="contact__form-submit contact__form-submit--left-auto" type="submit">
+                                Отправить
+                            </button>
                         </div>
                     </div>
                 </div>
