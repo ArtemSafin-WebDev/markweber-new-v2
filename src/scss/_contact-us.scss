@@ -1,33 +1,32 @@
 .contact-us {
     background: #24282b;
     color: white;
-    padding-top: 11rem;
- 
+
     text-align: center;
     display: flex;
     flex-direction: column;
     position: relative;
- 
+
     z-index: 1;
 
     // overflow: hidden;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
-   
-    display: block;
-   
-    @include breakpoint(mobile) {
-        padding-top: 4rem;
-        
-    }
-}
 
+    display: flex;
+    flex-direction: column;
+}
 
 .contact-us__inner {
     padding-bottom: 11rem;
-    overflow:hidden;
+    padding-top: 11rem;
+    flex-grow: 1;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
     @include breakpoint(mobile) {
         padding-bottom: 5rem;
+        padding-top: 4rem;
     }
 }
 
@@ -43,7 +42,6 @@
     @include breakpoint(mobile) {
         mask-image: linear-gradient(to top, transparent 0, rgba(0, 0, 0, 1) 1.5rem);
     }
-   
 }
 
 .contact-us__bg {
@@ -68,8 +66,6 @@
     width: 42rem;
     height: 42rem;
 
-    
-
     width: 70rem;
     height: 70rem;
 }
@@ -82,15 +78,11 @@
     height: 100%;
     backface-visibility: hidden;
 
-
-   
     mask-size: contain;
     mask-position: center;
     mask-repeat: no-repeat;
     // mask-image: url('../img/mask.png');
     mask-image: url('../img/mask-optimized.png');
-    
-   
 }
 
 .contact-us__links {
@@ -203,7 +195,6 @@
 
 .contact-us__layers {
     position: relative;
-   
 }
 
 .contacts-us__layer {
