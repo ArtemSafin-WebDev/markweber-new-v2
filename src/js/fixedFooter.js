@@ -25,7 +25,7 @@ export default function FixedFooter() {
     }
 
     if (!window.matchMedia('(max-width: 640px)').matches) {
-     
+
         setFixedFooter();
         window.addEventListener('resize', debounce(() => {
             gsap.set(pageFooter, {
@@ -40,29 +40,21 @@ export default function FixedFooter() {
     }
 
     // ScrollTrigger.matchMedia({
-    //     '(min-width: 1025px)': () => {
+    //     '(min-width: 641px)': () => {
     //         const tl = gsap.timeline({
     //             scrollTrigger: {
-    //                 trigger: contactUs,
-    //                 start: 'bottom bottom',
-
-    //                 end: () => `+=${pageFooter.offsetHeight}`,
-
-    //                 scrub: true,
-    //                 markers: false
+    //                 trigger: pageFooter,
+    //                 start: 'top bottom',
+    //                 end: 'bottom bottom',
+    //                 scrub: true
     //             }
     //         });
 
-    //         tl.fromTo(
-    //             pageFooter,
-    //             {
-    //                 yPercent: -100
-    //             },
-    //             {
-    //                 ease: 'none',
-    //                 yPercent: 0
-    //             }
-    //         );
+    //         tl.from(pageFooterInner, {
+    //             yPercent: -100,
+    //             duration: 0.4,
+    //             ease: 'none'
+    //         });
     //     }
     // });
 }

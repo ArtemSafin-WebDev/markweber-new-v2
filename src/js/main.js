@@ -9,7 +9,7 @@ import Orb from './orb';
 import ExpertiseSlider from './expertiseSlider';
 import Menu from './menu';
 import HeaderHovers from './headerHovers';
-import StoriesSlider from './storiesSlider';
+
 import ContactUsModal from './contactUsModal';
 import FixedFooter from './fixedFooter';
 import ContactLink from './contactLink';
@@ -33,15 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
     introSliderDrag();
     IntroSlider();
     AnchorLinks();
+    FixedFooter();
     SectionsParallax();
     CasesFiltering();
     Orb();
     ExpertiseSlider();
     Menu();
     HeaderHovers();
-    StoriesSlider();
+    
     ContactUsModal();
-    FixedFooter();
+   
     ContactLink();
     FixedHeader();
     MobileContactLink();
