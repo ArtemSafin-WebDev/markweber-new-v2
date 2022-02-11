@@ -1,5 +1,6 @@
 export default function FixedHeader() {
-    const pageHeader = document.querySelector('.page-header')
+    const pageHeader = document.querySelector('.page-header');
+    if (!pageHeader) return;
     if (window.matchMedia('(max-width: 640px)').matches) {
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 30) {

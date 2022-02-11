@@ -4,6 +4,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 export default function Menu() {
     const menu = document.querySelector('.menu');
+    if (!menu) return;
 
     const menuBg = document.querySelector('.menu__bg');
     const secondaryLinks = Array.from(document.querySelectorAll('.menu__secondary-nav-link'));
