@@ -24,7 +24,7 @@ import setScrollbarWidth from './setScrollbarWidth';
 import newsSlider from './newsSlider';
 import introSliderDrag from './introSliderDrag';
 import blocksReveal from './blocksReveal';
-
+import './midnight';
 
 
 document.addEventListener('DOMContentLoaded', function() {
