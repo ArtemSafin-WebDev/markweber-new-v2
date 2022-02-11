@@ -3,30 +3,51 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollToPlugin);
 
+export default function anchorLinks() {
+    const OFFSET = 80;
+    const DURATION = 2;
+    const scrollByHash = hash => {
+        const elementToScroll = document.querySelector(hash);
+        if (elementToScroll && !elementToScroll.matches('.js-modal')) {
+            if (window.menuOpen && typeof window.closeMenu === 'function') {
+                window.closeMenu();
+            } else if (window.activeModal && typeof window.closeModal === 'function') {
+                window.closeModal(window.activeModal);
+            }
 
-export default function AnchorLinks() {
+            gsap.to(window, {
+                duration: DURATION,
+                ease: 'power2.out',
+                scrollTo: {
+                    y: elementToScroll,
+                    autoKill: false,
+                    offsetY: OFFSET
+                }
+            });
+        } else {
+            console.error('No element to scroll');
+        }
+    };
     document.addEventListener('click', event => {
         if (event.target.matches('a') || event.target.closest('a')) {
             const link = event.target.matches('a') ? event.target : event.target.closest('a');
             const hash = link.hash;
 
-            if (hash && hash.startsWith('#to-')) {
-               
+            // console.log('Hash', hash);
+
+            const url = new URL(link.href);
+            const pageUrl = new URL(window.location);
+
+            if (pageUrl.pathname !== url.pathname) return;
+
+            if (hash) {
                 event.preventDefault();
-
-                if (window.menuOpen && typeof window.closeMenu === 'function') {
-                    window.closeMenu();
-                }
-
-                const elementToScroll = document.getElementById(hash.replace(/^#to\-/, ''));
-                if (elementToScroll) {
-                    gsap.to(window, { duration: 2, ease: "power2.out", scrollTo: {
-                        y: elementToScroll,
-                        autoKill: true
-                    } });
-                  
-                }
+                scrollByHash(hash);
             }
         }
     });
+
+    if (window.location.hash) {
+        scrollByHash(window.location.hash);
+    }
 }
