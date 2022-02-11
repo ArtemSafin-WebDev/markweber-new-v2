@@ -1,0 +1,77 @@
+@import 'mixins';
+
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --max-container-width: 156rem;
+    --content-padding: 6rem;
+    --right-column-width: 52rem;
+    --header-height: 11rem;
+    --left-column-width: 26rem;
+    --primary-color: #F9CC46;
+    --golos: 'Golos Text', sans-serif;
+    --black: #24282B;
+    --inter: 'Inter', sans-serif;
+
+    @include breakpoint(tablet) {
+        --content-padding: 4rem;
+    }
+
+    @include breakpoint(small-tablet) {
+        --left-column-width: 0;
+    }
+
+    @include breakpoint(mobile) {
+        --content-padding: 2rem;
+        --header-height: 5.6rem;
+    }
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+    -webkit-text-size-adjust: 100%;
+  
+    @include noHighlight();
+
+
+    font-size: clamp(5px, 0.56vw, 25px);
+
+
+    @media screen and (max-width: 1680px) {
+        font-size: clamp(5px, 0.6vw, 25px);
+    }
+
+    @include breakpoint(mobile) {
+        font-size: 10px;
+    }
+    @include breakpoint(supersmall-mobile) {
+        font-size: 9px;
+    }
+}
+
+body {
+    min-width: 320px;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: var(--black);
+    font-family: var(--golos);
+
+    &.dark {
+        background-color: #24282a;
+        color: white;
+    }
+}
+
+

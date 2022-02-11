@@ -1,0 +1,22 @@
+@import '../../node_modules/swiper/swiper-bundle';
+@import '../../node_modules/choices.js/public/assets/styles/choices';
+
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 300ms;
+}
+
+
+.swiper-slide {
+    box-sizing: border-box;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
