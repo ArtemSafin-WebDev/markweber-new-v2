@@ -5,6 +5,7 @@ export default function FileUpload() {
         const input = element.querySelector('input[type="file"]');
         const label = element.querySelector('.js-file-upload-text');
         const form = element.closest('form');
+        const originalLabelText = label.textContent;
         // const labelOriginalText = label.textContent;
 
         input.addEventListener('change', () => {
