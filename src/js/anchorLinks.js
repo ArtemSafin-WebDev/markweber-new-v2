@@ -38,7 +38,7 @@ export default function anchorLinks() {
             const url = new URL(link.href);
             const pageUrl = new URL(window.location);
 
-            if (pageUrl.pathname !== url.pathname) return;
+            if ((pageUrl.pathname !== url.pathname) && (url.pathname !== '/')) return;
 
             if (hash) {
                 event.preventDefault();

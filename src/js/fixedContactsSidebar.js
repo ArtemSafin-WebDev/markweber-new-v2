@@ -18,4 +18,10 @@ export default function FixedContactsSidebar() {
             });
         }
     });
+
+    const forms = Array.from(document.querySelectorAll('form'));
+
+    forms.forEach(form => form.addEventListener('reset', () => {
+        ScrollTrigger.refresh();
+    }))
 }
