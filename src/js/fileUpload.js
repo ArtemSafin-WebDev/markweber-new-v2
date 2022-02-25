@@ -4,7 +4,7 @@ export default function FileUpload() {
     elements.forEach(element => {
         const input = element.querySelector('input[type="file"]');
         const label = element.querySelector('.js-file-upload-text');
-
+        const form = element.closest('form');
         // const labelOriginalText = label.textContent;
 
         input.addEventListener('change', () => {
@@ -12,5 +12,13 @@ export default function FileUpload() {
                 label.textContent = input.files[0].name;
             }
         });
+
+        if (form) {
+            form.addEventListener('reset', () => {
+                input.value = '';
+                label.innerHTML = originalLabelText;
+                element.classList.remove('file-loaded');
+            })
+        }
     });
 }
