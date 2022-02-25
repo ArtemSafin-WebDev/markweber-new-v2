@@ -482,10 +482,11 @@
 }
 
 .expertise__partners-link-image {
-    max-width: 8.4rem;
-    max-height: 6.4rem;
+    // max-width: 8.4rem;
+    // max-height: 6.4rem;
     width: auto;
     height: auto;
+    max-width: 100%;
     @include objectFitContain();
 
     @include breakpoint(mobile) {
