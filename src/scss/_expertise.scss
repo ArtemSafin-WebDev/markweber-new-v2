@@ -425,11 +425,10 @@
 }
 
 .expertise__partners {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: auto;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: center;
 
     @include breakpointMF(small-tablet) {
         opacity: 0;
@@ -445,51 +444,29 @@
     }
 
     @include breakpoint(mobile) {
-        margin: 0;
-        flex-wrap: nowrap;
-        justify-content: initial;
-        align-items: center;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        @include noScrollbar();
-        margin-left: calc(-1 * var(--content-padding));
-        margin-right: calc(-1 * var(--content-padding));
-        padding-left: var(--content-padding);
-        padding-right: var(--content-padding);
-
-        &::after {
-            content: '';
-            width: var(--content-padding);
-            height: 1px;
-            flex-shrink: 0;
-        }
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
 .expertise__partners-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-right: 3rem;
-
-    @include breakpoint(mobile) {
-        margin-right: 4rem;
-    }
-    &:last-child {
-        margin-right: 0;
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 56.25%;
     }
 }
 
 .expertise__partners-link-image {
-    // max-width: 8.4rem;
-    // max-height: 6.4rem;
+    
     width: auto;
     height: auto;
-    max-width: 100%;
-    @include objectFitContain();
-
-    @include breakpoint(mobile) {
-        max-height: 6rem;
-    }
+    max-width: 65%;
+    max-height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
 }

@@ -33,6 +33,12 @@ export default function IntroSlider() {
             let locked = false;
             let nextCallback = null;
 
+            if (backgrounds[activeIndex].hasAttribute('data-light-bg')) {
+                document.body.classList.add('light-background');
+            } else {
+                document.body.classList.remove('light-background');
+            }
+
             const setActiveSlide = (index, reverseDirection = false) => {
                 if (locked) return;
 

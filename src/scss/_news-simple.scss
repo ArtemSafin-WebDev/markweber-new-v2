@@ -1,0 +1,23 @@
+.news-simple {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 9rem;
+    @include breakpoint(mobile) {
+        padding-bottom: 5rem;
+    }
+}
+
+.news-simple__content {
+  
+
+    @include breakpointMF(small-tablet) {
+        padding-left: var(--left-column-width);
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.news-simple__info {
+    grid-column: span 3;
+}

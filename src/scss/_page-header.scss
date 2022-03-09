@@ -34,7 +34,7 @@
     @include breakpoint(mobile) {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+       
     }
 }
 
@@ -58,12 +58,16 @@
 .page-header__buttons {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+  
     grid-column: 3 / 4;
+
+    @include breakpoint(mobile) {
+        display: contents;
+    }
 }
 
 .page-header__button {
-    margin-right: auto;
+    margin-right: 7rem;
     width: 60px;
     height: 60px;
     flex-shrink: 0;
@@ -77,12 +81,49 @@
     @include breakpoint(mobile) {
         width: 26px;
         height: 26px;
+        margin-right: 0;
+        order: 10;
+        margin-left: auto;
+       
     }
 
     .no-touch:not(.menu-open) &.hovered {
         .page-header__button-content span {
             transform: scaleX(0.5);
             transition: transform 0.2s ease-out;
+        }
+    }
+}
+
+.page-header__languages {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.02em;
+    color: rgba(white, 0.4);
+    pointer-events: initial;
+    font-weight: 500;
+
+    @include breakpoint(mobile) {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .4s, visibility 0s linear .4s;
+        margin-left: 4.7rem;
+        font-weight: 400;
+
+        .menu-open & {
+            opacity: 1;
+            visibility: inherit;
+            transition: opacity .4s, visibility .4s;
+        }
+    }
+
+    a {
+        &.active {
+            color: white;
         }
     }
 }
@@ -145,7 +186,8 @@
 .page-header__contact-link {
     font-size: 1.5rem;
     line-height: 1.8rem;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.02em;
+
     flex-shrink: 0;
     transition: all 0.2s;
     display: inline-flex;
@@ -154,7 +196,8 @@
     color: white;
     position: relative;
     overflow: hidden;
-
+    margin-left: auto;
+    font-weight: 500;
     &::after {
         content: attr(data-text);
         pointer-events: none;
@@ -195,8 +238,8 @@
         @include breakpointMF(small-tablet) {
             padding: 0.9rem 1.5rem;
             border-radius: 4rem;
-            color: white;
-            background: #24282b;
+            color: white !important;
+            background: #24282b !important;
             &::after {
                 padding: 0.9rem 1.5rem;
             }
@@ -355,6 +398,23 @@
     .page-header__button-content > span {
         background-color: #24282b;
     }
+
+    .page-header__languages {
+        color: rgba(#24282b, 0.4);
+        a {
+            &.active {
+                color: #24282b;
+            }
+        }
+    }
+
+    .page-header__contact-link  {
+        color: #24282b;
+        &:link,
+        &:visited {
+            color: #24282b;
+        }
+    }
 }
 .midnightHeader.light {
     color: white;
@@ -366,6 +426,17 @@
     .page-header__button-content > span {
         background-color: white;
     }
+
+    .page-header__languages {
+        color: rgba(white, 0.4);
+        a {
+            &.active {
+                color: white;
+            }
+
+            
+        }
+    }
 }
 
 .light-background {
@@ -374,6 +445,25 @@
     }
     .page-header__button-content > span {
         background-color: #24282b;
+    }
+
+    .page-header__languages {
+        color: rgba(#24282b, 0.4);
+        a {
+            &.active {
+                color: #24282b;
+            }
+
+            
+        }
+    }
+
+    .page-header__contact-link  {
+        color: #24282b;
+        &:link,
+        &:visited {
+            color: #24282b;
+        }
     }
 }
 
@@ -393,4 +483,17 @@
     .page-header__contact-link {
         color: white !important;
     }
+
+    .page-header__languages {
+        color: rgba(white, 0.4) !important;
+        a {
+            &.active {
+                color: white !important;
+            }
+
+            
+        }
+    }
+
+
 }

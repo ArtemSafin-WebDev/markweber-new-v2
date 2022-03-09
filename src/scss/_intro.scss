@@ -329,6 +329,8 @@
     font-size: 1.5rem;
     line-height: 1.8rem;
     letter-spacing: -0.02em;
+    position: relative;
+    z-index: 70;
 
     @include breakpoint(mobile) {
         font-size: 1.2rem;

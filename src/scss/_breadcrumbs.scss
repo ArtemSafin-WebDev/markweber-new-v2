@@ -21,6 +21,13 @@
         background-color: #fff;
         position: absolute;
         top: 100%;
+        z-index: 10;
+    }
+
+    .breadcrumbs--dark & {
+        &::before {
+            background-color: #24282B;
+        }
     }
 }
 
@@ -42,12 +49,21 @@
         color: #586267;
     }
 
+
     svg {
         fill: white;
         width: 0.6rem;
         height: 1.2rem;
         flex-shrink: 0;
         margin: 0 2.5rem;
+    }
+
+    .breadcrumbs--dark & {
+        color: #24282B;
+
+        svg {
+            fill: #24282B;
+        }
     }
 
     &:not([href]) {

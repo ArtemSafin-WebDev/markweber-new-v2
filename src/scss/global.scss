@@ -1,6 +1,5 @@
 @import 'mixins';
 
-
 *,
 *::after,
 *::before {
@@ -15,9 +14,9 @@
     --right-column-width: 52rem;
     --header-height: 11rem;
     --left-column-width: 26rem;
-    --primary-color: #F9CC46;
+    --primary-color: #f9cc46;
     --golos: 'Golos Text', sans-serif;
-    --black: #24282B;
+    --black: #24282b;
     --inter: 'Inter', sans-serif;
 
     @include breakpoint(tablet) {
@@ -38,12 +37,10 @@ html {
     box-sizing: border-box;
     font-size: 10px;
     -webkit-text-size-adjust: 100%;
-  
+
     @include noHighlight();
 
-
     font-size: clamp(5px, 0.56vw, 25px);
-
 
     @media screen and (max-width: 1680px) {
         font-size: clamp(5px, 0.6vw, 25px);
@@ -68,10 +65,11 @@ body {
     color: var(--black);
     font-family: var(--golos);
 
+  
+
     &.dark {
         background-color: #24282a;
         color: white;
     }
 }
-
 

@@ -1,0 +1,35 @@
+.news-blockquote {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding-bottom: 16rem;
+    padding-top: 7rem;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        padding-top: 2rem;
+        padding-bottom: 7rem;
+    }
+}
+
+.news-blockquote__content {
+    padding-left: var(--left-column-width);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
+}
+
+.news-blockquote__text {
+    font-weight: normal;
+    font-size: 4.4rem;
+    line-height: 115%;
+    letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-weight: normal;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        letter-spacing: -0.02em;
+    }
+}

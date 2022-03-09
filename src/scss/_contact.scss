@@ -204,6 +204,7 @@
 
 .contact__intro-illustration {
     width: 9.4rem;
+    height: auto;
     flex-shrink: 0;
     margin-right: 4rem;
 }
@@ -412,6 +413,13 @@ textarea.contact__form-input {
     margin-top: 3rem;
     display: inline-flex;
 
+    .no-touch &:hover {
+        .contact__form-file-content {
+            background: white;
+            color: #303639;
+        }
+    }
+
     @include breakpoint(mobile) {
         margin-top: 2rem;
     }
@@ -437,6 +445,7 @@ textarea.contact__form-input {
     line-height: 2.5rem;
     letter-spacing: -0.02em;
     font-weight: 500;
+    transition: background-color .2s, color .2s;
     svg {
         width: 1.6rem;
         height: 2rem;

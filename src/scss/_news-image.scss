@@ -1,0 +1,82 @@
+.news-image {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 9rem;
+    @include breakpoint(mobile) {
+        padding-bottom: 5rem;
+    }
+    
+}
+
+.news-image__content {
+    padding-left: var(--left-column-width);
+}
+
+.news-image__image {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+.news-image__row {
+    padding-top: 1.6rem;
+    display: flex;
+    align-items: center;
+
+    @include breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        align-items: stretch;
+    }
+}
+
+.news-image__description {
+    width: 50%;
+    flex-grow: 1;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    @include breakpoint(mobile) {
+        width: 100%;
+        flex-grow: 0;
+    }
+}
+
+.news-image__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.02em;
+    color: #24282b;
+    font-weight: 500;
+    padding: .6rem 1.3rem;
+    border: 1px solid #24282B;
+    border-radius: 4rem;
+    transition: background-color .2s, color .2s;
+    flex-shrink: 0;
+    margin-left: 2rem;
+    white-space: nowrap;
+
+    @include breakpoint(mobile) {
+        margin: 0;
+        padding: .4rem 1rem;
+        align-self: flex-start;
+    }
+    &:link,
+    &:visited {
+        color: #24282b;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        background-color: #24282B;
+        color: white;
+    }
+}
