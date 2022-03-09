@@ -1,0 +1,1 @@
+.news-simple{background-color:#fff;position:relative;z-index:1;padding-bottom:9rem}@media only screen and (max-width:640px){.news-simple{padding-bottom:5rem}}@media only screen and (min-width:641px){.news-simple__content{padding-left:var(--left-column-width);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}}.news-simple__info{grid-column:span 3}

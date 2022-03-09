@@ -1,6 +1,5 @@
-@import 'vendor';
+
 @import 'mixins';
-@import 'global';
 @import 'default-content';
 @import 'reset';
 @import 'utils';
@@ -19,15 +18,7 @@
 @import 'contact';
 @import 'news-slider';
 @import 'news-meta';
-@import 'news-intro';
-@import 'news-simple';
-@import 'news-comment';
-@import 'news-question';
-@import 'news-remarked';
-@import 'news-blockquote';
-@import 'news-image-fullwidth';
-@import 'news-image';
-@import 'news-author';
+
 @import 'read-also';
 @import 'loader';
 
