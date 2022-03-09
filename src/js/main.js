@@ -24,7 +24,7 @@ import setScrollbarWidth from './setScrollbarWidth';
 import newsSlider from './newsSlider';
 import introSliderDrag from './introSliderDrag';
 import blocksReveal from './blocksReveal';
-import './midnight';
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -55,12 +55,15 @@ document.addEventListener('DOMContentLoaded', function() {
     newsSlider();
     blocksReveal();
   
-    
-    const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 
-    imgLoaded.on('always', () => {
-        $('.page-header').midnight();    
-    });
+    const pageContent = document.querySelector('.page-content');
+    if (pageContent) {
+        const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
+
+        imgLoaded.on('always', () => {
+            $('.page-header').midnight();    
+        });
+    }
 
 });
 
