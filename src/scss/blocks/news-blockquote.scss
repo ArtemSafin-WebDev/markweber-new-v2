@@ -27,6 +27,8 @@
     font-size: 4.4rem;
     line-height: 115%;
     letter-spacing: -0.02em;
+    padding: 0;
+    margin: 0;
 
     @include breakpoint(mobile) {
         font-weight: normal;

@@ -120,6 +120,12 @@
 }
 
 .news-author__social-link {
+    color: var(--black);
+    text-decoration: none;
+    &:link,
+    &:visited {
+        color: var(--black);
+    }
     &:hover {
         .news-author__social-name {
             color: var(--primary-color);
