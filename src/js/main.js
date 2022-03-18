@@ -54,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setScrollbarWidth();
     newsSlider();
     blocksReveal();
+
+  
   
 
     const pageContent = document.querySelector('.page-content');

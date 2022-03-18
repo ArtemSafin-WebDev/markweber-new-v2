@@ -1,0 +1,23 @@
+@import '../mixins';
+
+.case-image {
+    position: relative;
+    z-index: 1;
+    background-color: var(--case-bg);
+    color: white;
+    padding: 17rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @include breakpoint(mobile) {
+        padding: 4rem 0;
+        gap: 2rem;
+    }
+}
+
+.case-image__image {
+    display: block;
+    height: auto;
+    width: 100%;
+}

@@ -24,7 +24,7 @@
 
 .news-blockquote__text {
     font-weight: normal;
-    font-size: 4.4rem;
+    font-size: 3.2rem;
     line-height: 115%;
     letter-spacing: -0.02em;
     padding: 0;
@@ -32,8 +32,8 @@
 
     @include breakpoint(mobile) {
         font-weight: normal;
-        font-size: 2.4rem;
-        line-height: 2.9rem;
+        font-size: 2rem;
+        line-height: 1.2;
         letter-spacing: -0.02em;
     }
 }

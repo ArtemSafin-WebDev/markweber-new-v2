@@ -11,12 +11,18 @@
 //     z-index: 1;
 // }
 
+.page-footer--dark {
+    background-color: var(--case-bg);
+    color: white;
+}
+
 .page-footer__content {
     padding-left: var(--left-column-width);
 
     @include breakpoint(mobile) {
         padding-left: 0;
         padding-top: var(--header-height);
+        min-height: 100vh;
     }
 }
 
@@ -39,6 +45,10 @@
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-template-areas: 'mainnav mainnav secnav secnav' 'contactsdata contactsdata contactsdata social' 'download download download social';
+
+        .page-footer--dark & {
+            border-color: white;
+        }
     }
 }
 
@@ -76,6 +86,7 @@
     letter-spacing: -0.02em;
     margin-bottom: 1.2rem;
     display: inline-flex;
+
     @include breakpoint(mobile) {
         font-size: 2.4rem;
         line-height: 2.9rem;
@@ -89,6 +100,18 @@
 
     &:hover {
         color: #586267;
+    }
+
+    .page-footer--dark & {
+        color: white;
+        &:link,
+        &:visited {
+            color: white;
+        }
+
+        &:hover {
+            color: rgba(white, 0.5);
+        }
     }
 }
 
@@ -121,6 +144,18 @@
 
     &:hover {
         color: #24282b;
+    }
+
+    .page-footer--dark & {
+        color: #586267;
+        &:link,
+        &:visited {
+            color: #586267;
+        }
+
+        &:hover {
+            color: white;
+        }
     }
 }
 
@@ -160,6 +195,7 @@
     background-color: #f8f8f8;
     border-radius: 50%;
     transition: background-color 0.2s;
+
     svg {
         width: 1.6rem;
         height: 1.6rem;
@@ -173,6 +209,20 @@
 
         svg {
             fill: #f8f8f8;
+        }
+    }
+
+    .page-footer--dark & {
+        background: rgba(white, 0.1);
+        svg {
+            fill: white;
+        }
+
+        &:hover {
+            background-color: white;
+            svg {
+                fill: var(--case-bg);
+            }
         }
     }
 }
@@ -242,6 +292,18 @@
             }
         }
     }
+
+    .page-footer--dark & {
+        &:hover {
+            .page-footer__download-link-icon {
+                background-color: white;
+    
+                svg {
+                    fill: var(--case-bg);
+                }
+            }
+        }
+    }
 }
 
 .page-footer__download-link-icon {
@@ -263,6 +325,13 @@
         flex-shrink: 0;
         transition: fill 0.2s;
     }
+
+    .page-footer--dark & {
+        background-color: rgba(white, 0.1);
+        svg {
+            fill: white;
+        }
+    }
 }
 
 .page-footer__download-link-content {
@@ -276,6 +345,10 @@
     line-height: 1.8rem;
     color: #24282b;
     margin-bottom: 0.4rem;
+
+    .page-footer--dark & {
+        color: white;
+    }
 
     @include breakpoint(mobile) {
         font-size: 1.2rem;
@@ -291,6 +364,10 @@
     color: #586267;
     font-size: 1.5rem;
     line-height: 1.8rem;
+
+    .page-footer--dark & {
+        color: #586267;
+    }
 
     @include breakpoint(mobile) {
         font-size: 1.2rem;
@@ -320,6 +397,7 @@
 
         margin-bottom: 6rem;
     }
+
     & > ul {
         & > li {
             margin-bottom: 4rem;
@@ -376,6 +454,12 @@
             }
         }
     }
+
+    .page-footer--dark & {
+        & > ul > li > a {
+            color: white;
+        }
+    }
 }
 
 .page-footer__main-nav-link {
@@ -425,6 +509,15 @@
             }
         }
     }
+
+    .page-footer--dark & {
+        & > ul > li > a {
+            color: white;
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+    }
 }
 
 .page-footer__bottom-row {
@@ -435,6 +528,10 @@
 
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    .page-footer--dark & {
+        border-color: white;
+    }
 
     @include breakpoint(mobile) {
         display: flex;
@@ -477,5 +574,17 @@
 
     &:hover {
         color: #24282b;
+    }
+
+    .page-footer--dark & {
+        color: #586267;
+        &:link,
+        &:visited {
+            color: #586267;
+        }
+
+        &:hover {
+            color: white;
+        }
     }
 }

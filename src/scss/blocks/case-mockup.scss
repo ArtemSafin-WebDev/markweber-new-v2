@@ -1,0 +1,38 @@
+.case-mockup {
+    position: relative;
+    z-index: 1;
+    background: #41342d;
+    color: white;
+}
+
+.case-mockup__wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.case-mockup__mockup-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.case-mockup__content-wrapper {
+    position: absolute;
+    background-color: rgb(65, 158, 28);
+    top: 14.5%;
+    bottom: 18.5%;
+    left: 22.62%;
+    right: 22.58%;
+    z-index: 10;
+
+    img,
+    video {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

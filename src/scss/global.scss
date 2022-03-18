@@ -17,6 +17,7 @@
     --primary-color: #f9cc46;
     --golos: 'Golos Text', sans-serif;
     --black: #24282b;
+    --case-bg: #24282a; 
     --inter: 'Inter', sans-serif;
 
     @include breakpoint(tablet) {
@@ -30,6 +31,7 @@
     @include breakpoint(mobile) {
         --content-padding: 2rem;
         --header-height: 5.6rem;
+        
     }
 }
 

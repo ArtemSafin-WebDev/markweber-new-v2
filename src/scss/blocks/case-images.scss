@@ -1,0 +1,55 @@
+@import '../mixins';
+
+.case-images {
+    position: relative;
+    z-index: 1;
+    background-color: var(--case-bg);
+    color: white;
+    padding-bottom: 10rem;
+
+    &--with-bg {
+        padding-top: 10rem;
+        background: #41342d;
+    }
+}
+
+.case-images__row {
+    display: flex;
+    gap: 6rem;
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    img,
+    video {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .case-images--reverse & {
+        @include breakpointMF(small-tablet) {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.case-images__col {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    @include breakpoint(mobile) {
+        display: contents;
+    }
+
+    &:nth-child(1) {
+        width: 52rem;
+    }
+    &:nth-child(2) {
+        width: 50%;
+        flex-grow: 1;
+    }
+}

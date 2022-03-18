@@ -1,0 +1,126 @@
+@import '../mixins';
+
+.case-next {
+    position: relative;
+    z-index: 1;
+    background-color: var(--case-bg);
+    color: white;
+    padding-top: 12rem;
+    display: block;
+    // padding-bottom: 13rem;
+
+    &:link,
+    &:visited {
+        color: white;
+    }
+
+    @include breakpoint(mobile) {
+        padding-top: 8rem;
+        padding-bottom: 3rem;
+       
+    }
+
+ 
+}
+
+.case-next__content {
+    padding-left: var(--left-column-width);
+    display: flex;
+    flex-direction: column;
+  
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        
+    
+    }
+}
+
+.case-next__heading {
+    padding-top: 2rem;
+    border-top: 1px solid white;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    margin-bottom: 4rem;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        padding-top: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.case-next__row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+   
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+    }
+}
+
+.case-next__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12rem;
+    line-height: 144px;
+    letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 4rem;
+        line-height: 4.8rem;
+        letter-spacing: -0.02em;
+        margin-bottom: 0;
+    }
+}
+
+.case-next__link {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 8rem;
+    border: 1px solid #ffffff;
+    border-radius: 7rem;
+    transition: background-color 0.2s;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
+    svg {
+        width: 2.7rem;
+        height: 2.7rem;
+        flex-shrink: 0;
+        fill: white;
+        transition: fill 0.2s;
+    }
+
+    .no-touch &:hover,
+    .touch &:active {
+        background-color: white;
+        svg {
+            fill: var(--case-bg);
+        }
+    }
+}
+
+.case-next__preview {
+    display: block;
+    height: auto;
+    width: 100%;
+}
