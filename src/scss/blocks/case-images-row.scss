@@ -14,12 +14,14 @@
 
 .case-images-row__row {
     padding: 0 12rem;
-    display: flex;
-    gap: 13rem;
-    row-gap: 6rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 13rem;
+    grid-row-gap: 6rem;
     align-items: flex-start;
 
     @include breakpoint(mobile) {
+        display: flex;
         flex-direction: column;
         gap: 4rem;
         align-items: stretch;
@@ -30,9 +32,9 @@
 .case-images-row__image {
 
     @include breakpointMF(small-tablet) {
-        width: 30%;
-        flex-grow: 1;
+       
         height: auto;
+       
         &:nth-child(2) {
             margin-top: 12rem;
         }
