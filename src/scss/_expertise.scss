@@ -328,7 +328,7 @@
     padding: 2rem 3rem;
     background: #24282b;
     border-radius: 4rem;
-    transition: color 0.2s, background-color 0.2s, transform .4s;
+    transition: color 0.2s, background-color 0.2s, transform 0.4s;
     display: inline-flex;
     margin-bottom: 3rem;
     align-self: flex-start;
@@ -429,6 +429,7 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     align-items: center;
+    gap: 3rem;
 
     @include breakpointMF(small-tablet) {
         opacity: 0;
@@ -445,6 +446,7 @@
 
     @include breakpoint(mobile) {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem;
     }
 }
 
@@ -459,11 +461,10 @@
 }
 
 .expertise__partners-link-image {
-    
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: 65%;
-    max-height: 80%;
+    object-fit: contain;
+    object-position: left center;
     position: absolute;
     left: 50%;
     top: 50%;

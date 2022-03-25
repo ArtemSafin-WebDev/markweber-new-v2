@@ -139,35 +139,43 @@
 }
 
 .cases__top-navigation {
-    display: flex;
-    flex-direction: column;
+    @include breakpointMF(small-tablet) {
+        display: flex;
+        flex-direction: column;
 
-    margin-left: auto;
-    margin-right: 15rem;
-    margin-top: 0.7rem;
+        margin-left: auto;
+        margin-right: 15rem;
+        margin-top: 0.7rem;
+    }
 
     @include breakpoint(mobile) {
         margin: 0;
-        overflow-y: hidden;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        gap: 2rem;
+        
         margin-left: calc(-1 * var(--content-padding));
         margin-right: calc(-1 * var(--content-padding));
         padding-left: var(--content-padding);
         padding-right: var(--content-padding);
-        flex-direction: row;
+      
         margin-bottom: -1rem;
         padding-bottom: 1rem;
-
         @include noScrollbar();
+        gap: 2rem;
 
         &::after {
             content: '';
+            width: 1px;
             height: 1px;
-            width: var(--content-padding);
             flex-shrink: 0;
         }
     }
 }
+
+
 
 .cases__top-navigation-link {
     transition: color 0.2s;
@@ -180,10 +188,6 @@
     @include breakpoint(mobile) {
         flex-shrink: 0;
         white-space: nowrap;
-        margin-right: 2rem;
-        &:last-child {
-            margin-right: 0;
-        }
     }
     &::before {
         content: '';
@@ -403,7 +407,7 @@
 
             .cases__image-grid-card-content::after {
                 transform: scaleX(1);
-                transition: transform .4s ease-out;
+                transition: transform 0.4s ease-out;
             }
 
             .cases__image-grid-card-content {
@@ -444,7 +448,7 @@
     left: 2rem;
     bottom: 2.5rem;
     right: 2rem;
-  
+
     &::after {
         content: '';
         position: absolute;
@@ -454,7 +458,7 @@
         height: 1px;
         background-color: currentColor;
         transform-origin: left center;
-        transition: transform .3s;
+        transition: transform 0.3s;
         transform: scaleX(0);
     }
 
@@ -465,7 +469,6 @@
     }
 
     @include breakpoint(mobile) {
-        padding: 0;
         border: none;
         bottom: 2rem;
 
