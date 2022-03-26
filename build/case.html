@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-   
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/vendor.css" />
@@ -137,7 +137,7 @@
                 z-index: 800;
                 display: flex;
                 flex-direction: column;
-               
+
                 transition: clip-path .5s cubic-bezier(0.74, 0.01, 0.12, 0.99) 1.2s, opacity .2s ease 1.7s, visibility .2s linear 1.7s;
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
             }
@@ -200,13 +200,41 @@
                 }
             }
 
+
+            @keyframes bar {
+                0% {
+                    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+                }
+
+                70% {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                }
+
+                100% {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                }
+            }
+
             .loader svg .bar {
                 transition: clip-path .4s;
                 clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+
+
+                animation-name: bar;
+                animation-duration: 1.4s;
+                animation-iteration-count: infinite;
+                animation-fill-mode: forwards;
+
             }
 
-            .animatable .loader svg .bar {
-                  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                {
+                    {
+                     !-- .animatable .loader svg .bar {
+                        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                    }
+
+                    --
+                }
             }
 
             .animatable .loader-container::before {
