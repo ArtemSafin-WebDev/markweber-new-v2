@@ -4,7 +4,7 @@
     background-color: #fff;
     position: relative;
     z-index: 1;
-    padding-bottom: 10rem;
+    padding-bottom: 9rem;
 
     @include breakpoint(mobile) {
         display: none;
