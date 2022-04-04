@@ -121,7 +121,7 @@
     padding-bottom: 5rem;
 
     @include breakpoint(mobile) {
-        min-height: 50rem;
+        height: min(100vh, 50rem);
     }
 }
 
