@@ -31,15 +31,27 @@
 
 .case-images-row__image {
 
+    opacity: 0;
+    transition: opacity .5s, transform .5s;
+    transform: translateY(3rem);
+
+    .revealed & {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     @include breakpointMF(small-tablet) {
        
         height: auto;
        
         &:nth-child(2) {
             margin-top: 12rem;
+            transition-delay: .3s;
         }
         &:nth-child(3) {
             margin-top: 24rem;
+            transition-delay: .6s;
         }
     }
     

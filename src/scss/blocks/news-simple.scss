@@ -11,7 +11,7 @@
 }
 
 .news-simple__content {
-  
+    
 
     @include breakpointMF(small-tablet) {
         padding-left: var(--left-column-width);

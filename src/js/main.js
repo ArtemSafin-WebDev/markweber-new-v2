@@ -24,6 +24,7 @@ import setScrollbarWidth from './setScrollbarWidth';
 import newsSlider from './newsSlider';
 import introSliderDrag from './introSliderDrag';
 import blocksReveal from './blocksReveal';
+import blocksReveal2 from './blocksReveal2';
 
 
 
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setScrollbarWidth();
     newsSlider();
     blocksReveal();
+    blocksReveal2();
 
   
   

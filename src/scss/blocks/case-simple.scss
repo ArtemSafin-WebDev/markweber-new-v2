@@ -10,7 +10,12 @@
 .case-simple__content {
     padding: 9rem 0;
     padding-left: var(--left-column-width);
+    opacity: 0;
+    transition: opacity .5s;
 
+    .revealed & {
+        opacity: 1;
+    }
     @include breakpoint(mobile) {
         padding: 4rem 0;
     }
