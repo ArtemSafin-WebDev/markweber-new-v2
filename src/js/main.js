@@ -25,6 +25,7 @@ import newsSlider from './newsSlider';
 import introSliderDrag from './introSliderDrag';
 import blocksReveal from './blocksReveal';
 import blocksReveal2 from './blocksReveal2';
+import caseIntro from './caseIntro';
 
 
 
@@ -56,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     newsSlider();
     blocksReveal();
     blocksReveal2();
+    caseIntro();
 
   
   
