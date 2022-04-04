@@ -9,7 +9,7 @@ export default function blocksReveal2() {
     blocks.forEach(block => {
         ScrollTrigger.create({
             trigger: block,
-            start: 'top+=20% bottom',
+            start: 'top+=10% bottom',
             onToggle: self => block.classList.add('revealed')
         });
     });

@@ -12,6 +12,18 @@
 
 .news-remarked__content {
     padding-left: var(--left-column-width);
+    opacity: 0;
+    transform: translateY(7rem);
+    transition: transform .5s, opacity .5s;
+
+    @include breakpoint(mobile) {
+        transform: translateY(3rem);
+    }
+
+    .revealed & {
+        opacity: 1;
+        transform: translateY(0);
+    }
     @include breakpoint(mobile) {
         padding: 0;
     }

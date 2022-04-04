@@ -13,12 +13,19 @@
 
 .news-image__content {
     padding-left: var(--left-column-width);
+    
 }
 
 .news-image__image {
     display: block;
     height: auto;
     width: 100%;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 0.5s;
+
+    &.revealed {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
 
 .news-image__row {

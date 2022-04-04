@@ -14,4 +14,10 @@
     display: block;
     width: 100%;
     height: auto;
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 0.5s;
+
+    &.revealed {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
 }
