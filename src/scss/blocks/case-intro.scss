@@ -43,6 +43,12 @@
     align-items: center;
 }
 
+.case-intro__breadcrumbs {
+    .breadcrumbs__list-item.active .breadcrumbs__link {
+        color: rgba(white, .85);
+    }
+}
+
 .case-intro__main-card-page {
     font-style: normal;
     font-weight: 500;
@@ -107,7 +113,8 @@
 }
 
 .case-intro__content {
-    min-height: 78rem;
+    height: 100vh;
+    height: min(100vh, 100rem);
     display: flex;
     flex-direction: column;
     padding-left: var(--left-column-width);

@@ -24,6 +24,7 @@
     @include breakpoint(mobile) {
         width: 100%;
         margin: 0;
+        display: contents;
     }
 }
 
@@ -36,6 +37,13 @@
         margin: 0;
         margin-bottom: 8rem;
         order: -1;
+        display: contents;
+    }
+}
+
+.contact__sidebar {
+    @include breakpoint(mobile) {
+        display: contents;
     }
 }
 
@@ -50,7 +58,8 @@
         font-size: 4rem;
         line-height: 4.8rem;
         letter-spacing: -0.02em;
-        margin-bottom: 5rem;
+        margin-bottom: 4rem;
+        order: -3;
     }
 }
 
@@ -62,7 +71,8 @@
 
     @include breakpoint(mobile) {
         grid-row-gap: 3rem;
-        margin-bottom: 5.5rem;
+        margin-bottom: 4rem;
+        order: -1;
     }
 }
 
@@ -144,6 +154,10 @@
 .contact__sidebar-social-list {
     display: flex;
     align-items: center;
+
+    @include breakpoint(mobile) {
+        order: -1;
+    }
 }
 
 .contact__sidebar-social-list-item {
@@ -198,7 +212,9 @@
     padding-top: 1.2rem;
 
     @include breakpoint(mobile) {
-        display: none;
+        margin-bottom: 6rem;
+        padding-top: 0;
+        order: -2;
     }
 }
 
@@ -207,6 +223,11 @@
     height: auto;
     flex-shrink: 0;
     margin-right: 4rem;
+
+    @include breakpoint(mobile) {
+        width: 6.7rem;
+        margin-right: 2.2rem;
+    }
 }
 
 .contact__intro-content {
@@ -221,6 +242,16 @@
     margin-bottom: 3rem;
     padding-top: 0.5rem;
     max-width: 45rem;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        letter-spacing: -0.02em;
+        padding-top: 0;
+        margin-bottom: 2rem;
+    }
 }
 
 .contact__intro-author-name {
@@ -228,6 +259,14 @@
     font-size: 2rem;
     line-height: 2.2rem;
     letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        margin-bottom: 0.4rem;
+    }
 }
 
 .contact__intro-author-role {
@@ -235,6 +274,23 @@
     line-height: 1.8rem;
     letter-spacing: -0.02em;
     color: #586267;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .contact__form {
@@ -246,6 +302,15 @@
 
     @include breakpoint(mobile) {
         padding-top: 2rem;
+        margin-top: 6rem;
+        display: none;
+
+        .active & {
+            display: flex;
+            animation-name: fade-in;
+            animation-duration: .4s;
+            animation-fill-mode: forwards;
+        }
     }
 }
 
@@ -293,7 +358,7 @@
         flex-wrap: nowrap;
         &::after {
             content: '';
-            width: var(--content-padding);
+            width: 1px;
             flex-shrink: 0;
             height: 1px;
         }
@@ -311,6 +376,9 @@
 
     @include breakpoint(mobile) {
         margin-bottom: 0;
+        &:last-child {
+            margin-right: 0;
+        }
     }
 }
 
@@ -445,7 +513,7 @@ textarea.contact__form-input {
     line-height: 2.5rem;
     letter-spacing: -0.02em;
     font-weight: 500;
-    transition: background-color .2s, color .2s;
+    transition: background-color 0.2s, color 0.2s;
     svg {
         width: 1.6rem;
         height: 2rem;
@@ -491,35 +559,54 @@ textarea.contact__form-input {
 }
 
 .contact__layers {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+   
+
+    @include breakpointMF(small-tablet) {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    @include breakpoint(mobile) {
+        display: contents;
+    }
 }
 
 .contact__form-layer,
 .contact__success-layer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    z-index: 5;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s, visibility 0s linear 0.5s;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
    
-    &.active {
-        position: relative;
-        z-index: 10;
-        opacity: 1;
-        visibility: inherit;
-        transition: opacity 0.5s ease .5s, visibility 0.5s ease .5s;
+
+    @include breakpointMF(small-tablet) {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s, visibility 0s linear 0.5s;
+        display: flex;
+        flex-direction: column;
+        
+        flex-grow: 1;
+        &.active {
+            position: relative;
+            z-index: 10;
+            opacity: 1;
+            visibility: inherit;
+            transition: opacity 0.5s ease 0.5s, visibility 0.5s ease 0.5s;
+        }
     }
+
+    @include breakpoint(mobile) {
+        display: contents;
+    }
+
+    
 }
+
+
 
 .contact__success {
     display: flex;
@@ -529,7 +616,15 @@ textarea.contact__form-input {
 
     @include breakpoint(mobile) {
         padding-top: 0;
-        padding-bottom: 5rem;
+        padding-top: 5rem;
+        display: none;
+
+        .active & {
+            display: flex;
+            animation-name: fade-in;
+            animation-duration: .4s;
+            animation-fill-mode: forwards;
+        }
     }
 }
 
@@ -563,7 +658,6 @@ textarea.contact__form-input {
     }
 }
 
-
 .contact__success-back-link {
     padding: 2.7rem 7rem;
     letter-spacing: -0.02em;
@@ -574,7 +668,7 @@ textarea.contact__form-input {
     margin-left: auto;
     text-align: center;
     display: inline-flex;
-    
+
     background-color: #fff;
     color: #24282b;
     border-radius: 9rem;
@@ -592,7 +686,6 @@ textarea.contact__form-input {
     }
 
     @include breakpoint(mobile) {
-       
         padding: 2rem 4.8rem;
         font-size: 1.5rem;
         line-height: 1.8rem;
@@ -600,7 +693,6 @@ textarea.contact__form-input {
         border-radius: 4rem;
     }
 }
-
 
 .contact-us__application {
     width: 100%;

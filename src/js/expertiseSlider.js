@@ -43,6 +43,7 @@ export default function ExpertiseSlider() {
             allowTouchMove: false,
             parallax: window.matchMedia('(max-width: 640px)').matches ? false : true,
             init: false,
+            autoHeight: window.matchMedia('(max-width: 640px)').matches ? true : false,
             on: {
                 init: swiper => {
                     setActiveNavLinkMobile(swiper.realIndex);
