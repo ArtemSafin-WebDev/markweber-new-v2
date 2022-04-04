@@ -97,7 +97,7 @@
     height: 8rem;
     border: 1px solid #ffffff;
     border-radius: 7rem;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color .2s, border-color .2s;
 
     @include breakpoint(mobile) {
         display: none;
@@ -112,9 +112,10 @@
 
     .no-touch &:hover,
     .touch &:active {
-        background-color: white;
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
         svg {
-            fill: var(--case-bg);
+            fill: white;
         }
     }
 }
