@@ -1,8 +1,23 @@
+@import '../mixins';
+
 .case-mockup {
     position: relative;
     z-index: 1;
     background: #41342d;
     color: white;
+ 
+
+    @include breakpointMF(small-tablet) {
+        display: flex;
+        flex-direction: column;
+        min-height: min(100vh, 120rem);
+
+        .container {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+  
 }
 
 .case-mockup__wrapper {

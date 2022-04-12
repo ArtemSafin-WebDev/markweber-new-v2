@@ -13,6 +13,10 @@
     opacity: 0;
     transition: opacity .5s;
 
+    .case-images:not(.case-images--with-bg) + .case-simple & {
+        padding-top: 0;
+    }
+
     .revealed & {
         opacity: 1;
     }

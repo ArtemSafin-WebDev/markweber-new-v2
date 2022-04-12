@@ -7,6 +7,7 @@
     color: white;
     padding-top: 12rem;
     display: block;
+    padding-bottom: 6.7rem;
     // padding-bottom: 13rem;
 
     &:link,
@@ -17,22 +18,16 @@
     @include breakpoint(mobile) {
         padding-top: 8rem;
         padding-bottom: 3rem;
-       
     }
-
- 
 }
 
 .case-next__content {
     padding-left: var(--left-column-width);
     display: flex;
     flex-direction: column;
-  
 
     @include breakpoint(mobile) {
         padding: 0;
-        
-    
     }
 }
 
@@ -61,7 +56,6 @@
     gap: 3rem;
     justify-content: space-between;
     margin-bottom: 6rem;
-   
 
     @include breakpoint(mobile) {
         flex-direction: column;
@@ -97,7 +91,7 @@
     height: 8rem;
     border: 1px solid #ffffff;
     border-radius: 7rem;
-    transition: background-color 0.2s, color .2s, border-color .2s;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 
     @include breakpoint(mobile) {
         display: none;
@@ -126,14 +120,13 @@
     width: 100%;
 }
 
-
 .case-next__preview-wrapper {
     overflow: hidden;
     backface-visibility: hidden;
     transform: translateZ(0);
 
     img {
-        transition: transform .4s;
+        transition: transform 0.4s;
     }
 
     &:hover {
