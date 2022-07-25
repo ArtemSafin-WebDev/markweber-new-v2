@@ -24,7 +24,7 @@ export default function projectTypeTabs() {
             if (activeTabIndex === null) {
                 gsap.to(items[index], {
                     autoAlpha: 1,
-                    duration: 0.4
+                    duration: 0.6
                 });
             } else {
                 const activeTabitems = Array.from(items[activeTabIndex].querySelectorAll('.project-types__stack-projects-link'));
@@ -36,27 +36,27 @@ export default function projectTypeTabs() {
                     { yPercent: 0 },
                     {
                         yPercent: 100,
-                        duration: 0.4
+                        duration: 0.6
                     }
                 )
                     .to(
                         items[activeTabIndex],
                         {
                             autoAlpha: 0,
-                            duration: 0.4
+                            duration: 0.6
                         },
                         '<'
                     )
                     .to(items[index], {
                         autoAlpha: 1,
-                        duration: 0.4
+                        duration: 0.6
                     }, '<')
                     .fromTo(
                         nextTabItems,
                         { yPercent: 100 },
                         {
                             yPercent: 0,
-                            duration: 0.4
+                            duration: 0.6
                         }
                     );
             }

@@ -35,7 +35,6 @@
         flex-direction: column;
         padding-top: var(--header-height);
         min-height: var(--client-height, 100vh);
-       
     }
 
     &::before {
@@ -165,7 +164,7 @@
                 visibility: inherit;
                 transition: opacity 0.3s, visibility 0.3s;
             }
-    
+
             .about-intro__logo-part-image {
                 opacity: 1;
                 visibility: inherit;
@@ -184,11 +183,6 @@
         }
     }
 
-
-
-
-  
-
     .about-intro__words-line-wrapper:nth-child(1) & {
         align-items: flex-start;
         gap: 20rem;
@@ -196,7 +190,6 @@
         @include breakpoint(mobile) {
             gap: 2rem;
             align-items: stretch;
-          
         }
 
         @include breakpointMF(small-tablet) {
@@ -242,9 +235,7 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0s linear 0.3s;
-    
     }
-  
 
     @include breakpoint(mobile) {
         font-size: 1.4rem;
@@ -266,10 +257,14 @@
 
     @include breakpoint(mobile) {
         height: 7rem;
-        
     }
 
-    
+    &:nth-child(1) {
+        @include breakpoint(mobile) {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
 
     &:nth-child(2) {
         position: absolute;
@@ -278,13 +273,9 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0s linear 0.3s;
-
         @include breakpoint(mobile) {
             opacity: 1;
             visibility: inherit;
         }
     }
-
-
-
 }

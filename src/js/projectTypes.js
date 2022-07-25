@@ -12,7 +12,7 @@ export default function projectTypes() {
         const cursorLayers = Array.from(element.querySelectorAll('.project-types__competencies-cursor-layer'));
         const cursor = element.querySelector('.project-types__competencies-cursor');
 
-       
+        let activeIndex = null;
 
         wrapper.addEventListener('mouseenter', () => {
             wrapper.classList.add('cursor-shown');
@@ -20,7 +20,7 @@ export default function projectTypes() {
                 scale: 1,
                 duration: 0.2,
                 autoAlpha: 1
-            })
+            });
         });
 
         wrapper.addEventListener('mouseleave', () => {
@@ -30,8 +30,12 @@ export default function projectTypes() {
                 scale: 0,
                 duration: 0.2,
                 autoAlpha: 0
-            })
+            });
+
+            activeIndex = null;
         });
+
+       
 
         cards.forEach((card, cardIndex) => {
             card.addEventListener('mouseenter', () => {
@@ -40,6 +44,30 @@ export default function projectTypes() {
                 cursorLayers.forEach(layer => layer.classList.remove('active'));
                 cursorLayers[cardIndex]?.classList.add('active');
                 console.log('cardOffsetTop', card.offsetTop);
+
+                if (activeIndex === null) {
+                    // gsap.fromTo(cursorLayers[cardIndex], {
+                    //    xPercent: -100
+                    // }, {
+                    //     xPercent: 0,
+                    //     duration: 0.4
+                    // })
+                } else {
+                    const tl = gsap.timeline();
+
+                    tl.fromTo(
+                        cursorLayers[cardIndex],
+                        {
+                            xPercent: -100
+                        },
+                        {
+                            xPercent: 0,
+                            duration: 0.4
+                        }
+                    );
+                }
+
+                activeIndex = cardIndex;
 
                 gsap.to(cursor, {
                     y: () => card.offsetTop + card.offsetHeight / 2,
