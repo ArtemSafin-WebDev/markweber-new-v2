@@ -1,0 +1,96 @@
+.about-numbers {
+    position: relative;
+    background-color: #fff;
+    z-index: 1;
+
+    color: var(--black);
+}
+
+.about-numbers__content {
+    padding-left: var(--left-column-width);
+}
+
+.about-numbers__circles {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.about-numbers__circle {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 42rem;
+    &:nth-child(1) {
+        margin-top: 12rem;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+}
+
+.about-numbers__circle-content {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    
+    border-radius: 50%;
+    position: relative;
+    svg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        transform: rotate(-90deg);
+    }
+}
+
+.about-numbers__circle-amount {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12rem;
+    line-height: 12rem;
+    letter-spacing: -0.02em;
+}
+
+.about-numbers__circle-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}
+
+.about-numbers__achievements-list {
+    padding-left: 52rem;
+    margin-top: -6.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-gap: 1rem;
+}
+
+.about-numbers__achivements-card-amount {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 4.4rem;
+    line-height: 115%;
+    letter-spacing: -0.02em;
+}
+
+.about-numbers__achivements-card-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+}

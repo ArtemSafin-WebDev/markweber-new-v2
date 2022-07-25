@@ -16,6 +16,9 @@
     opacity: 0;
     visibility: hidden;
 
+   
+   
+
     @include breakpoint(mobile) {
         padding: 0;
         padding-top: var(--header-height);

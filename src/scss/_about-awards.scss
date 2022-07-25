@@ -1,0 +1,60 @@
+.about-awards {
+    position: relative;
+    background-color: #fff;
+    z-index: 1;
+    padding-bottom: 12rem;
+    color: var(--black);
+}
+
+.about-awards__content {
+    padding-left: var(--left-column-width);
+    padding-right: var(--left-column-width);
+}
+
+.about-awards__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 4rem;
+}
+
+.about-awards__list-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-awards__card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border: 1px solid rgba(36, 40, 43, 0.15);
+    border-radius: 7.2rem;
+    padding: 5rem 6rem;
+    min-height: 40rem;
+    transition: border-color .2s;
+
+    .no-touch &:hover,
+    .touch &:active {
+        border-color: var(--text-color);
+    }
+}
+
+.about-awards__card-icon {
+    margin-bottom: 3rem;
+    height: 8.2rem;
+    max-width: none;
+    width: auto;
+    align-self: flex-start;
+}
+
+.about-awards__card-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-top: auto;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+}
+
+.about-awards__ticker {
+    margin-bottom: 8rem;
+}

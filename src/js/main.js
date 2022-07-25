@@ -26,6 +26,14 @@ import introSliderDrag from './introSliderDrag';
 import blocksReveal from './blocksReveal';
 import blocksReveal2 from './blocksReveal2';
 import caseIntro from './caseIntro';
+import slidingText from './slidingText';
+import circlesAnimation from './cirlcesAnimation';
+import aboutGallery from './aboutGallery';
+import ticker from './ticker';
+import projectTypes from './projectTypes';
+import tabs from './tabs';
+import partnersSlider from './partnersSlider';
+import clientsSlider from './clientsSlider';
 
 
 
@@ -58,10 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
     blocksReveal();
     blocksReveal2();
     caseIntro();
-
-  
-  
-
+    circlesAnimation();
+    aboutGallery();
+    ticker();
+    projectTypes();
+    tabs();
+    partnersSlider();
+    clientsSlider();
+   
     const pageContent = document.querySelector('.page-content');
     if (pageContent) {
         const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
@@ -76,4 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
     setTimeout(() => document.body.classList.add('animatable'), 300)
+
+    slidingText();
 })
