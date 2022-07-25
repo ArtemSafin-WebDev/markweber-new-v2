@@ -147,6 +147,7 @@
     @include breakpoint(mobile) {
         padding: 2rem 0;
         justify-content: space-between;
+        flex-direction: column;
     }
 
     @include breakpointMF(small-tablet) {
@@ -188,13 +189,14 @@
 
   
 
-    &:nth-child(1) {
+    .about-intro__words-line-wrapper:nth-child(1) & {
         align-items: flex-start;
         gap: 20rem;
 
         @include breakpoint(mobile) {
             gap: 2rem;
-            align-items: center;
+            align-items: stretch;
+          
         }
 
         @include breakpointMF(small-tablet) {
@@ -205,13 +207,13 @@
             }
         }
     }
-    &:nth-child(2) {
+    .about-intro__words-line-wrapper:nth-child(2) & {
         align-items: flex-end;
         gap: 13rem;
 
         @include breakpoint(mobile) {
             gap: 2rem;
-            align-items: center;
+            align-items: stretch;
         }
 
         @include breakpointMF(small-tablet) {
@@ -240,12 +242,14 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0s linear 0.3s;
+    
     }
   
 
     @include breakpoint(mobile) {
         font-size: 1.4rem;
         margin: 0;
+        order: 10;
     }
 }
 
@@ -261,8 +265,11 @@
     height: 18.4rem;
 
     @include breakpoint(mobile) {
-        height: 5rem;
+        height: 7rem;
+        
     }
+
+    
 
     &:nth-child(2) {
         position: absolute;

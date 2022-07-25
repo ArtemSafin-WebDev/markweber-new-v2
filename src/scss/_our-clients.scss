@@ -258,7 +258,7 @@
     border-radius: 50%;
     overflow: hidden;
     backface-visibility: hidden;
-
+    transform: translateZ(0);
     @include breakpoint(mobile) {
         width: 5rem;
         height: 5rem;

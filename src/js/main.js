@@ -31,10 +31,11 @@ import circlesAnimation from './cirlcesAnimation';
 import aboutGallery from './aboutGallery';
 import ticker from './ticker';
 import projectTypes from './projectTypes';
-import tabs from './tabs';
+import tabs from './projectTypeTabs';
 import partnersSlider from './partnersSlider';
 import clientsSlider from './clientsSlider';
 import clientHeight from './clientHeight';
+import projectTypeTabs from './projectTypeTabs';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     aboutGallery();
     ticker();
     projectTypes();
-    tabs();
+    projectTypeTabs();
     partnersSlider();
     clientsSlider();
 

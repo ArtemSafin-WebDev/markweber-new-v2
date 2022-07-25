@@ -8,7 +8,7 @@ export default function partnersSlider() {
     elements.forEach(element => {
         const container = element.querySelector('.swiper');
 
-        new Swiper(container, {
+        const instance = new Swiper(container, {
             slidesPerView: 'auto',
             centeredSlides: true,
             loop: true,
@@ -21,5 +21,7 @@ export default function partnersSlider() {
                 disableOnInteraction: false
             }
         });
+
+        instance.autoplay.start()
     });
 }
