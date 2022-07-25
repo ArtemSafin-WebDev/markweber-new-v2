@@ -3,8 +3,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Flip } from 'gsap/Flip';
 import { convertRemToPixels } from './utils';
+import { Observer } from 'gsap/Observer';
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+gsap.registerPlugin(ScrollTrigger, Flip, Observer);
 Swiper.use([Navigation, EffectFade, Autoplay, Controller]);
 
 export default function clientsSlider() {
@@ -13,15 +14,14 @@ export default function clientsSlider() {
     elements.forEach(element => {
         let activeIndex = 0;
         const mainContainer = element.querySelector('.our-clients__clients-slider-main .swiper');
-        const paginationContainer = element.querySelector('.our-clients__clients-slider-pagination .swiper')
+        const paginationContainer = element.querySelector('.our-clients__clients-slider-pagination .swiper');
         const progress = element.querySelector('.our-clients__clients-slider-progress');
-        const textTabs = Array.from(element.querySelectorAll('.our-clients__clients-slider-text-tab'))
+        const textTabs = Array.from(element.querySelectorAll('.our-clients__clients-slider-text-tab'));
         const AUTOPLAY_DURATION = 10;
         const tabsWrapper = element.querySelector('.our-clients__clients-slider-text-tabs');
         const photos = Array.from(element.querySelectorAll('.our-clients__clients-slider-photo'));
         const authorTabs = Array.from(element.querySelectorAll('.our-clients__clients-slider-author-info-item'));
-        const paginationItems = Array.from(element.querySelectorAll('.our-clients__clients-slider-pagination-item'))
-
+        const paginationItems = Array.from(element.querySelectorAll('.our-clients__clients-slider-pagination-item'));
 
         const setActiveTabs = index => {
             const state = Flip.getState(tabsWrapper);
@@ -41,12 +41,12 @@ export default function clientsSlider() {
                     ScrollTrigger.refresh();
                 }
             });
-        }
+        };
 
         const paginationSlider = new Swiper(paginationContainer, {
             slidesPerView: 5,
             spaceBetween: convertRemToPixels(4)
-        })
+        });
         const mainSlider = new Swiper(mainContainer, {
             init: false,
             speed: 600,
@@ -102,7 +102,15 @@ export default function clientsSlider() {
             item.addEventListener('click', event => {
                 event.preventDefault();
                 mainSlider.slideToLoop(itemIndex);
-            })
-        })
+            });
+        });
+
+        Observer.create({
+            target: element, // can be any element (selector text is fine)
+            type: 'pointer,touch', // comma-delimited list of what to listen for ("wheel,touch,scroll,pointer")
+            onLeft: () =>  mainSlider.slidePrev(),
+            onRight: () =>  mainSlider.slideNext(),
+            tolerance: 40
+        });
     });
 }
