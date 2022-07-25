@@ -34,12 +34,13 @@ import projectTypes from './projectTypes';
 import tabs from './tabs';
 import partnersSlider from './partnersSlider';
 import clientsSlider from './clientsSlider';
-
-
+import clientHeight from './clientHeight';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
     detectTouch();
+    setScrollbarWidth();
+    clientHeight();
     introSliderDrag();
     IntroSlider();
     AnchorLinks();
@@ -50,9 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ExpertiseSlider();
     Menu();
     HeaderHovers();
-    
     ContactUsModal();
-   
     ContactLink();
     FixedHeader();
     MobileContactLink();
@@ -61,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
     Validation();
     PhoneMask();
     RefreshScroll();
-    setScrollbarWidth();
     newsSlider();
     blocksReveal();
     blocksReveal2();
@@ -73,21 +71,20 @@ document.addEventListener('DOMContentLoaded', function() {
     tabs();
     partnersSlider();
     clientsSlider();
-   
+
     const pageContent = document.querySelector('.page-content');
     if (pageContent) {
         const imgLoaded = imagesLoaded(document.querySelector('.page-content'));
 
         imgLoaded.on('always', () => {
-            $('.page-header').midnight();    
+            $('.page-header').midnight();
         });
     }
-
 });
 
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
-    setTimeout(() => document.body.classList.add('animatable'), 300)
+    setTimeout(() => document.body.classList.add('animatable'), 300);
 
     slidingText();
-})
+});

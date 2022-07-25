@@ -27,10 +27,10 @@
     @include breakpoint(mobile) {
         font-style: normal;
         font-weight: 400;
-        font-size: 3rem;
-        line-height: 3rem;
-        letter-spacing: 0.05em;
-        white-space: initial;
+        font-size: 5rem;
+        line-height: 1;
+       
+      
         // flex-shrink: 1;
     }
 }

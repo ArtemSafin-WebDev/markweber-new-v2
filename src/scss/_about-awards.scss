@@ -4,17 +4,30 @@
     z-index: 1;
     padding-bottom: 12rem;
     color: var(--black);
+
+    @include breakpoint(mobile) {
+        padding-bottom: 4rem;
+    }
 }
 
 .about-awards__content {
     padding-left: var(--left-column-width);
     padding-right: var(--left-column-width);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
 }
 
 .about-awards__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 4rem;
+
+    @include breakpoint(mobile) {
+        grid-gap: 1rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 .about-awards__list-item {
@@ -32,6 +45,12 @@
     min-height: 40rem;
     transition: border-color .2s;
 
+    @include breakpoint(mobile) {
+        padding: 1.5rem;
+        border-radius: 3rem;
+        min-height: 17rem;
+    }
+
     .no-touch &:hover,
     .touch &:active {
         border-color: var(--text-color);
@@ -44,6 +63,10 @@
     max-width: none;
     width: auto;
     align-self: flex-start;
+
+    @include breakpoint(mobile) {
+        height: 4rem;
+    }
 }
 
 .about-awards__card-text {
@@ -53,8 +76,16 @@
     margin-top: auto;
     line-height: 120%;
     letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+    }
 }
 
 .about-awards__ticker {
     margin-bottom: 8rem;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 3rem;
+    }
 }

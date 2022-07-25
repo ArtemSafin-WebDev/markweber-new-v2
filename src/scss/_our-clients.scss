@@ -5,10 +5,18 @@
     padding-top: 9rem;
     padding-bottom: 14rem;
     color: var(--black);
+
+    @include breakpoint(mobile) {
+        padding: 3rem 0;
+    }
 }
 
 .our-clients__content {
     padding-left: var(--left-column-width);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
 }
 
 .our-clients__heading {
@@ -19,6 +27,13 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid #24282b;
     margin-bottom: 5rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        line-height: 1.2;
+        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+    }
 }
 
 .our-clients__text {
@@ -27,11 +42,22 @@
     font-size: 3.2rem;
     line-height: 3.8rem;
     letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        letter-spacing: -0.02em;
+    }
 }
 
 .our-clients__partners-sliders {
     padding-top: 9rem;
     padding-bottom: 18rem;
+
+    @include breakpoint(mobile) {
+        padding: 3rem 0;
+        padding-bottom: 6rem;
+    }
 }
 
 .our-clients__partners-slider-card {
@@ -40,6 +66,10 @@
 
 .our-clients__partners-slider {
     margin-bottom: 4.5rem;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 2rem;
+    }
     &:last-child {
         margin-bottom: 0;
     }
@@ -50,6 +80,10 @@
     .swiper-slide {
         width: max-content;
         margin-right: 5rem;
+
+        @include breakpoint(mobile) {
+            margin-right: 2rem;
+        }
     }
 
     .swiper-wrapper {
@@ -65,21 +99,36 @@
     object-fit: contain;
     filter: grayscale(100%) brightness(100%);
     opacity: 0.3;
+
+    @include breakpoint(mobile) {
+        height: 3rem;
+    }
 }
 
 .our-clients__clients-slider {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     user-select: none;
+ 
+    @include breakpoint(mobile) {
+        grid-template-columns: minmax(0, 1fr);
+        grid-gap: 3rem;
+    }
 }
 
 .our-clients__clients-slider-left-col {
     padding-right: 8rem;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
 }
 
 .our-clients__clients-slider-main {
     .swiper {
         border-radius: 24rem;
+
+        
     }
 }
 
@@ -102,6 +151,12 @@
         top: 50%;
         transform: translateY(-50%);
         left: 13rem;
+
+        @include breakpoint(mobile) {
+            width: 4rem;
+            height: 6rem;
+            left: 4rem;
+        }
     }
 }
 
@@ -121,6 +176,10 @@
     position: relative;
     margin-bottom: 3.2rem;
 
+    @include breakpoint(mobile) {
+        margin-bottom: 2rem;
+    }
+
     &::after {
         content: '';
         position: absolute;
@@ -139,6 +198,10 @@
     position: relative;
     margin-bottom: 3.2rem;
     overflow: hidden;
+
+    @include breakpoint(mobile) {
+        margin-bottom: 2rem;
+    }
 }
 
 .our-clients__clients-slider-text-tab {
@@ -159,6 +222,13 @@
     clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
     background-color: #fff;
 
+    @include breakpoint(mobile) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        letter-spacing: -0.02em;
+        padding: 0;
+    }
+
     &.active {
         opacity: 1;
         visibility: inherit;
@@ -174,6 +244,11 @@
     align-items: center;
     gap: 1.6rem;
     margin-bottom: 3rem;
+
+    @include breakpoint(mobile) {
+        gap: 1.2rem;
+        margin: 0;
+    }
 }
 
 .our-clients__clients-slider-author-photos {
@@ -183,6 +258,11 @@
     border-radius: 50%;
     overflow: hidden;
     backface-visibility: hidden;
+
+    @include breakpoint(mobile) {
+        width: 5rem;
+        height: 5rem;
+    }
     // background-color: #24282B;
 }
 
@@ -242,6 +322,11 @@
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.8rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        line-height: 1.2;
+    }
 }
 
 .our-clients__clients-slider-author-info-role {
@@ -250,6 +335,10 @@
     font-size: 1.5rem;
     line-height: 1.8rem;
     color: rgba(#24282b, 0.23);
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        line-height: 1.2;
+    }
 }
 
 .our-clients__clients-slider-right-col {
@@ -262,6 +351,10 @@
     display: flex;
     align-items: center;
     gap: 3rem;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
 }
 
 .our-clients__clients-slider-pagination {
@@ -274,6 +367,9 @@
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
+    @include breakpoint(mobile) {
+        display: none;
+    }
 }
 
 .our-clients__clients-slider-arrow {

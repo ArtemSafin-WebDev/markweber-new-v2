@@ -8,6 +8,10 @@
 
 .about-numbers__content {
     padding-left: var(--left-column-width);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
 }
 
 .about-numbers__circles {
@@ -15,14 +19,30 @@
     align-items: flex-start;
     gap: 1rem;
     flex-wrap: wrap;
+
+    @include breakpoint(mobile) {
+        gap: 0;
+    }
 }
 
 .about-numbers__circle {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     width: 42rem;
+
+    @include breakpoint(mobile) {
+        width: 50%;
+        flex-shrink: 1;
+    }
+
+    
     &:nth-child(1) {
         margin-top: 12rem;
+
+        @include breakpoint(mobile) {
+            margin: 0;
+            margin-top: 3.5rem;
+        }
     }
 
     &::before {
@@ -63,6 +83,11 @@
     font-size: 12rem;
     line-height: 12rem;
     letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-size: 4rem;
+        line-height: 1.2;
+    }
 }
 
 .about-numbers__circle-text {
@@ -70,6 +95,11 @@
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.8rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.2rem;
+        line-height: 1.2;
+    }
 }
 
 .about-numbers__achievements-list {
@@ -78,6 +108,15 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-gap: 1rem;
+
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        margin: 0;
+        margin-top: 2rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-gap: 2rem;
+    }
 }
 
 .about-numbers__achivements-card-amount {
@@ -86,6 +125,11 @@
     font-size: 4.4rem;
     line-height: 115%;
     letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-size: 3rem;
+
+    }
 }
 
 .about-numbers__achivements-card-text {
@@ -93,4 +137,9 @@
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.8rem;
+
+    @include breakpoint(mobile) {
+        font-size: 1.3rem;
+        line-height: 1.2;
+    }
 }

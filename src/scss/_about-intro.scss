@@ -30,6 +30,14 @@
     grid-template-columns: var(--left-column-width) minmax(0, 1fr) var(--right-column-width);
     grid-template-rows: var(--header-height) 1fr;
 
+    @include breakpoint(mobile) {
+        display: flex;
+        flex-direction: column;
+        padding-top: var(--header-height);
+        min-height: var(--client-height, 100vh);
+       
+    }
+
     &::before {
         content: '';
         height: 1px;
@@ -108,13 +116,23 @@
 }
 
 .about-intro__words {
-    grid-column: 2 / -1;
-    grid-row: 2 / 3;
     display: flex;
     flex-direction: column;
     padding-bottom: 11rem;
     padding-top: 11rem;
     justify-content: flex-end;
+
+    @include breakpointMF(small-tablet) {
+        grid-column: 2 / -1;
+        grid-row: 2 / 3;
+    }
+
+    @include breakpoint(mobile) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        border-top: 1px solid white;
+        flex-grow: 1;
+    }
 }
 
 .about-intro__words-line-wrapper {
@@ -122,39 +140,62 @@
 }
 
 .about-intro__words-line {
-   
-
     display: flex;
     padding: 4rem 0;
-    transition: transform .6s ease 1.4s;
-    .about-intro__words-line-wrapper:nth-child(1) & {
-        transform: translateX(-10rem);
+    transition: transform 0.6s ease 1.4s;
+
+    @include breakpoint(mobile) {
+        padding: 2rem 0;
+        justify-content: space-between;
     }
 
-    .about-intro__words-line-wrapper:nth-child(2) & {
-        transform: translateX(10rem);
-    }
-
-    &:hover {
-        .about-intro__words-text {
-            opacity: 1;
-            visibility: inherit;
-            transition: opacity 0.3s, visibility 0.3s;
+    @include breakpointMF(small-tablet) {
+        .about-intro__words-line-wrapper:nth-child(1) & {
+            transform: translateX(-10rem);
         }
 
-        .about-intro__logo-part-image {
-            opacity: 1;
-            visibility: inherit;
-            transition: opacity 0.3s, visibility 0.3s;
+        .about-intro__words-line-wrapper:nth-child(2) & {
+            transform: translateX(10rem);
+        }
+
+        &:hover {
+            .about-intro__words-text {
+                opacity: 1;
+                visibility: inherit;
+                transition: opacity 0.3s, visibility 0.3s;
+            }
+    
+            .about-intro__logo-part-image {
+                opacity: 1;
+                visibility: inherit;
+                transition: opacity 0.3s, visibility 0.3s;
+            }
         }
     }
+
+    @include breakpoint(mobile) {
+        .about-intro__words-line-wrapper:nth-child(1) & {
+            transform: translateX(-4rem);
+        }
+
+        .about-intro__words-line-wrapper:nth-child(2) & {
+            transform: translateX(4rem);
+        }
+    }
+
+
+
+
+  
 
     &:nth-child(1) {
         align-items: flex-start;
         gap: 20rem;
 
-        
-
+        @include breakpoint(mobile) {
+            gap: 2rem;
+            align-items: center;
+        }
 
         @include breakpointMF(small-tablet) {
             &:hover {
@@ -163,15 +204,15 @@
                 }
             }
         }
-
-       
     }
     &:nth-child(2) {
         align-items: flex-end;
         gap: 13rem;
 
-
-       
+        @include breakpoint(mobile) {
+            gap: 2rem;
+            align-items: center;
+        }
 
         @include breakpointMF(small-tablet) {
             &:hover {
@@ -180,7 +221,6 @@
                 }
             }
         }
-        
     }
 
     .animatable & {
@@ -195,9 +235,18 @@
     letter-spacing: -0.02em;
     line-height: 110%;
     margin-top: 2.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0s linear 0.3s;
+
+    @include breakpointMF(small-tablet) {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0s linear 0.3s;
+    }
+  
+
+    @include breakpoint(mobile) {
+        font-size: 1.4rem;
+        margin: 0;
+    }
 }
 
 .about-intro__logo-part {
@@ -211,6 +260,10 @@
     width: auto;
     height: 18.4rem;
 
+    @include breakpoint(mobile) {
+        height: 5rem;
+    }
+
     &:nth-child(2) {
         position: absolute;
         left: 0;
@@ -218,5 +271,13 @@
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s, visibility 0s linear 0.3s;
+
+        @include breakpoint(mobile) {
+            opacity: 1;
+            visibility: inherit;
+        }
     }
+
+
+
 }

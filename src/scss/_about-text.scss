@@ -6,11 +6,17 @@
     padding-bottom: 9rem;
     color: var(--black);
 
-  
+    @include breakpoint(mobile) {
+        padding: 3rem 0;
+    }
 }
 
 .about-text__content {
     padding-left: var(--left-column-width);
+
+    @include breakpoint(mobile) {
+        padding: 0;
+    }
 }
 
 .about-text__text {
@@ -21,6 +27,12 @@
     letter-spacing: -0.02em;
     padding-right: var(--left-column-width);
     margin-bottom: 9rem;
+
+    @include breakpoint(mobile) {
+        font-size: 2rem;
+        line-height: 2.4rem;
+        letter-spacing: -0.02em;
+    }
     &:last-child {
         margin-bottom: 0;
     }
