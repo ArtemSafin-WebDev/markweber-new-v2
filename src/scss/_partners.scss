@@ -1,0 +1,132 @@
+.partners {
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    color: #24282b;
+    overflow: hidden;
+    transform: translateZ(0);
+
+    @include breakpoint(mobile) {
+        padding: 3rem 0;
+    }
+}
+
+.partners__content {
+    padding-left: var(--left-column-width);
+
+    gap: 5rem;
+    display: flex;
+    justify-content: space-between;
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        gap: 3.2rem;
+    }
+}
+
+.partners__text-content {
+    padding: 8rem 0;
+    width: 64rem;
+
+    @include breakpoint(mobile) {
+        padding: 0;
+        width: auto;
+    }
+}
+
+.partners__heading {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    letter-spacing: -0.02em;
+    padding-bottom: 3.7rem;
+    margin-bottom: 4.5rem;
+    border-bottom: 1px solid #24282b;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        letter-spacing: -0.02em;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.partners__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 3.2rem;
+    line-height: 3.8rem;
+    letter-spacing: -0.02em;
+
+    @include breakpoint(mobile) {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        letter-spacing: -0.02em;
+    }
+}
+
+.partners__sliders {
+    display: flex;
+
+    @include breakpoint(mobile) {
+        flex-direction: column;
+    }
+}
+
+.partners__slider {
+    width: 24rem;
+    flex-shrink: 0;
+
+    @include breakpoint(mobile) {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .swiper {
+      
+        overflow: visible;
+
+        
+    }
+
+
+    @include breakpointMF(small-tablet) {
+        .swiper {
+            height: 52rem;
+        }
+      
+    }
+
+    @include breakpoint(mobile) {
+        .swiper-slide {
+            width: 14rem;
+        }
+    }
+}
+
+.partners__slider-card {
+    position: relative;
+
+    &::before {
+        content: '';
+        display: block;
+        padding-bottom: 56.25%;
+    }
+}
+
+.partners__slider-card-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

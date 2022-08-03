@@ -36,6 +36,7 @@ import partnersSlider from './partnersSlider';
 import clientsSlider from './clientsSlider';
 import clientHeight from './clientHeight';
 import projectTypeTabs from './projectTypeTabs';
+import partners from './partners';
 
 document.addEventListener('DOMContentLoaded', function() {
     polyfills();
@@ -72,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     projectTypeTabs();
     partnersSlider();
     clientsSlider();
+    partners();
 
     const pageContent = document.querySelector('.page-content');
     if (pageContent) {
